@@ -1,13 +1,11 @@
-import {useState} from 'react';
-import axios from "axios";
+import {useContext, useState} from 'react';
 import SubmitButton from "../../ui/buttons/SubmitButton.jsx";
+import {AuthContext} from "../../../context/AuthContext.jsx";
 
 const LoginForm = () => {
 
+    const { authenticate, error, isLoading } = useContext(AuthContext);
     const searchParams = new URLSearchParams(window.location.search);
-
-    const [error, setError] = useState(null);
-    const [isLoading, setIsLoading] = useState(false);
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -22,23 +20,7 @@ const LoginForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        setError(null);
-        setIsLoading(true);
-
-        try {
-            const response = await axios.post('http://localhost:8080/api/v1/users/authenticate', {
-                username: username,
-                password: password
-            });
-            console.log(response);
-        } catch (e) {
-            console.error(e);
-            setError('Er is iets misgegaan. Probeer het opnieuw.');
-        } finally {
-            setIsLoading(false);
-        }
-
+        authenticate(username, password);
     }
 
     return (

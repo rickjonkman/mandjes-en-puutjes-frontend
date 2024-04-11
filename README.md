@@ -6,7 +6,7 @@
 - React-router-dom
 - Vite-plugin-svgr
 - Axios
--
+- jwt-decode
 
 # Models
 
