@@ -1,8 +1,37 @@
-# React + Vite
+# Installation
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Dependencies
 
-Currently, two official plugins are available:
+- SASS / SCSS
+- React-router-dom
+- Vite-plugin-svgr
+- Axios
+-
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Models
+
+# Directory structure
+
+## Pages
+
+- Personal
+    - Dashboard
+- Groceries
+    - Groceries Main
+    - Shopping Mode
+    - Grocery Lists
+- Recipes
+    - Recipes Main
+    - All Recipes
+    - Recipe Page (:recipeId)
+    - Surprise Recipe
+    - New Recipe
+- Utility pages
+    - Error Page
+    - Loading Page
+    - Not Authorized Page
+    - Please Register Page
+    - Recipe Not Found Page
+- Login / Register
+    - Login
+    - Register
