@@ -37,6 +37,9 @@
           "plusDescription": "Click to increase the number by 1"
         }
       }
+    },
+    "allRecipesPage": {
+      "title": "All recipes"
     }
   },
   "nl": {
@@ -77,6 +80,9 @@
           "plusDescription": "Klik om het aantal met 1 te verhogen"
         }
       }
+    },
+    "allRecipesPage": {
+      "title": "Alle recepten"
     }
   }
 }
