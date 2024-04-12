@@ -22,7 +22,7 @@ const AuthContextProvider = ({children}) => {
             const username = extractUsernameFromToken(token);
             void login(token, username);
         } else {
-            logOut();
+            // logOut();
             localStorage.removeItem('token');
         }
     }, []);
@@ -41,7 +41,7 @@ const AuthContextProvider = ({children}) => {
             console.log(response);
         } catch (e) {
             console.error(e);
-            setError({utility.error});
+            setError();
         } finally {
             setIsLoading(false);
         }

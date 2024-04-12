@@ -1,4 +1,4 @@
-import {useContext, useState} from 'react';
+import {useContext, useRef, useState} from 'react';
 import SubmitButton from "../../ui/buttons/SubmitButton.jsx";
 import {AuthContext} from "../../../context/AuthContext.jsx";
 
@@ -7,8 +7,8 @@ const LoginForm = () => {
     const { authenticate, error, isLoading } = useContext(AuthContext);
     const searchParams = new URLSearchParams(window.location.search);
 
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+    const usernameRef = useRef();
+    const passwordRef = useRef();
 
     const isUserRegistered = (searchParams) => {
         if (searchParams.get('registration-success') === 'true') {
@@ -20,7 +20,10 @@ const LoginForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        authenticate(username, password);
+        authenticate({
+            username: usernameRef.current.value,
+            password: passwordRef.current.value,
+        });
     }
 
     return (
@@ -37,8 +40,7 @@ const LoginForm = () => {
                         type="email"
                         id="login-form__username"
                         name="username"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
+                        ref={usernameRef}
                     />
                 </label>
 
@@ -48,8 +50,7 @@ const LoginForm = () => {
                         type="password"
                         id="login-form__password"
                         name="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
+                        ref={passwordRef}
                     />
                 </label>
 
