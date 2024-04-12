@@ -13,10 +13,14 @@
       "method": "GET"
     },
     "getRecipe": {
-      "url": "http://localhost:8080/api/v1/recipe",
+      "url": "http://localhost:8080/api/v1/recipes/get-recipe/",
+      "method": "GET"
+    },
+    "fetchImage": {
+      "url": "http://localhost:8080/api/v1/recipes/fetch-image/",
       "method": "GET"
     }
-    }
   }
+}
 
 

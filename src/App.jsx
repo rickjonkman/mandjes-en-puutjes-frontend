@@ -4,6 +4,7 @@ import {Route, Routes} from "react-router-dom";
 import LandingPage from "./pages/login-register-pages/open/LandingPage.jsx";
 import LoginPage from "./pages/login-register-pages/open/LoginPage.jsx";
 import RegisterPage from "./pages/login-register-pages/open/RegisterPage.jsx";
+import RecipePage from "./pages/recipes-pages/open/RecipePage.jsx";
 
 function App() {
 
@@ -13,6 +14,8 @@ function App() {
         <Route index element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
+
+          <Route path="/recipe/:recipeId" element={<RecipePage />} />
       </Routes>
     </>
   )

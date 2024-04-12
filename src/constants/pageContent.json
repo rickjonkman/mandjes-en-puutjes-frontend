@@ -24,6 +24,19 @@
         "prefVegetarian": "Vegetarian",
         "prefVegan": "Vegan"
       }
+    },
+    "recipePage": {
+      "title": "Recipes",
+      "recipeMidSection": {
+        "ingredients": {
+          "title": "Ingredients"
+        },
+        "calculator": {
+          "description": "Persons",
+          "minusDescription": "Click to decrease the number by 1",
+          "plusDescription": "Click to increase the number by 1"
+        }
+      }
     }
   },
   "nl": {
@@ -51,6 +64,20 @@
         "prefVegetarian": "Vegetarisch",
         "prefVegan": "Vegan"
       }
+    },
+    "recipePage": {
+      "title": "Recepten",
+      "recipeMidSection": {
+        "ingredients": {
+          "title": "Ingredienten"
+        },
+        "calculator": {
+          "description": "Personen",
+          "minusDescription": "Klik om het aantal met 1 te verlagen",
+          "plusDescription": "Klik om het aantal met 1 te verhogen"
+        }
+      }
     }
   }
 }
+
