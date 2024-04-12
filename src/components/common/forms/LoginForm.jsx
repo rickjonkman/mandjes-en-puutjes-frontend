@@ -2,7 +2,7 @@ import {useContext, useRef} from 'react';
 import SubmitButton from "../../ui/buttons/SubmitButton.jsx";
 import FormInput from "../../ui/inputs/FormInput.jsx";
 import {isUserRegistered} from "../../../helpers/isUserRegistered.js";
-import useAuthenticate from "../../../api/authenticate.js";
+import useAuthenticate from "../../../api/useAuthenticate.js";
 import endpoints from "../../../api/endpoints.json";
 
 const LoginForm = ({ username, password, submit, success_auth_message }) => {

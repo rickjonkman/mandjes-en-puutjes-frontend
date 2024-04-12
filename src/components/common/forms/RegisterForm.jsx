@@ -1,7 +1,7 @@
 import {useRef} from 'react';
 import FormInput from "../../ui/inputs/FormInput.jsx";
 import SubmitButton from "../../ui/buttons/SubmitButton.jsx";
-import useRegister from "../../../api/register.js";
+import useRegister from "../../../api/useRegister.js";
 import {endpoints} from "../../../api/endpoints.json";
 
 const RegisterForm = ({form, loading, preferencesContent}) => {
