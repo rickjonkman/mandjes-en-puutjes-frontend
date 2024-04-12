@@ -1,0 +1,13 @@
+
+{
+  "endpoints": {
+    "register": {
+      "url": "http://localhost:8080/api/v1/users/register",
+      "method": "POST"
+    },
+    "login": {
+      "url": "http://localhost:8080/api/v1/users/login",
+      "method": "POST"
+    }
+  }
+}

@@ -1,16 +1,19 @@
-import {createContext, useEffect, useState} from "react";
+import {createContext, useContext, useEffect, useState} from "react";
 import axios from "axios";
 import {isTokenExpired} from "../helpers/isTokenExpired.js";
 import {extractUsernameFromToken} from "../helpers/extractUsernameFromToken.js";
-import utilityMessages from "../constants/utilityMessages.js";
+import utilityMessages from "../constants/utilityMessages.json";
+import {LanguageContext} from "./LanguageContext.jsx";
 
 export const AuthContext = createContext({ });
 
 const AuthContextProvider = ({children}) => {
 
+    const { language } = useContext(LanguageContext);
+
     const {
         error_message,
-    } = utilityMessages;
+    } = utilityMessages[language];
 
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(false);

@@ -2,6 +2,7 @@
   "en": {
     "error_message": "Something went wrong. Please try again.",
     "success_message": "Success!",
+    "success_auth_message": "Registration successful, you can now login",
     "loading_message": "Loading...",
     "no_results_message": "No results found.",
     "search_message": "Search"
@@ -9,6 +10,7 @@
   "nl": {
     "error_message": "Er is iets misgegaan. Probeer het opnieuw.",
     "success_message": "Succes!",
+    "success_auth_message": "Registratie gelukt, je kunt nu inloggen.",
     "loading_message": "Aan het laden...",
     "no_results_message": "Geen resultaten gevonden.",
     "search_message": "Zoeken"

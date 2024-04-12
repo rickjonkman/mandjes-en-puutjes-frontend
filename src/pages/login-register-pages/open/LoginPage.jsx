@@ -5,24 +5,35 @@ import FooterContainer from "../../../components/structure/FooterContainer.jsx";
 import PageTitle from "../../../components/common/page-title/PageTitle.jsx";
 import LoginFormHeader from "../../../components/page-components/login-register-components/LoginFormHeader.jsx";
 import LoginForm from "../../../components/common/forms/LoginForm.jsx";
+import PageContent from "../../../constants/pageContent.json";
+import {useContext} from "react";
+import {LanguageContext} from "../../../context/LanguageContext.jsx";
+import UtilityMessages from "../../../constants/utilityMessages.json";
 
 
 const LoginPage = () => {
 
-
+    const { language } = useContext(LanguageContext);
+    const { username, password, submit, title } = PageContent[language].loginPage;
+    const { success_auth_message,  } = UtilityMessages[language];
 
     return (
         <PageContainer>
 
             <HeaderContainer>
-                <PageTitle pageTitleClass="login-register__title" pageTitle="Inloggen"/>
+                <PageTitle pageTitleClass="login-register__title" pageTitle={title}/>
             </HeaderContainer>
 
 
 
             <MainContainer>
                 <LoginFormHeader />
-                <LoginForm />
+                <LoginForm
+                    username={username}
+                    password={password}
+                    submit={submit}
+                    success_auth_message={success_auth_message}
+                />
             </MainContainer>
 
 

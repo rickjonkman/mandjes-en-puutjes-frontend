@@ -1,14 +1,14 @@
 
+import BackArrow from "../../../assets/icons/back-arrow.svg";
 import IconButton from "../../ui/buttons/IconButton.jsx";
 import {useNavigate} from "react-router-dom";
-import BackArrow from "/src/assets/icons/back-arrow.svg";
 
-const LoginFormHeader = () => {
+const RegisterFormHeader = () => {
 
     const navigate = useNavigate();
 
     return (
-        <header className="login-form__header">
+        <header className="register-form__header">
 
             <IconButton
                 buttonClass="button__go-back"
@@ -22,4 +22,4 @@ const LoginFormHeader = () => {
     );
 };
 
-export default LoginFormHeader;
+export default RegisterFormHeader;
