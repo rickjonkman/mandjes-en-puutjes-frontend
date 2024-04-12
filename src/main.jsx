@@ -4,16 +4,18 @@ import App from './App.jsx'
 import './index.css'
 import LanguageContextProvider from "./context/LanguageContext.jsx";
 import {BrowserRouter as Router} from "react-router-dom";
-import AuthContextProvider from "./context/AuthContext.jsx";
+import UserContextProvider from "./context/UserContext.jsx";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-        <LanguageContextProvider>
-            <Router>
-                <AuthContextProvider>
+        <UserContextProvider>
+            <LanguageContextProvider>
+                <Router>
+
                     <App/>
-                </AuthContextProvider>
-            </Router>
-        </LanguageContextProvider>
+
+                </Router>
+            </LanguageContextProvider>
+        </UserContextProvider>
     </React.StrictMode>,
 )

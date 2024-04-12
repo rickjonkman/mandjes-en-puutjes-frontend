@@ -1,29 +1,28 @@
-import {useContext, useRef, useState} from 'react';
+import {useContext, useRef} from 'react';
 import SubmitButton from "../../ui/buttons/SubmitButton.jsx";
-import {AuthContext} from "../../../context/AuthContext.jsx";
 import FormInput from "../../ui/inputs/FormInput.jsx";
 import {isUserRegistered} from "../../../helpers/isUserRegistered.js";
+import useAuthenticate from "../../../api/authenticate.js";
+import endpoints from "../../../api/endpoints.json";
 
 const LoginForm = ({ username, password, submit, success_auth_message }) => {
 
-    const { authenticate, error, isLoading } = useContext(AuthContext);
+    const { request, data, isLoading, error } = useAuthenticate(endpoints.authenticate);
 
     const usernameRef = useRef();
     const passwordRef = useRef();
 
-
-
     const handleSubmit = async (e) => {
         e.preventDefault();
-        authenticate({
-            username: usernameRef.current.value,
-            password: passwordRef.current.value,
-        });
+        const formData = new FormData(e.target);
+        await request(formData);
+
+
     }
 
     return (
         <>
-            <form className="login-form__class" onSubmit={(e) => handleSubmit(e)}>
+            <form className="login-form__class" onSubmit={handleSubmit}>
 
                 {error && <p className="login-form__error">{error}</p>}
                 {isLoading && <p className="login-form__loading">Inloggen...</p>}
