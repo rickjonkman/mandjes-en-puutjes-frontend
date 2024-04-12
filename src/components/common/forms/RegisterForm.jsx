@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import {useRef} from 'react';
 import FormInput from "../../ui/inputs/FormInput.jsx";
 import SubmitButton from "../../ui/buttons/SubmitButton.jsx";
 import useRegister from "../../../api/register.js";
