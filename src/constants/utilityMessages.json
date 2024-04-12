@@ -1,0 +1,16 @@
+{
+  "en": {
+    "error_message": "Something went wrong. Please try again.",
+    "success_message": "Success!",
+    "loading_message": "Loading...",
+    "no_results_message": "No results found.",
+    "search_message": "Search"
+  },
+  "nl": {
+    "error_message": "Er is iets misgegaan. Probeer het opnieuw.",
+    "success_message": "Succes!",
+    "loading_message": "Aan het laden...",
+    "no_results_message": "Geen resultaten gevonden.",
+    "search_message": "Zoeken"
+  }
+}

@@ -2,10 +2,15 @@ import {createContext, useEffect, useState} from "react";
 import axios from "axios";
 import {isTokenExpired} from "../helpers/isTokenExpired.js";
 import {extractUsernameFromToken} from "../helpers/extractUsernameFromToken.js";
+import utilityMessages from "../constants/utilityMessages.js";
 
 export const AuthContext = createContext({ });
 
 const AuthContextProvider = ({children}) => {
+
+    const {
+        error_message,
+    } = utilityMessages;
 
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
@@ -41,7 +46,7 @@ const AuthContextProvider = ({children}) => {
             console.log(response);
         } catch (e) {
             console.error(e);
-            setError();
+            setError(error_message);
         } finally {
             setIsLoading(false);
         }
@@ -65,7 +70,7 @@ const AuthContextProvider = ({children}) => {
             console.log(response);
         } catch (e) {
             console.error(e);
-            setError('Er is iets misgegaan. Probeer het opnieuw.');
+            setError(error_message);
         }
 
     }
@@ -77,6 +82,8 @@ const AuthContextProvider = ({children}) => {
         authenticated,
         setAuthenticated,
         authenticate,
+        error,
+        isLoading,
     }
 
         return (
