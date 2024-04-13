@@ -5,27 +5,30 @@ export default function useFetchRecipes(url) {
 
     const [recipes, setRecipes] = useState([]);
     const [error, setError] = useState(null);
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, toggleIsLoading] = useState(false);
 
     useEffect(() => {
-        void fetchRecipes();
-    }, []);
-
-    const fetchRecipes = async () => {
 
         setError(null);
-        setIsLoading(true);
+        toggleIsLoading(true);
 
-        try {
-            const response = await axios.get(url);
-            setRecipes(response.data);
-        } catch (e) {
-            console.error(e);
-        } finally {
-            setIsLoading(false);
+        async function fetchRecipes() {
+
+            try {
+                const response = await axios.get(url);
+                setRecipes(response.data);
+            } catch (e) {
+                console.error(e);
+                setError(e);
+            } finally {
+                toggleIsLoading(false);
+            }
         }
-    }
 
-    return { recipes, error, isLoading, fetchRecipes}
+        void fetchRecipes();
+
+    }, []);
+
+    return {recipes, error, isLoading};
 
 }

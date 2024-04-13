@@ -1,10 +1,17 @@
 import useFetchRecipes from "../../../api/useFetchRecipes.js";
 import RecipeThumbnail from "./RecipeThumbnail.jsx";
+import {useNavigate} from "react-router-dom";
+import endpoints from "../../../api/endpoints.json";
+import {useEffect, useState} from "react";
+import axios from "axios";
 
 
 const RecipeThumbnailsContainer = () => {
 
-    const { recipes, error, isLoading } = useFetchRecipes();
+    const navigate = useNavigate();
+    const { recipes } = useFetchRecipes(endpoints.endpoints.fetchRecipes.url);
+
+    console.log(recipes)
 
     return (
         <div className="recipes-all__grid">
@@ -14,15 +21,17 @@ const RecipeThumbnailsContainer = () => {
                     return (
                         <RecipeThumbnail
                             key={recipe.recipeId}
+                            recipeId={recipe.recipeId}
                             recipeName={recipe.recipeName}
-                            tags={recipe.tagDTOList}
+                            tags={recipe.tags}
                             recipeImage={recipe.imageFileName}
                             recipeImageDescription={recipe.recipeImageDescription}
                             buttonClickHandler={() => navigate(`/recipes/main`)}
                         />
                     )
-                }
+                })
             }
+
 
         </div>
     );
