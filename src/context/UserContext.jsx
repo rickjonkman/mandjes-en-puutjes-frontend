@@ -71,6 +71,7 @@ const UserContextProvider = ({children}) => {
         authenticated,
         setAuthenticated,
         user: authenticated.user,
+        isLoggedIn: authenticated.isAuth,
         isLoading,
         error,
     }

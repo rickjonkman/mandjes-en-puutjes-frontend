@@ -6,11 +6,14 @@ import LoginPage from "./pages/login-register-pages/open/LoginPage.jsx";
 import RegisterPage from "./pages/login-register-pages/open/RegisterPage.jsx";
 import RecipePage from "./pages/recipes-pages/open/RecipePage.jsx";
 import AllRecipesPage from "./pages/recipes-pages/open/AllRecipesPage.jsx";
+import NavBar from "./components/ui/nav/NavBar.jsx";
 
 function App() {
 
   return (
     <>
+        <NavBar />
+
       <Routes>
         <Route index element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />
