@@ -9,6 +9,12 @@
       "password": "Password",
       "submit": "Login"
     },
+    "logoutPage": {
+      "title": "Logout"
+    },
+    "dashboardPage": {
+      "title": "Dashboard"
+    },
     "registerPage": {
       "title": "Register",
       "form": {
@@ -24,6 +30,12 @@
         "prefVegetarian": "Vegetarian",
         "prefVegan": "Vegan"
       }
+    },
+    "groceriesMain": {
+      "title": "Groceries"
+    },
+    "shoppingModePage": {
+      "title": "Shopping mode"
     },
     "recipePage": {
       "title": "Recipes",
