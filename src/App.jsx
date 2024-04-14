@@ -15,8 +15,14 @@ import ShoppingListsPage from "./pages/groceries-pages/authenticated/ShoppingLis
 import RecipesMainPage from "./pages/recipes-pages/open/RecipesMainPage.jsx";
 import SavedRecipesPage from "./pages/recipes-pages/authenticated/SavedRecipesPage.jsx";
 import SurpriseRecipePage from "./pages/recipes-pages/authenticated/SurpriseRecipePage.jsx";
+import {useContext} from "react";
+import {UserContext} from "./context/UserContext.jsx";
+import LoadingPage from "./pages/util-pages/LoadingPage.jsx";
+import PleaseRegisterPage from "./pages/util-pages/PleaseRegisterPage.jsx";
 
 function App() {
+
+    const { isLoggedIn, isLoading } = useContext(UserContext);
 
     return (
         <>
@@ -28,7 +34,8 @@ function App() {
                 <Route path="/register" element={<RegisterPage />}/>
                 <Route path="/logout" element={<LogoutPage />}/>
 
-                <Route path="/dashboard" element={<DashboardPage />}/>
+                <Route path="/dashboard"
+                       element={isLoading ? <LoadingPage /> : isLoggedIn === true ? <DashboardPage /> : <PleaseRegisterPage /> }/>
 
                 <Route path="/groceries/main" element={<GroceriesMainPage />}/>
                 <Route path="/groceries/shopping-mode" element={<ShoppingModePage />}/>
