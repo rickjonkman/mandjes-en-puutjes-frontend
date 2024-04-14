@@ -1,0 +1,90 @@
+@import 'src/scss/utils';
+
+.landing-page__bg-image--broccoli {
+  background-image: url('src/assets/images/broccoli-bg.jpg');
+  width: 100%;
+  height: 760px;
+  background-size: cover;
+  position: absolute;
+  top: 80px;
+  z-index: -10;
+}
+
+.landing-page__page-container {
+  background-color: $white;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .header-container__class {
+    width: 100%;
+    background-color: transparent;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+}
+
+.landing-page__title {
+  width: 48rem;
+  padding: 1rem;
+  margin-top: 8rem;
+  background-color: $sea-green;
+  z-index: 10;
+  border-radius: 1rem;
+  color: $darker-green;
+
+  h1 {
+    font-size: 6rem;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 3rem;
+    text-align: center;
+  }
+}
+
+.main-container__class {
+  width: 30rem;
+  height: 10rem;
+  position: absolute;
+  bottom: -50rem;
+  z-index: 100;
+
+  .landing-page__cta-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .landing-page__cta-button--primary {
+    padding: 1rem;
+    font-size: 1.2rem;
+    background-color: $white;
+    border: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: $darker-green;
+    border-radius: 8px;
+  }
+
+  .landing-page__cta-button--secondary {
+    padding: 1rem;
+    font-size: 1.2rem;
+    background-color: $sea-green;
+    border: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: $white;
+    border-radius: 8px;
+  }
+}
+
+
+

@@ -26,7 +26,6 @@ function App() {
 
     return (
         <>
-            <NavBar/>
 
             <Routes>
                 <Route index element={<LandingPage />}/>

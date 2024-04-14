@@ -25,27 +25,27 @@ export const hamItemsLoggedInEN = [
     {
         id: 3,
         name: 'Recipes',
-        link: '/recipes/main',
+        link: '/scss-recipes/main',
         subPages: [
             {
                 id: 3.1,
                 name: 'All Recipes',
-                link: '/recipes/all-recipes'
+                link: '/scss-recipes/all-scss-recipes'
             },
             {
                 id: 3.2,
                 name: 'Surprise Recipe',
-                link: '/recipes/surprise-recipe'
+                link: '/scss-recipes/surprise-recipe'
             },
             {
                 id: 3.3,
                 name: 'Saved Recipes',
-                link: '/recipes/saved-recipes'
+                link: '/scss-recipes/saved-scss-recipes'
             },
             {
                 id: 3.4,
                 name: 'Add New Recipe',
-                link: '/recipes/new-recipe'
+                link: '/scss-recipes/new-recipe'
             }
         ]
     },
@@ -82,27 +82,27 @@ export const hamItemsLoggedInNL = [
     {
         id: 3,
         name: 'Recepten',
-        link: '/recipes/main',
+        link: '/scss-recipes/main',
         subPages: [
             {
                 id: 3.1,
                 name: 'Alle Recepten',
-                link: '/recipes/all-recipes'
+                link: '/scss-recipes/all-scss-recipes'
             },
             {
                 id: 3.2,
                 name: 'Verrassingsrecept',
-                link: '/recipes/surprise-recipe'
+                link: '/scss-recipes/surprise-recipe'
             },
             {
                 id: 3.3,
                 name: 'Opgeslagen Recepten',
-                link: '/recipes/saved-recipes'
+                link: '/scss-recipes/saved-scss-recipes'
             },
             {
                 id: 3.4,
                 name: 'Nieuw Recept Toevoegen',
-                link: '/recipes/new-recipe'
+                link: '/scss-recipes/new-recipe'
             }
         ]
     },

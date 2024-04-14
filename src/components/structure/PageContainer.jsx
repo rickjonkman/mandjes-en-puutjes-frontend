@@ -1,11 +1,11 @@
 
 
-const PageContainer = ({ children }) => {
+const PageContainer = ({ pageContainerClass, children }) => {
 
 
 
     return (
-        <div className="page-container__class">
+        <div className={`page-container__class ${pageContainerClass}`}>
             {children}
         </div>
     );

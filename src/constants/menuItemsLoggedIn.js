@@ -13,7 +13,7 @@ export const menuItemsLoggedInEN = [
     {
         id: 3,
         title: "Recipes",
-        navLink: "/recipes/main",
+        navLink: "/scss-recipes/main",
     }
 ]
 
@@ -31,6 +31,6 @@ export const menuItemsLoggedInNL = [
     {
         id: 3,
         title: "Recepten",
-        navLink: "/recipes/main",
+        navLink: "/scss-recipes/main",
     }
 ]

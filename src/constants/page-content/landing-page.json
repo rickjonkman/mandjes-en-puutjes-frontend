@@ -1,0 +1,14 @@
+{
+  "en": {
+    "title": "All in 1",
+    "subtitle": "The web application for you recipes and groceries.",
+    "primaryButton": "Register",
+    "secondaryButton": "Find Recipes"
+  },
+  "nl": {
+    "title": "Alles in 1",
+    "subtitle": "De webapplicatie voor jouw recepten en boodschappen.",
+    "primaryButton": "Registreren",
+    "secondaryButton": "Ga naar recepten"
+  }
+}

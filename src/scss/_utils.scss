@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+$white: #f8fdfb;
+$black: #000000;
+$sea-green-light: #81EED1;
+$sea-green: #1dd3a2;
+$dark-green: #004c4d;
+$darker-green: #003233;
+
+////// MEDIA //////
+$phone: 300px;
+$tablet: 600px;
+$desktop-small: 900px;
+$default: 1200px;
+$desktop-large: 1500px;
+
+@mixin responsive($media) {
+  @if $media == phone {
+    @media only screen and (min-width: $phone) {
+      @content;
+    }
+  } @else if $media == tablet {
+    @media only screen and (min-width: $tablet) {
+      @content;
+    }
+  } @else if $media == desktop-small {
+    @media only screen and (min-width: $desktop-small) {
+      @content;
+    }
+  } @else if $media == default {
+    @media only screen and (min-width: $default) {
+      @content;
+    }
+  } @else if $media == desktop-large {
+    @media only screen and (min-width: #{$desktop-large}) {
+      @content;
+    }
+  }
+}
+
+////// TYPOGRAPHY //////
+h1, h2, h3, h4, h5, h6, input, span, a, p, li, button, label, textarea, select {
+  font-family: 'Rubik', sans-serif;
+}
+
+////// RESET //////
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Rubik', sans-serif;
+  line-height: 1.6;
+  background-color: $white;
+  color: $black;
+}

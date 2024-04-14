@@ -1,11 +1,11 @@
-import React from 'react';
 
-const HeaderContainer = ({ children }) => {
+
+const HeaderContainer = ({ headerContainerClass, children }) => {
 
 
 
     return (
-        <header className="header-container__class">
+        <header className={`header-container__class ${headerContainerClass}`}>
             {children}
         </header>
     );
