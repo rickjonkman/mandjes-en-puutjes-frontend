@@ -8,23 +8,35 @@ import {useContext} from "react";
 import {LanguageContext} from "../../../context/LanguageContext.jsx";
 import RegisterFormHeader from "../../../components/page-components/login-register-components/RegisterFormHeader.jsx";
 import RegisterForm from "../../../components/common/forms/RegisterForm.jsx";
+import "/src/scss/scss-pages/scss-login-register-pages/register-page.scss";
+import BackArrow from "../../../assets/icons/back-arrow.svg";
+import IconButton from "../../../components/ui/buttons/IconButton.jsx";
+import {useNavigate} from "react-router-dom";
 
 const RegisterPage = () => {
 
+    const navigate = useNavigate();
     const { language } = useContext(LanguageContext);
     const { title, loading, form, preferencesContent } = PageContent[language].registerPage;
 
     return (
-        <PageContainer>
+        <PageContainer pageContainerClass="register-page__page-container">
 
-            <HeaderContainer>
-                <PageTitle pageTitleClass="login-register__title" pageTitle={title}/>
+            <HeaderContainer headerContainerClass="login-register__header">
+                <PageTitle pageTitleClass="login-register__title" pageTitle={title}>
+                    <IconButton
+                        buttonClass="button__go-back"
+                        onClickHandler={() => navigate('/')}
+                        iconSrc={BackArrow}
+                        iconDescription="Klik om terug te gaan"
+                        buttonIconId="icon__go-back"
+                    />
+                </PageTitle>
             </HeaderContainer>
 
 
 
             <MainContainer>
-                <RegisterFormHeader />
                 <RegisterForm
                     loading={loading}
                     form={form}

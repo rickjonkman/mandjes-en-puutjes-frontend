@@ -1,4 +1,4 @@
-@import 'src/scss/utils';
+@import '/src/scss/utils';
 
 .landing-page__bg-image--broccoli {
   background-image: url('src/assets/images/broccoli-bg.jpg');
@@ -48,7 +48,7 @@
   }
 }
 
-.main-container__class {
+.landing-page__main-container {
   width: 30rem;
   height: 10rem;
   position: absolute;

@@ -1,0 +1,42 @@
+@import "src/scss/utils";
+@import "src/scss/scss-common/scss-containers";
+@import "src/scss/scss-ui/buttons";
+
+.register-page__page-container {
+  @include set-page-container($sea-green-light);
+  @include set-flexbox(column, space-between, center);
+}
+
+.login-register__header {
+  margin-top: 2rem;
+  width: 90%;
+}
+
+.login-register__title {
+  @include set-login-register-title;
+  @include set-flexbox(row, space-between, flex-end);
+  overflow: hidden;
+
+  h1 {
+    padding: 1rem;
+    background-color: $dark-green;
+    color: $white;
+    border-top-right-radius: 8px;
+  }
+
+  .button__go-back {
+    @include set-flexbox(row, center, center);
+    background-color: $dark-green;
+    border: none;
+    border-bottom-left-radius: 8px;
+    align-self: flex-start;
+    width: 8rem;
+    height: 4rem;
+
+    .icon__go-back {
+      width: 100%;
+      height: 100%;
+      color: $white;
+    }
+  }
+}

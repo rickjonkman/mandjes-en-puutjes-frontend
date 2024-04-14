@@ -1,0 +1,28 @@
+@import 'src/scss/utils';
+
+@mixin set-title-general($height, $bgColor, $borderColor) {
+  width: 100%;
+  height: $height;
+  background-color: $bgColor;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: 2px solid $borderColor;
+  border-radius: 8px;
+}
+
+@mixin set-flexbox($flex-dir, $justify-c, $align-i) {
+  display: flex;
+  flex-direction: $flex-dir;
+  justify-content: $justify-c;
+  align-items: $align-i;
+}
+
+@mixin set-page-container($bg-color) {
+  width: 100%;
+  background-color: $bg-color;
+}
+
+@mixin set-login-register-title() {
+  @include set-title-general(15rem, $white, $dark-green);
+  background-image: url("/src/assets/images/register-title.jpg");
+}

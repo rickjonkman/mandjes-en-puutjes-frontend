@@ -10,13 +10,7 @@ const RegisterFormHeader = () => {
     return (
         <header className="register-form__header">
 
-            <IconButton
-                buttonClass="button__go-back"
-                onClickHandler={() => navigate('/')}
-                iconSrc={BackArrow}
-                iconDescription="Klik om terug te gaan"
-                buttonIconId="icon__go-back"
-            />
+
 
         </header>
     );

@@ -1,7 +1,7 @@
 import PageContainer from "../../../components/structure/PageContainer.jsx";
 import HeaderContainer from "../../../components/structure/HeaderContainer.jsx";
 import LandingPageTitle from "../../../components/common/page-title/LandingPageTitle.jsx";
-import "/src/scss/scss-pages/scss-landing-page/landing-page.scss";
+import "/src/scss/scss-pages/scss-login-register-pages/landing-page.scss";
 import landingPage from "/src/constants/page-content/landing-page.json";
 import {useContext} from "react";
 import {LanguageContext} from "../../../context/LanguageContext.jsx";
@@ -28,7 +28,7 @@ const LandingPage = () => {
 
             <div className="landing-page__bg-image--broccoli"></div>
 
-            <MainContainer>
+            <MainContainer mainContainerClass="landing-page__main-container">
 
                 <div className="landing-page__cta-section">
 

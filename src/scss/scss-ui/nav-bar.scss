@@ -1,17 +1,16 @@
 @import 'src/scss/utils';
+@import 'src/scss/scss-common/scss-containers';
+@import 'src/scss/scss-common/scss-typography';
 
 .nav-bar__container {
+  @include set-flexbox(row, center, center);
   padding: 1rem 0;
   width: 100%;
-  display: flex;
-  justify-content: center;
 }
 
 .nav-bar__content {
+  @include set-flexbox(row, space-between, center);
   width: 90%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .nav-bar__logo-container {
@@ -23,22 +22,15 @@
 }
 
 .nav-bar__menu ul {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    list-style: none;
+  @include set-flexbox(row, space-bwteen, center);
+  list-style: none;
 
   li {
     margin: 0 1rem;
   }
 
   li a {
-    text-decoration: none;
-    color: $black;
-    font-size: 1.2rem;
-    font-weight: 500;
-    transition: color 0.3s;
-
+    @include set-anchor-tag($black, 1.2rem, 500);
   }
 }
 
@@ -51,3 +43,4 @@
     width: 100%;
   }
 }
+
