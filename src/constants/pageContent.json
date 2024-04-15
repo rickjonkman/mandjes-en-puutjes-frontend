@@ -1,35 +1,10 @@
 {
   "en": {
-    "landingPage": {
-      "title": "Welcome to the new website"
-    },
-    "loginPage": {
-      "title": "Login",
-      "username": "Username",
-      "password": "Password",
-      "submit": "Login"
-    },
     "logoutPage": {
       "title": "Logout"
     },
     "dashboardPage": {
       "title": "Dashboard"
-    },
-    "registerPage": {
-      "title": "Register",
-      "form": {
-        "firstname": "First name",
-        "username": "Username",
-        "password": "Password",
-        "submit": "Register",
-        "preferences": "Preferences"
-      },
-      "preferencesContent": {
-        "prefMeat": "Meat",
-        "prefFish": "Fish",
-        "prefVegetarian": "Vegetarian",
-        "prefVegan": "Vegan"
-      }
     },
     "groceriesMain": {
       "title": "Groceries"

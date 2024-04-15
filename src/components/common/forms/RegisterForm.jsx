@@ -3,6 +3,10 @@ import FormInput from "../../ui/inputs/FormInput.jsx";
 import SubmitButton from "../../ui/buttons/SubmitButton.jsx";
 import useRegister from "../../../api/useRegister.js";
 import {endpoints} from "../../../api/endpoints.json";
+import MeatIcon from "../../ui/icons/MeatIcon.jsx";
+import FishIcon from "../../ui/icons/FishIcon.jsx";
+import VegetarianIcon from "../../ui/icons/VegetarianIcon.jsx";
+import VeganIcon from "../../ui/icons/VeganIcon.jsx";
 
 const RegisterForm = ({form, loading, preferencesContent}) => {
 
@@ -56,41 +60,53 @@ const RegisterForm = ({form, loading, preferencesContent}) => {
 
             <section className="register-form__preferences">
 
-                <FormInput
-                    inputId="register-form__pref-meat"
-                    inputType="checkbox"
-                    inputName="preferences"
-                    inputRef={preferencesRef}
-                    inputLabel={prefMeat}
-                />
+                <div className="user-preference__container">
+                    <FormInput
+                        inputId="register-form__pref-meat"
+                        inputType="checkbox"
+                        inputName="preferences"
+                        inputRef={preferencesRef}
+                        inputLabel={prefMeat}
+                    />
+                    <MeatIcon fill="#000" />
+                </div>
 
-                <FormInput
-                    inputId="register-form__pref-fish"
-                    inputType="checkbox"
-                    inputName="preferences"
-                    inputRef={preferencesRef}
-                    inputLabel={prefFish}
-                />
+                <div className="user-preference__container">
+                    <FormInput
+                        inputId="register-form__pref-fish"
+                        inputType="checkbox"
+                        inputName="preferences"
+                        inputRef={preferencesRef}
+                        inputLabel={prefFish}
+                    />
+                    <FishIcon />
+                </div>
 
-                <FormInput
-                    inputId="register-form__pref-vegetarian"
-                    inputType="checkbox"
-                    inputName="preferences"
-                    inputRef={preferencesRef}
-                    inputLabel={prefVegetarian}
-                />
+                <div className="user-preference__container">
+                    <FormInput
+                        inputId="register-form__pref-vegetarian"
+                        inputType="checkbox"
+                        inputName="preferences"
+                        inputRef={preferencesRef}
+                        inputLabel={prefVegetarian}
+                    />
+                    <VegetarianIcon />
+                </div>
 
-                <FormInput
-                    inputId="register-form__pref-vegan"
-                    inputType="checkbox"
-                    inputName="preferences"
-                    inputRef={preferencesRef}
-                    inputLabel={prefVegan}
-                />
+                <div className="user-preference__container">
+                    <FormInput
+                        inputId="register-form__pref-vegan"
+                        inputType="checkbox"
+                        inputName="preferences"
+                        inputRef={preferencesRef}
+                        inputLabel={prefVegan}
+                    />
+                    <VeganIcon />
+                </div>
 
             </section>
 
-            <SubmitButton buttonClass="login-form__submit-btn" buttonText={submit}/>
+            <SubmitButton buttonClass="register-form__submit-btn" buttonText={submit}/>
 
         </form>
     );

@@ -8,6 +8,7 @@ import {LanguageContext} from "../../../context/LanguageContext.jsx";
 import NavBar from "../../../components/ui/nav/NavBar.jsx";
 import Button from "../../../components/ui/buttons/Button.jsx";
 import MainContainer from "../../../components/structure/MainContainer.jsx";
+import FooterContainer from "../../../components/structure/FooterContainer.jsx";
 
 
 const LandingPage = () => {
@@ -18,7 +19,7 @@ const LandingPage = () => {
         <PageContainer pageContainerClass="landing-page__page-container">
 
             <HeaderContainer headerContainerClass="landing-page__header">
-                <NavBar/>
+                <NavBar />
 
                 <LandingPageTitle
                     title={landingPage[language].title}
@@ -45,6 +46,8 @@ const LandingPage = () => {
                 </div>
 
             </MainContainer>
+
+            <FooterContainer />
 
         </PageContainer>
     );

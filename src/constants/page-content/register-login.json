@@ -1,0 +1,50 @@
+{
+  "en": {
+    "register": {
+      "title": "Register",
+      "form": {
+        "firstname": "First Name",
+        "username": "Username",
+        "password": "Password",
+        "submit": "Register",
+        "preferences": "Preferences"
+      },
+      "preferences": {
+        "prefMeat": "Meat",
+        "prefFish": "Fish",
+        "prefVegetarian": "Vegetarian",
+        "prefVegan": "Vegan"
+      }
+    },
+    "login": {
+      "title": "Login",
+      "username": "Username",
+      "password": "Password",
+      "submit": "Login"
+    }
+  },
+  "nl": {
+    "register": {
+      "title": "Registreren",
+      "form": {
+        "firstname": "Voornaam",
+        "username": "Gebruikersnaam",
+        "password": "Wachtwoord",
+        "submit": "Registreren",
+        "preferences": "Voorkeuren"
+      },
+      "preferences": {
+        "prefMeat": "Vlees",
+        "prefFish": "Vis",
+        "prefVegetarian": "Vegetarisch",
+        "prefVegan": "Vegan"
+      }
+    },
+    "login": {
+      "title": "Inloggen",
+      "username": "Gebruikersnaam",
+      "password": "Wachtwoord",
+      "submit": "Inloggen"
+    }
+  }
+}

@@ -3,10 +3,9 @@ import PageTitle from "../../../components/common/page-title/PageTitle.jsx";
 import MainContainer from "../../../components/structure/MainContainer.jsx";
 import FooterContainer from "../../../components/structure/FooterContainer.jsx";
 import PageContainer from "../../../components/structure/PageContainer.jsx";
-import PageContent from "/src/constants/pageContent.json";
+import RegisterLogin from "/src/constants/page-content/register-login.json";
 import {useContext} from "react";
 import {LanguageContext} from "../../../context/LanguageContext.jsx";
-import RegisterFormHeader from "../../../components/page-components/login-register-components/RegisterFormHeader.jsx";
 import RegisterForm from "../../../components/common/forms/RegisterForm.jsx";
 import "/src/scss/scss-pages/scss-login-register-pages/register-page.scss";
 import BackArrow from "../../../assets/icons/back-arrow.svg";
@@ -17,7 +16,8 @@ const RegisterPage = () => {
 
     const navigate = useNavigate();
     const { language } = useContext(LanguageContext);
-    const { title, loading, form, preferencesContent } = PageContent[language].registerPage;
+    // const { title, loading, form, preferencesContent } = PageContent[language].registerPage;
+    const { title, loading, form, preferences } = RegisterLogin[language].register;
 
     return (
         <PageContainer pageContainerClass="register-page__page-container">
@@ -36,11 +36,11 @@ const RegisterPage = () => {
 
 
 
-            <MainContainer>
+            <MainContainer mainContainerClass="register-page__main">
                 <RegisterForm
                     loading={loading}
                     form={form}
-                    preferencesContent={preferencesContent}
+                    preferencesContent={preferences}
                 />
             </MainContainer>
 

@@ -1,12 +1,14 @@
-import React from 'react';
+import footer from "/src/constants/page-content/footer.json";
+import {useContext} from "react";
+import {LanguageContext} from "../../context/LanguageContext.jsx";
 
-const FooterContainer = ({ children }) => {
+const FooterContainer = () => {
 
-
+    const { language } = useContext(LanguageContext);
 
     return (
         <footer className="footer-container__class">
-            { children }
+            <h3>{footer[language].text}</h3>
         </footer>
     );
 };

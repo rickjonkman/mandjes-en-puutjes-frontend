@@ -5,7 +5,7 @@ const PageContainer = ({ pageContainerClass, children }) => {
 
 
     return (
-        <div className={`page-container__class ${pageContainerClass}`}>
+        <div className={`${pageContainerClass}`}>
             {children}
         </div>
     );

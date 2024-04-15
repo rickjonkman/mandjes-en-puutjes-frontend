@@ -21,7 +21,9 @@ const LoginPage = () => {
         <PageContainer>
 
             <HeaderContainer>
-                <PageTitle pageTitleClass="login-register__title" pageTitle={title}/>
+                <PageTitle pageTitleClass="login-page__title" pageTitle={title}>
+
+                </PageTitle>
             </HeaderContainer>
 
 

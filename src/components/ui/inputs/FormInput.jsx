@@ -1,6 +1,4 @@
-
-
-const FormInput = ({ inputId, inputLabel, inputType, inputName, inputRef }) => {
+const FormInput = ({inputId, inputLabel, inputType, inputName, inputRef}) => {
     return (
         <label htmlFor={inputId}>
             <span>{inputLabel}</span>

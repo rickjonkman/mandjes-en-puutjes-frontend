@@ -40,3 +40,74 @@
     }
   }
 }
+
+.register-page__main {
+  width: 90%;
+}
+
+.register-form__class {
+  width: 100%;
+  margin-top: 2rem;
+  padding: 2rem;
+  background-color: $white;
+  border-radius: 8px;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+
+  .register-form__user-info {
+    @include set-flexbox(column, flex-start, flex-start);
+
+    label {
+      width: 90%;
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      font-weight: 500;
+      @include set-flexbox(row, space-between, center);
+    }
+
+  }
+
+  label input[type="text"], label input[type="password"], label input[type="email"] {
+    width: 60%;
+    padding: .1rem;
+    font-size: 1.2rem;
+    border: 1px solid $dark-green;
+    border-radius: 8px;
+  }
+
+}
+
+.register-form__preferences {
+  @include set-flexbox(row, space-between, flex-start);
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 1rem;
+  margin-top: 2rem;
+
+  .user-preference__container {
+    @include set-flexbox(row, space-between, center);
+    width: 18rem;
+    height: 3rem;
+    margin: .4rem;
+    padding: .4rem 1rem;
+    color: $black;
+    background-color: $sea-green-light;
+    border-radius: 8px;
+
+    label {
+      min-width: 8rem;
+      max-width: 9rem;
+      @include set-flexbox(row, space-between, center);
+    }
+  }
+}
+
+.register-form__submit-btn {
+    width: 100%;
+    margin-top: 2rem;
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    background-color: $dark-green;
+    color: $white;
+    border-radius: 8px;
+}

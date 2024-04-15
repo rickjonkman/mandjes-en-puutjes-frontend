@@ -9,6 +9,7 @@ import "/src/scss/scss-ui/nav-bar.scss";
 import {LanguageContext} from "../../../context/LanguageContext.jsx";
 import {menuItemsLoggedInEN, menuItemsLoggedInNL} from "../../../constants/menuItemsLoggedIn.js";
 import {menuItemsLoggedOutEN, menuItemsLoggedOutNL} from "../../../constants/menuItemsLoggedOut.js";
+import HamburgerMenu from "./HamburgerMenu.jsx";
 
 const NavBar = () => {
 
@@ -37,8 +38,11 @@ const NavBar = () => {
                     <NavBarMenuItems navItems={isLoggedIn ? menuItemsLoggedInEN : menuItemsLoggedOutEN } />
                 }
 
+                <HamburgerIcon handleHamOnClick={() => setIsHamOpen(!isHamOpen)} />
 
-                <HamburgerIcon />
+
+                <HamburgerMenu />
+
 
             </div>
 
