@@ -1,50 +1,42 @@
 {
   "en": {
-    "register": {
-      "title": "Register",
-      "form": {
-        "firstname": "First Name",
-        "username": "Username",
-        "password": "Password",
-        "submit": "Register",
-        "preferences": "Preferences"
-      },
-      "preferences": {
-        "prefMeat": "Meat",
-        "prefFish": "Fish",
-        "prefVegetarian": "Vegetarian",
-        "prefVegan": "Vegan"
-      }
-    },
-    "login": {
-      "title": "Login",
+    "title": "Register",
+    "form": {
+      "title": "Personal Info",
+      "description": "Please fill in the form below to register",
+      "firstname": "First Name",
       "username": "Username",
       "password": "Password",
-      "submit": "Login"
+      "preferences": {
+        "title": "Preferences",
+        "description": "Please select your preferences below, you can change this later",
+        "meat": "Meat",
+        "fish": "Fish",
+        "vegetarian": "Vegetarian",
+        "vegan": "Vegan"
+      },
+      "login": "Login",
+      "submit": "Submit"
     }
   },
   "nl": {
-    "register": {
-      "title": "Registreren",
-      "form": {
-        "firstname": "Voornaam",
-        "username": "Gebruikersnaam",
-        "password": "Wachtwoord",
-        "submit": "Registreren",
-        "preferences": "Voorkeuren"
-      },
-      "preferences": {
-        "prefMeat": "Vlees",
-        "prefFish": "Vis",
-        "prefVegetarian": "Vegetarisch",
-        "prefVegan": "Vegan"
-      }
-    },
-    "login": {
-      "title": "Inloggen",
+    "title": "Registreren",
+    "form": {
+      "title": "Persoonlijke Info",
+        "description": "Vul het formulier hieronder in om te registreren",
+      "firstname": "Voornaam",
       "username": "Gebruikersnaam",
       "password": "Wachtwoord",
-      "submit": "Inloggen"
+      "preferences": {
+        "title": "Voorkeuren",
+        "description": "Selecteer hieronder je voorkeuren, je kan dit later nog aanpassen",
+        "meat": "Vlees",
+        "fish": "Vis",
+        "vegetarian": "Vegetarisch",
+        "vegan": "Veganistisch"
+      },
+      "login": "Inloggen",
+        "submit": "Verzenden"
     }
   }
 }

@@ -13,13 +13,22 @@
   width: 90%;
 }
 
-.nav-bar__logo-container {
-  width: 16rem;
+.nav-bar__logo-button {
+  background-color: transparent;
+    border: none;
+    cursor: pointer;
 
-  #nav-bar__logo {
-    width: 100%;
+  .nav-bar__logo {
+    fill: $black;
+  }
+
+  &:hover .nav-bar__logo {
+    fill: $sea-green;
+    transition: all 0.3s ease-in-out;
   }
 }
+
+
 
 .nav-bar__menu ul {
   @include set-flexbox(row, space-bwteen, center);

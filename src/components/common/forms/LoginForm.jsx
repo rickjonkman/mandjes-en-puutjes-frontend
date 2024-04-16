@@ -1,50 +1,69 @@
-import {useContext, useRef} from 'react';
+import {useContext, useState} from 'react';
 import SubmitButton from "../../ui/buttons/SubmitButton.jsx";
-import FormInput from "../../ui/inputs/FormInput.jsx";
 import {isUserRegistered} from "../../../helpers/isUserRegistered.js";
-import useAuthenticate from "../../../api/useAuthenticate.js";
-import endpoints from "../../../api/endpoints.json";
+import {UserContext} from "../../../context/UserContext.jsx";
 
-const LoginForm = ({ username, password, submit, success_auth_message }) => {
+const LoginForm = ({titleConstant, submitConstant, usernameConstant, passwordConstant, success_auth_message}) => {
 
-    const { request, data, isLoading, error } = useAuthenticate(endpoints.authenticate);
+    const {authenticate, error, isLoading} = useContext(UserContext);
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
 
-    const usernameRef = useRef();
-    const passwordRef = useRef();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const formData = new FormData(e.target);
-        await request(formData);
+        authenticate(username, password);
+    }
 
 
+    if (isLoading) {
+        return <p>Loading...</p>
+    }
+
+    if (error) {
+        return <p>Error: {error}</p>
     }
 
     return (
         <>
-            <form className="login-form__class" onSubmit={handleSubmit}>
-
-                {error && <p className="login-form__error">{error}</p>}
-                {isLoading && <p className="login-form__loading">Inloggen...</p>}
+            <form className="register-login__class" onSubmit={handleSubmit}>
                 {isUserRegistered && <p className="login-form__success">{success_auth_message}</p>}
 
-                <FormInput
-                    inputId="login-form__username"
-                    inputType="email"
-                    inputName="username"
-                    inputRef={usernameRef}
-                    inputLabel={username}
-                />
+                <section className="register-login__user-info">
 
-                <FormInput
-                    inputId="login-form__password"
-                    inputType="password"
-                    inputName="password"
-                    inputRef={passwordRef}
-                    inputLabel={password}
-                />
+                    <div className="form__subtitle-container">
+                        <h2>{titleConstant}</h2>
+                    </div>
 
-                <SubmitButton buttonClass="login-form__submit-btn" buttonText={submit} />
+                    <div className="form__input-container">
+                        <label htmlFor="form__username">
+                            <span>{usernameConstant}</span>
+                            <input
+                                type="email"
+                                id="login__username"
+                                name="username"
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
+                            />
+                        </label>
+                    </div>
+
+                    <div className="form__input-container">
+                        <label htmlFor="form__password">
+                            <span>{passwordConstant}</span>
+                            <input
+                                type="password"
+                                id="login__password"
+                                name="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
+                        </label>
+                    </div>
+
+                </section>
+
+                <SubmitButton buttonClass="register-login__submit-btn" buttonText={submitConstant}/>
 
             </form>
         </>

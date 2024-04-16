@@ -2,7 +2,7 @@
 @import "src/scss/scss-common/scss-containers";
 @import "src/scss/scss-ui/buttons";
 
-.register-page__page-container {
+.register-login__page-container {
   @include set-page-container($sea-green-light);
   @include set-flexbox(column, space-between, center);
 }
@@ -32,6 +32,12 @@
     align-self: flex-start;
     width: 8rem;
     height: 4rem;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $sea-green;
+      transition: all 0.3s ease-in-out;
+    }
 
     .icon__go-back {
       width: 100%;
@@ -41,37 +47,56 @@
   }
 }
 
-.register-page__main {
+.register-login__main {
   width: 90%;
 }
 
-.register-form__class {
-  width: 100%;
-  margin-top: 2rem;
-  padding: 2rem;
-  background-color: $white;
-  border-radius: 8px;
-  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+.register-login__class {
+  @include set-container($white, $dark-green);
 
-  .register-form__user-info {
-    @include set-flexbox(column, flex-start, flex-start);
+  .form__subtitle-container {
+    @include set-flexbox(column, center, center);
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: $dark-green;
+    color: $white;
+    border-radius: 8px;
 
-    label {
-      width: 90%;
-      margin-top: 1rem;
-      font-size: 1.2rem;
-      font-weight: 500;
-      @include set-flexbox(row, space-between, center);
+    h2 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1rem;
+      font-style: italic;
     }
 
   }
+}
 
-  label input[type="text"], label input[type="password"], label input[type="email"] {
-    width: 60%;
-    padding: .1rem;
-    font-size: 1.2rem;
-    border: 1px solid $dark-green;
-    border-radius: 8px;
+.register-login__user-info {
+  @include set-flexbox(column, flex-start, flex-start);
+
+  .form__input-container {
+    width: 100%;
+    @include set-flexbox(column, space-between, flex-start);
+
+    label, label input {
+      width: 100%;
+    }
+
+    label {
+      margin-bottom: 2rem;
+    }
+
+    label input {
+      font-size: 1.4rem;
+        padding: .4rem;
+      border: 1px solid $dark-green;
+      border-radius: 8px;
+      background-color: white;
+    }
   }
 
 }
@@ -101,13 +126,6 @@
   }
 }
 
-.register-form__submit-btn {
-    width: 100%;
-    margin-top: 2rem;
-    padding: 1rem;
-    font-size: 1.2rem;
-    font-weight: 500;
-    background-color: $dark-green;
-    color: $white;
-    border-radius: 8px;
+.register-login__submit-btn {
+  @include set-submit-button;
 }

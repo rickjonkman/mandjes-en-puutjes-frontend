@@ -1,4 +1,4 @@
-import BackArrow from "../icons/backArrow.jsx";
+import BackArrow from "../svg-components/backArrow.jsx";
 
 
 const IconButton = ({ buttonClass, onClickHandler }) => {

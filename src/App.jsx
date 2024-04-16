@@ -5,7 +5,6 @@ import LoginPage from "./pages/login-register-pages/open/LoginPage.jsx";
 import RegisterPage from "./pages/login-register-pages/open/RegisterPage.jsx";
 import RecipePage from "./pages/recipes-pages/open/RecipePage.jsx";
 import AllRecipesPage from "./pages/recipes-pages/open/AllRecipesPage.jsx";
-import NavBar from "./components/ui/nav/NavBar.jsx";
 import AddNewRecipePage from "./pages/recipes-pages/authenticated/AddNewRecipePage.jsx";
 import LogoutPage from "./pages/login-register-pages/open/LogoutPage.jsx";
 import DashboardPage from "./pages/personal-pages/authenticated/DashboardPage.jsx";

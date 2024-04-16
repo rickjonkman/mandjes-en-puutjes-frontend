@@ -7,7 +7,7 @@ import RegisterLogin from "/src/constants/page-content/register-login.json";
 import {useContext} from "react";
 import {LanguageContext} from "../../../context/LanguageContext.jsx";
 import RegisterForm from "../../../components/common/forms/RegisterForm.jsx";
-import "/src/scss/scss-pages/scss-login-register-pages/register-page.scss";
+import "/src/scss/scss-pages/scss-login-register-pages/register-login-page.scss";
 import BackArrow from "../../../assets/icons/back-arrow.svg";
 import IconButton from "../../../components/ui/buttons/IconButton.jsx";
 import {useNavigate} from "react-router-dom";
@@ -15,12 +15,12 @@ import {useNavigate} from "react-router-dom";
 const RegisterPage = () => {
 
     const navigate = useNavigate();
+
     const { language } = useContext(LanguageContext);
-    // const { title, loading, form, preferencesContent } = PageContent[language].registerPage;
-    const { title, loading, form, preferences } = RegisterLogin[language].register;
+    const { title } = RegisterLogin[language];
 
     return (
-        <PageContainer pageContainerClass="register-page__page-container">
+        <PageContainer pageContainerClass="register-login__page-container">
 
             <HeaderContainer headerContainerClass="login-register__header">
                 <PageTitle pageTitleClass="login-register__title" pageTitle={title}>
@@ -36,12 +36,8 @@ const RegisterPage = () => {
 
 
 
-            <MainContainer mainContainerClass="register-page__main">
-                <RegisterForm
-                    loading={loading}
-                    form={form}
-                    preferencesContent={preferences}
-                />
+            <MainContainer mainContainerClass="register-login__main">
+                <RegisterForm />
             </MainContainer>
 
 

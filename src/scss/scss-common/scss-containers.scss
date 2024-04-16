@@ -26,3 +26,13 @@
   @include set-title-general(15rem, $white, $dark-green);
   background-image: url("/src/assets/images/register-title.jpg");
 }
+
+@mixin set-container($bg-color, $border-color) {
+  width: 100%;
+  padding: 2rem;
+  margin-top: 2rem;
+  background-color: $bg-color;
+  border: 2px solid $border-color;
+  border-radius: 8px;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+}

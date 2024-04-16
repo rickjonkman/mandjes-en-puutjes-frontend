@@ -1,112 +1,71 @@
-import {useRef} from 'react';
-import FormInput from "../../ui/inputs/FormInput.jsx";
+import {useState} from 'react';
 import SubmitButton from "../../ui/buttons/SubmitButton.jsx";
 import useRegister from "../../../api/useRegister.js";
 import {endpoints} from "../../../api/endpoints.json";
-import MeatIcon from "../../ui/icons/MeatIcon.jsx";
-import FishIcon from "../../ui/icons/FishIcon.jsx";
-import VegetarianIcon from "../../ui/icons/VegetarianIcon.jsx";
-import VeganIcon from "../../ui/icons/VeganIcon.jsx";
+import PreferencesForm from "./PreferencesForm.jsx";
+import UserInfoForm from "./UserInfoForm.jsx";
 
-const RegisterForm = ({form, loading, preferencesContent}) => {
+const RegisterForm = () => {
 
-    const {request, error, isLoading} = useRegister(endpoints.register);
+    const {request, error, isLoading} = useRegister(endpoints.register.url);
 
-    const { firstname, username, password, submit } = form;
-    const { prefMeat, prefFish, prefVegetarian, prefVegan } = preferencesContent;
+    const [formState, setFormState] = useState({
+        firstname: '',
+        username: '',
+        password: '',
+        preferences: {
+            showMeat: true,
+            showFish: true,
+            showVega: true,
+            showVegan: true,
+        },
+        enabled: true,
+    });
 
-    const usernameRef = useRef();
-    const passwordRef = useRef();
-    const preferencesRef = useRef();
+    const handleFormChange = (e) => {
+        const changeFieldName = e.target.name;
+
+        setFormState({
+            ...formState,
+            [changeFieldName]: e.target.value,
+        })
+    }
+
+    const handleCheckboxChange = (e) => {
+        const { value } = e.target;
+        setFormState({
+            ...formState,
+            preferences: {
+                ...formState.preferences,
+                [value]: !formState.preferences[value]
+            }
+        });
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const formData = new FormData(e.target);
+        const formData = {
+            username: formState.username,
+            password: formState.password,
+            firstname: formState.firstname,
+            preferences: formState.preferences,
+            enabled: formState.enabled,
+        }
         await request(formData);
     }
 
+
     return (
-        <form className="register-form__class" onSubmit={handleSubmit}>
+        <form className="register-login__class" onSubmit={handleSubmit}>
 
             {error && <p className="login-form__error">{error}</p>}
-            {isLoading && <p className="login-form__loading">{loading}</p>}
+            {isLoading && <p className="login-form__loading">Aan het laden...</p>}
 
-            <section className="register-form__user-info">
+            <UserInfoForm formState={formState} handleFormChange={(e) => handleFormChange(e)} />
 
-                <FormInput
-                    inputId="register-form__firstname"
-                    inputType="text"
-                    inputName="firstname"
-                    inputRef={usernameRef}
-                    inputLabel={firstname}
-                />
+            <PreferencesForm handleCheckboxChange={(e) => handleCheckboxChange(e)} />
 
-                <FormInput
-                    inputId="register-form__username"
-                    inputType="email"
-                    inputName="username"
-                    inputRef={usernameRef}
-                    inputLabel={username}
-                />
-
-                <FormInput
-                    inputId="login-form__password"
-                    inputType="password"
-                    inputName="password"
-                    inputRef={passwordRef}
-                    inputLabel={password}
-                />
-            </section>
-
-            <section className="register-form__preferences">
-
-                <div className="user-preference__container">
-                    <FormInput
-                        inputId="register-form__pref-meat"
-                        inputType="checkbox"
-                        inputName="preferences"
-                        inputRef={preferencesRef}
-                        inputLabel={prefMeat}
-                    />
-                    <MeatIcon fill="#000" />
-                </div>
-
-                <div className="user-preference__container">
-                    <FormInput
-                        inputId="register-form__pref-fish"
-                        inputType="checkbox"
-                        inputName="preferences"
-                        inputRef={preferencesRef}
-                        inputLabel={prefFish}
-                    />
-                    <FishIcon />
-                </div>
-
-                <div className="user-preference__container">
-                    <FormInput
-                        inputId="register-form__pref-vegetarian"
-                        inputType="checkbox"
-                        inputName="preferences"
-                        inputRef={preferencesRef}
-                        inputLabel={prefVegetarian}
-                    />
-                    <VegetarianIcon />
-                </div>
-
-                <div className="user-preference__container">
-                    <FormInput
-                        inputId="register-form__pref-vegan"
-                        inputType="checkbox"
-                        inputName="preferences"
-                        inputRef={preferencesRef}
-                        inputLabel={prefVegan}
-                    />
-                    <VeganIcon />
-                </div>
-
-            </section>
-
-            <SubmitButton buttonClass="register-form__submit-btn" buttonText={submit}/>
+            <SubmitButton buttonClass="register-login__submit-btn" buttonText="Registreer"/>
 
         </form>
     );

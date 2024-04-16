@@ -7,20 +7,25 @@ import {LanguageContext} from "../../../context/LanguageContext.jsx";
 import MainContainer from "../../../components/structure/MainContainer.jsx";
 import BlockItemGrid from "../../../components/common/block-item-components/BlockItemGrid.jsx";
 import FoodPreferencesBlock from "../../../components/common/block-items/FoodPreferencesBlock.jsx";
+import NavBar from "../../../components/ui/nav/NavBar.jsx";
 
 
 const DashboardPage = () => {
 
     const { language } = useContext(LanguageContext);
+    const { title } = dashboard[language];
 
     return (
-        <PageContainer>
+        <PageContainer pageContainerClass="dashboard__page-container">
 
-            <HeaderContainer>
-                <PageTitle pageTitleClass="dashboard__title" pageTitle={dashboard[language].title} />
+            <HeaderContainer headerContainerClass="dashboard__header">
+
+                <NavBar />
+
+                <PageTitle pageTitleClass="dashboard__title" pageTitle={title} />
             </HeaderContainer>
 
-            <MainContainer>
+            <MainContainer mainContainerClass="dashboard__main">
 
                 <BlockItemGrid>
 

@@ -4,3 +4,14 @@
     border: none;
     cursor: pointer;
 }
+
+@mixin set-submit-button {
+    width: 100%;
+    margin-top: 2rem;
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    background-color: $dark-green;
+    color: $white;
+    border-radius: 8px;
+}

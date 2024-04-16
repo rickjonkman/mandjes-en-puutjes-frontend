@@ -14,6 +14,7 @@ export default function useRegister(url) {
 
         try {
             const response = await axios.post(url, requestData);
+            console.log(response);
             setData(response.data);
         } catch (e) {
             console.error(e);

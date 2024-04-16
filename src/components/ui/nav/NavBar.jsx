@@ -10,11 +10,12 @@ import {LanguageContext} from "../../../context/LanguageContext.jsx";
 import {menuItemsLoggedInEN, menuItemsLoggedInNL} from "../../../constants/menuItemsLoggedIn.js";
 import {menuItemsLoggedOutEN, menuItemsLoggedOutNL} from "../../../constants/menuItemsLoggedOut.js";
 import HamburgerMenu from "./HamburgerMenu.jsx";
+import LogoImage from "../svg-components/LogoImage.jsx";
 
 const NavBar = () => {
 
-    const { language } = useContext(LanguageContext);
-    const { isLoggedIn } = useContext(UserContext);
+    const {language} = useContext(LanguageContext);
+    const {isLoggedIn} = useContext(UserContext);
     const navigate = useNavigate();
     const [isHamOpen, setIsHamOpen] = useState(false);
 
@@ -23,25 +24,21 @@ const NavBar = () => {
 
             <div className={isHamOpen ? 'nav-hidden' : 'nav-bar__content'}>
 
-                <ImageWrapper
-                    imgSource={Logo}
-                    imgWrapperClass="nav-bar__logo-container"
-                    imgId="nav-bar__logo"
-                    imgDescription="Ons logo"
-                    handleOnClick={() => navigate('/')}
-                />
+                <button className="nav-bar__logo-button" onClick={() => navigate('/')}>
+                    <LogoImage svgClass="nav-bar__logo"/>
+                </button>
 
                 {
                     language === 'nl' ?
-                    <NavBarMenuItems navItems={isLoggedIn ? menuItemsLoggedInNL : menuItemsLoggedOutNL } />
+                        <NavBarMenuItems navItems={isLoggedIn ? menuItemsLoggedInNL : menuItemsLoggedOutNL}/>
                         :
-                    <NavBarMenuItems navItems={isLoggedIn ? menuItemsLoggedInEN : menuItemsLoggedOutEN } />
+                        <NavBarMenuItems navItems={isLoggedIn ? menuItemsLoggedInEN : menuItemsLoggedOutEN}/>
                 }
 
-                <HamburgerIcon handleHamOnClick={() => setIsHamOpen(!isHamOpen)} />
+                <HamburgerIcon handleHamOnClick={() => setIsHamOpen(!isHamOpen)}/>
 
 
-                <HamburgerMenu />
+                <HamburgerMenu/>
 
 
             </div>

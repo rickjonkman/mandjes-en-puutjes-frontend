@@ -7,9 +7,7 @@ const Checkbox = (
         nameCB,
         checkedCB,
         onChangeCB,
-        imgSrcCB,
-        imgAltCB,
-        imgIdCB
+        labelCB
     }
 ) => {
 
@@ -18,6 +16,7 @@ const Checkbox = (
     return (
         <div className={showItem ? 'show-item--true' : 'show-item--false'}>
 
+            <label htmlFor={idCB}>{labelCB}
             <input
                 type="checkbox"
                 id={idCB}
@@ -25,12 +24,7 @@ const Checkbox = (
                 checked={checkedCB}
                 onChange={onChangeCB}
             />
-
-            <img
-                src={imgSrcCB}
-                alt={imgAltCB}
-                id={imgIdCB}
-            />
+            </label>
 
         </div>
     );
