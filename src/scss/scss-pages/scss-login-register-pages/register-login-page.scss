@@ -1,6 +1,7 @@
 @import "src/scss/utils";
 @import "src/scss/scss-common/scss-containers";
 @import "src/scss/scss-ui/buttons";
+@import "src/scss/scss-components/scss-preference";
 
 .register-login__page-container {
   @include set-page-container($sea-green-light);
@@ -14,8 +15,6 @@
 
 .login-register__title {
   @include set-login-register-title;
-  @include set-flexbox(row, space-between, flex-end);
-  overflow: hidden;
 
   h1 {
     padding: 1rem;
@@ -110,13 +109,8 @@
 
   .user-preference__container {
     @include set-flexbox(row, space-between, center);
-    width: 18rem;
-    height: 3rem;
-    margin: .4rem;
-    padding: .4rem 1rem;
-    color: $black;
-    background-color: $sea-green-light;
-    border-radius: 8px;
+    @include set-preference-container;
+    @include set-preference-styling;
 
     label {
       min-width: 8rem;

@@ -3,14 +3,13 @@
 @import 'src/scss/scss-common/scss-typography';
 
 .nav-bar__container {
-  @include set-flexbox(row, center, center);
-  padding: 1rem 0;
+  @include set-flexbox(row, space-between, center);
   width: 100%;
 }
 
 .nav-bar__content {
   @include set-flexbox(row, space-between, center);
-  width: 90%;
+  width: 100%;
 }
 
 .nav-bar__logo-button {

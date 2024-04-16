@@ -16,6 +16,10 @@
       "url": "http://localhost:8080/api/v1/user/get",
       "method": "GET"
     },
+    "getUserDetails": {
+      "url": "http://localhost:8080/api/v1/user/get-user-details",
+      "method": "GET"
+    },
     "getRecipe": {
       "url": "http://localhost:8080/api/v1/recipes/get-recipe/",
       "method": "GET"

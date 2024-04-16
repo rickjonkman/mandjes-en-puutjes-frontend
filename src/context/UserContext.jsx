@@ -1,104 +1,109 @@
 import {createContext, useEffect, useState} from "react";
-import endpoints from "../api/endpoints.json";
 import {isTokenExpired} from "../helpers/isTokenExpired.js";
-import {extractUsernameFromToken} from "../helpers/extractUsernameFromToken.js";
 import axios from "axios";
-import {useNavigate} from "react-router-dom";
-import LoadingPage from "../pages/util-pages/LoadingPage.jsx";
+import {jwtDecode} from "jwt-decode";
+import endpoints from "/src/api/endpoints.json";
 
 export const UserContext = createContext({});
 
 const UserContextProvider = ({children}) => {
 
-    const navigate = useNavigate();
+    const token = localStorage.getItem('token');
 
-    const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
-    const [authenticated, setAuthenticated] = useState({
-        isAuth: false,
-        user: null,
-        status: 'pending',
+    const [error, setError] = useState(null);
+    const [userDetails, setUserDetails] = useState({
+        username: '',
+        firstname: '',
+        preferences: {
+            showMeat: false,
+            showFish: false,
+            showVega: false,
+            showVegan: false,
+
+        },
+        createdRecipes: [],
+        savedRecipes: [],
     });
 
     useEffect(() => {
-        const token = localStorage.getItem('token');
 
         if (token && !isTokenExpired(token)) {
-            const username = extractUsernameFromToken(token);
-            void fetchUser(username, token);
-        } else {
-            logout();
+            console.log('Token is expired');
+            setUserDetails({
+                username: '',
+                firstname: '',
+                enabled: false,
+                preferences: {
+                    showMeat: true,
+                    showFish: true,
+                    showVegetarian: true,
+                    showVegan: true,
+
+                },
+                createdRecipes: [],
+                savedRecipes: [],
+            })
+        } else if (token && isTokenExpired(token)) {
+            const username = jwtDecode(token).sub;
+            void fetchUser(username);
         }
+
     }, []);
 
-    const authenticate = async (username, password) => {
+    const fetchUser = async (username) => {
 
         setError(null);
         setIsLoading(true);
 
         try {
-            const response = await axios.post('http://localhost:8080/api/v1/users/authenticate', {
-                username: username,
-                password: password
-            });
-            localStorage.setItem('token', response.data.jwt);
-            navigate('/dashboard')
+            const response = await axios.get(`${endpoints.endpoints.getUserDetails.url}?username=${username}`,
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${localStorage.getItem('token')}`
+                    }
+                })
+            ;
+            setUserDetails({
+                ...userDetails,
+                username: response.data.username,
+                firstname: response.data.firstname,
+                enabled: response.data.enabled,
+                preferences: {
+                    showMeat: response.data.showMeat,
+                    showFish: response.data.showFish,
+                    showVega: response.data.showVegetarian,
+                    showVegan: response.data.showVegan,
+                },
+                createdRecipes: response.data.createdRecipes,
+                savedRecipes: response.data.savedRecipes,
+            })
+
         } catch (e) {
             console.error(e);
             setError(e);
         } finally {
             setIsLoading(false);
         }
-
     }
 
-    const fetchUser = async (username, token) => {
-
-        setError(null);
-        setIsLoading(true);
-
-        try {
-            const response = await axios.get(`${endpoints.endpoints.getUser}?username=${username}`, {
-                headers: {
-                    'Content-Type': 'application/json',
-                    "Authorization": `Bearer ${token}`,
-                }
-            });
-            console.log(response)
-        } catch (e) {
-            console.error(e);
-        } finally {
-            setIsLoading(false);
-        }
-    }
-
-    const logout = () => {
-        localStorage.removeItem('token');
-        setAuthenticated({
-            isAuth: false,
-            user: null,
-            status: 'completed',
-        });
-    }
-
-    console.log(authenticated)
+    console.log(userDetails)
 
     const userObject = {
-        authenticated,
-        setAuthenticated,
-        user: authenticated.user,
-        isLoggedIn: authenticated.isAuth,
-        // preferences: authenticated.user.preferences,
-        authenticate,
+        userDetails,
+        setUserDetails,
+        fetchUser,
         isLoading,
         error,
     }
 
     return (
         <UserContext.Provider value={userObject}>
-            {authenticated.status === 'completed' ? children : <LoadingPage />}
+            {children}
         </UserContext.Provider>
-    );
+    )
+
 }
 
 export default UserContextProvider;

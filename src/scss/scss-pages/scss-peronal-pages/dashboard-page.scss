@@ -1,0 +1,44 @@
+@import 'src/scss/scss-common/scss-containers';
+
+.dashboard__page-container {
+  @include set-page-container($sea-green-light);
+  @include set-flexbox(column, space-between, center);
+
+  .dashboard__header {
+    width: 90%;
+  }
+
+  .dashboard__main {
+    width: 90%;
+  }
+}
+
+.dashboard__title {
+  @include set-dashboard-title;
+}
+
+.food-preferences__container {
+  @include set-container($white, $dark-green);
+  @include set-flexbox(row, space-around, center);
+  flex-wrap: wrap;
+
+  .food-preferences__checkbox {
+    @include set-flexbox(row, space-between, center);
+    width: 40%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: $white;
+    border: 1px solid $dark-green;
+    border-radius: 8px;
+  }
+
+  label {
+    min-width: 8rem;
+    max-width: 12rem;
+    @include set-flexbox(row, space-between, center);
+
+    span {
+      margin-left: .6rem;
+    }
+  }
+}

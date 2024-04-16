@@ -1,9 +1,8 @@
-import ImageWrapper from "../../common/image-wrapper/ImageWrapper.jsx";
+
 import {useNavigate} from "react-router-dom";
 import {useContext, useState} from "react";
 import NavBarMenuItems from "./NavBarMenuItems.jsx";
 import {UserContext} from "../../../context/UserContext.jsx";
-import Logo from "/src/assets/svg/logo--dark-color.svg";
 import HamburgerIcon from "./HamburgerIcon.jsx";
 import "/src/scss/scss-ui/nav-bar.scss";
 import {LanguageContext} from "../../../context/LanguageContext.jsx";

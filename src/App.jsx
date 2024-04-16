@@ -18,10 +18,11 @@ import {useContext} from "react";
 import {UserContext} from "./context/UserContext.jsx";
 import LoadingPage from "./pages/util-pages/LoadingPage.jsx";
 import PleaseRegisterPage from "./pages/util-pages/PleaseRegisterPage.jsx";
+import {AuthContext} from "./context/AuthContext.jsx";
 
 function App() {
 
-    const { isLoggedIn, isLoading } = useContext(UserContext);
+    const { isLoading, isLoggedIn } = useContext(AuthContext);
 
     return (
         <>

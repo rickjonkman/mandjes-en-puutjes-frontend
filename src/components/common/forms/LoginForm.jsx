@@ -1,11 +1,11 @@
 import {useContext, useState} from 'react';
 import SubmitButton from "../../ui/buttons/SubmitButton.jsx";
 import {isUserRegistered} from "../../../helpers/isUserRegistered.js";
-import {UserContext} from "../../../context/UserContext.jsx";
+import {AuthContext} from "../../../context/AuthContext.jsx";
 
 const LoginForm = ({titleConstant, submitConstant, usernameConstant, passwordConstant, success_auth_message}) => {
 
-    const {authenticate, error, isLoading} = useContext(UserContext);
+    const {authenticate, error, isLoading} = useContext(AuthContext);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 

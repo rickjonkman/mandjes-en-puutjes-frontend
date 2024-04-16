@@ -6,6 +6,7 @@ import VeganIcon from "../../ui/svg-components/VeganIcon.jsx";
 import {useContext} from "react";
 import {LanguageContext} from "../../../context/LanguageContext.jsx";
 import RegisterLogin from "/src/constants/page-content/register-login.json";
+import PreferenceCheckbox from "../preference-checkbox/PreferenceCheckbox.jsx";
 
 
 const PreferencesForm = ({handleCheckboxChange}) => {
@@ -21,69 +22,41 @@ const PreferencesForm = ({handleCheckboxChange}) => {
                 <p>{description}</p>
             </div>
 
-            <div className="user-preference__container">
+            <PreferenceCheckbox
+                preferenceId="preferences-meat"
+                preferenceValue="showMeat"
+                checkboxTitle={meat}
+                handleCheckboxChange={handleCheckboxChange}
+            >
+                <MeatIcon />
+            </PreferenceCheckbox>
 
-                <label htmlFor="preferences-meat">
-                    <input
-                        type="checkbox"
-                        value="showMeat"
-                        id="preferences-meat"
-                        onChange={handleCheckboxChange}
-                        defaultChecked={true}
-                    />
-                    <span>{meat}</span>
-                </label>
+            <PreferenceCheckbox
+                preferenceId="preferences-fish"
+                preferenceValue="showFish"
+                checkboxTitle={fish}
+                handleCheckboxChange={handleCheckboxChange}
+            >
+                <FishIcon />
+            </PreferenceCheckbox>
 
-                <MeatIcon fill="#000"/>
-            </div>
+            <PreferenceCheckbox
+                preferenceId="preferences-vegetarian"
+                preferenceValue="showVegetarian"
+                checkboxTitle={vegetarian}
+                handleCheckboxChange={handleCheckboxChange}
+            >
+                <VegetarianIcon />
+            </PreferenceCheckbox>
 
-            <div className="user-preference__container">
-
-                <label htmlFor="preferences-fish">
-                    <input
-                        type="checkbox"
-                        value="showFish"
-                        id="preferences-fish"
-                        onChange={handleCheckboxChange}
-                        defaultChecked={true}
-                    />
-                    {fish}
-                </label>
-
-                <FishIcon/>
-            </div>
-
-            <div className="user-preference__container">
-
-                <label htmlFor="preferences-vegetarian">
-                    <input
-                        type="checkbox"
-                        value="showVegetarian"
-                        id="preferences-vegetarian"
-                        onChange={handleCheckboxChange}
-                        defaultChecked={true}
-                    />
-                    {vegetarian}
-                </label>
-
-                <VegetarianIcon/>
-            </div>
-
-            <div className="user-preference__container">
-
-                <label htmlFor="preferences-vegan">
-                    <input
-                        type="checkbox"
-                        value="showVegan"
-                        id="preferences-vegan"
-                        onChange={handleCheckboxChange}
-                        defaultChecked={true}
-                    />
-                    {vegan}
-                </label>
-
-                <VeganIcon/>
-            </div>
+            <PreferenceCheckbox
+                preferenceId="preferences-vegan"
+                preferenceValue="showVegan"
+                checkboxTitle={vegan}
+                handleCheckboxChange={handleCheckboxChange}
+            >
+                <VeganIcon />
+            </PreferenceCheckbox>
 
         </section>
     );

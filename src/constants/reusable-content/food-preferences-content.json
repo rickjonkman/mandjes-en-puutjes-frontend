@@ -1,0 +1,14 @@
+{
+  "en": {
+    "meat": "Meat",
+    "fish": "Fish",
+    "vegetarian": "Vegetarian",
+    "vegan": "Vegan"
+  },
+  "nl": {
+    "meat": "Vlees",
+    "fish": "Vis",
+    "vegetarian": "Vegetarisch",
+    "vegan": "Vegan"
+  }
+}

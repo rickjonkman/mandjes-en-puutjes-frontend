@@ -8,6 +8,8 @@
   background-repeat: no-repeat;
   border: 2px solid $borderColor;
   border-radius: 8px;
+  overflow: hidden;
+  @include set-flexbox(row, space-between, flex-end);
 }
 
 @mixin set-flexbox($flex-dir, $justify-c, $align-i) {
@@ -22,11 +24,6 @@
   background-color: $bg-color;
 }
 
-@mixin set-login-register-title() {
-  @include set-title-general(15rem, $white, $dark-green);
-  background-image: url("/src/assets/images/register-title.jpg");
-}
-
 @mixin set-container($bg-color, $border-color) {
   width: 100%;
   padding: 2rem;
@@ -35,4 +32,14 @@
   border: 2px solid $border-color;
   border-radius: 8px;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+}
+
+@mixin set-login-register-title() {
+  @include set-title-general(15rem, $white, $dark-green);
+  background-image: url("/src/assets/images/register-title.jpg");
+}
+
+@mixin set-dashboard-title() {
+  @include set-title-general(15rem, $white, $dark-green);
+  background-image: url("/src/assets/images/dashboard-title.jpg");
 }

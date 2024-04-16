@@ -1,42 +1,49 @@
-import Checkbox from "../../ui/inputs/Checkbox.jsx";
-import {useContext} from "react";
-import {UserContext} from "../../../context/UserContext.jsx";
+import FoodPreferencesContent from "/src/constants/reusable-content/food-preferences-content.json";
+import PreferenceCheckbox from "../preference-checkbox/PreferenceCheckbox.jsx";
+import MeatIcon from "../../ui/svg-components/MeatIcon.jsx";
+import FishIcon from "../../ui/svg-components/FishIcon.jsx";
+import VegetarianIcon from "../../ui/svg-components/VegetarianIcon.jsx";
+import VeganIcon from "../../ui/svg-components/VeganIcon.jsx";
 
 
-const FoodPreferencesBlock = () => {
+const FoodPreferencesBlock = ({userDetails, setUserDetails, language, blockItemClass, checkboxClass}) => {
 
-    const { preferences, setAuthenticated, authenticated } = useContext(UserContext);
+    const {meat, fish, vegetarian, vegan} = FoodPreferencesContent[language];
 
-    const preferencesArray = Object.keys(preferences).map((key) => {
-        return {
-            id: key.replace('show', '').toLowerCase(),
-            value: preferences[key]
-        }
-    });
+    const preferencesArray = [
+        {id: 1, name: 'showMeat', htmlID: 'pref-meat', value: meat, icon: <MeatIcon/>},
+        {id: 2, name: 'showFish', htmlID: 'pref-fish', value: fish, icon: <FishIcon/>},
+        {id: 3, name: 'showVegetarian', htmlID: 'pref-vegetarian', value: vegetarian, icon: <VegetarianIcon/>},
+        {id: 4, name: 'showVegan', htmlID: 'pref-vegan', value: vegan, icon: <VeganIcon/>},
+    ]
 
     const handleChangePreference = (preference) => {
-        setAuthenticated({
-            ...authenticated,
-            preferences: {
-                ...preferences,
-                [preference]: !preferences[preference]
-            }
-        })
+        const updatedPreferences = preferencesArray.map((pref) => {
+            return Object.prototype.hasOwnProperty.call(pref, preference) ? {[preference]: !pref.value} : pref;
+        });
+
+        setUserDetails({
+            ...userDetails,
+            preferences: updatedPreferences,
+        });
     }
 
     return (
-        <article className="food-preferences__container">
+        <article className={blockItemClass}>
 
             {
-                preferencesArray.map((preference, index) => {
+                preferencesArray.map((preference) => {
                     return (
-                        <Checkbox
-                            key={index}
-                            id={preference.id}
-                            name="preferences"
-                            checkedCB={preference.value}
-                            onChangeCB={() => handleChangePreference(preference.id)}
-                        />
+                        <PreferenceCheckbox
+                            key={preference.id}
+                            preferenceId={preference.htmlID}
+                            preferenceValue={preference.name}
+                            checkboxTitle={preference.name}
+                            handleCheckboxChange={() => handleChangePreference(preference.name)}
+                            preferenceCheckboxClass={checkboxClass}
+                        >
+                            {preference.icon}
+                        </PreferenceCheckbox>
                     )
                 })
             }

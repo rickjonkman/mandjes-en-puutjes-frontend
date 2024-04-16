@@ -5,15 +5,33 @@ import dashboard from "/src/constants/page-content/dashboard.json";
 import {useContext} from "react";
 import {LanguageContext} from "../../../context/LanguageContext.jsx";
 import MainContainer from "../../../components/structure/MainContainer.jsx";
-import BlockItemGrid from "../../../components/common/block-item-components/BlockItemGrid.jsx";
 import FoodPreferencesBlock from "../../../components/common/block-items/FoodPreferencesBlock.jsx";
 import NavBar from "../../../components/ui/nav/NavBar.jsx";
+import {UserContext} from "../../../context/UserContext.jsx";
+import "../../../scss/scss-pages/scss-peronal-pages/dashboard-page.scss";
 
 
 const DashboardPage = () => {
 
     const { language } = useContext(LanguageContext);
     const { title } = dashboard[language];
+
+    const { userDetails, setUserDetails } = useContext(UserContext);
+
+    const blockClassNames = [
+        {
+            name: 'food-preferences',
+            className: 'food-preferences__container',
+            component: <FoodPreferencesBlock
+                userDetails={userDetails}
+                setUserDetails={setUserDetails}
+                language={language}
+            />,
+        },
+
+    ]
+
+    console.log(blockClassNames);
 
     return (
         <PageContainer pageContainerClass="dashboard__page-container">
@@ -27,11 +45,13 @@ const DashboardPage = () => {
 
             <MainContainer mainContainerClass="dashboard__main">
 
-                <BlockItemGrid>
-
-                    <FoodPreferencesBlock />
-
-                </BlockItemGrid>
+                <FoodPreferencesBlock
+                    userDetails={userDetails}
+                    setUserDetails={setUserDetails}
+                    language={language}
+                    blockItemClass="food-preferences__container"
+                    checkboxClass="food-preferences__checkbox"
+                />
 
             </MainContainer>
 
