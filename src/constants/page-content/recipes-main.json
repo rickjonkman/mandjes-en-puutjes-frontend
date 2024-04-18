@@ -14,7 +14,7 @@
           "title": "Alle Recepten",
           "subtitle": "Hier kun je alle recepten vinden",
           "button": {
-            "class": "recipes-main__button",
+            "class": "main-page__button",
             "text": "Ga naar Alle Recepten",
             "navigate": "/recipes/all"
           }
@@ -23,7 +23,7 @@
           "title": "Opgeslagen Recepten",
           "subtitle": "Hier kun je al je opgeslagen recepten vinden",
           "button": {
-            "class": "recipes-main__button",
+            "class": "main-page__button",
             "text": "Ga naar Opgeslagen Recepten",
             "navigate": "/recipes/saved"
           }
@@ -32,7 +32,7 @@
           "title": "Mijn Recepten",
           "subtitle": "Hier kun je al je eigen recepten vinden",
           "button": {
-            "class": "recipes-main__button",
+            "class": "main-page__button",
             "text": "Ga naar Mijn Recepten",
             "navigate": "/recipes/my"
           }
@@ -55,7 +55,7 @@
           "title": "All Recipes",
           "subtitle": "Here you can find all recipes",
           "button": {
-            "class": "recipes-main__button",
+            "class": "main-page__button",
             "text": "Go to All Recipes",
             "navigate": "/recipes/all"
           }
@@ -64,7 +64,7 @@
           "title": "Saved Recipes",
           "subtitle": "Here you can find all your saved recipes",
           "button": {
-            "class": "recipes-main__button",
+            "class": "main-page__button",
             "text": "Go to Saved Recipes",
             "navigate": "/recipes/saved"
           }
@@ -73,7 +73,7 @@
           "title": "My Recipes",
           "subtitle": "Here you can find all your own recipes",
           "button": {
-            "class": "recipes-main__button",
+            "class": "main-page__button",
             "text": "Go to My Recipes",
             "navigate": "/recipes/my"
           }

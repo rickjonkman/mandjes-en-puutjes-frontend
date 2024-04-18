@@ -1,0 +1,21 @@
+@import "src/scss/scss-common/scss-containers";
+@import "src/scss/utils";
+
+.shopping-mode__page-container {
+  @include set-page-container($white);
+  @include set-flexbox(column, space-between, center);
+
+  .shopping-mode__header {
+    width: 90%;
+    margin-top: 8rem;
+  }
+
+  .shopping-mode__main {
+    width: 90%;
+    margin-top: 2rem;
+  }
+}
+
+.shopping-mode__title {
+  @include set-shopping-mode-title;
+}

@@ -61,3 +61,13 @@
     @include set-title-general(15rem, $white, $dark-green);
     background-image: url("/src/assets/images/recipes-all-title.jpg");
 }
+
+@mixin set-groceries-main-title() {
+  @include set-title-general(15rem, $white, $dark-green);
+    background-image: url("/src/assets/images/groceries-main-title.jpg");
+}
+
+@mixin set-shopping-mode-title() {
+  @include set-title-general(15rem, $white, $dark-green);
+    background-image: url("/src/assets/images/shopping-mode-title.jpg");
+}

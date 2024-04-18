@@ -1,0 +1,6 @@
+@import "src/scss/utils";
+@import "src/scss/scss-common/scss-containers";
+
+.groceries-main__title {
+  @include set-groceries-main-title;
+}

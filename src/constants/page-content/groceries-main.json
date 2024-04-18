@@ -1,0 +1,56 @@
+{
+  "nl": {
+    "content": {
+      "title": "Boodschappen"
+    },
+    "blocks": {
+      "block_items": {
+        "shopping_mode": {
+          "block_title": "Winkelmodus",
+          "subtitle": "Bekijk je nieuwe lijst in winkelmodus",
+          "button": {
+            "class": "main-page__button",
+            "text": "Ga naar Winkelmodus",
+            "navigate": "/groceries/shopping-mode"
+          }
+        },
+        "shopping_lists": {
+          "block_title": "Boodschappenlijsten",
+          "subtitle": "Bekijk je boodschappenlijsten",
+          "button": {
+            "class": "main-page__button",
+            "text": "Bekijk boodschappenlijsten",
+            "navigate": "/groceries/shopping-lists"
+          }
+        }
+      }
+    }
+  },
+  "en": {
+    "content": {
+      "title": "Groceries"
+    },
+    "blocks": {
+      "block_items": {
+        "shopping_mode": {
+          "block_title": "Shopping Mode",
+          "subtitle": "View your new list in shopping mode",
+          "button": {
+            "class": "main-page__button",
+            "text": "Go to Shopping Mode",
+            "navigate": "/groceries/shopping-mode"
+          }
+        },
+        "shopping_lists": {
+          "block_title": "Shopping Lists",
+          "subtitle": "View your shopping lists",
+          "button": {
+            "class": "main-page__button",
+            "text": "View shopping lists",
+            "navigate": "/groceries/shopping-lists"
+          }
+        }
+      }
+    }
+  }
+}
