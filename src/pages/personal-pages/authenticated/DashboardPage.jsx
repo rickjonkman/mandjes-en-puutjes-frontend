@@ -9,6 +9,7 @@ import FoodPreferencesBlock from "../../../components/common/block-items/FoodPre
 import NavBar from "../../../components/ui/nav/NavBar.jsx";
 import {UserContext} from "../../../context/UserContext.jsx";
 import "../../../scss/scss-pages/scss-peronal-pages/dashboard-page.scss";
+import AddNewRecipeBlock from "../../../components/common/block-items/AddNewRecipeBlock.jsx";
 
 
 const DashboardPage = () => {
@@ -51,6 +52,11 @@ const DashboardPage = () => {
                     language={language}
                     blockItemClass="food-preferences__container"
                     checkboxClass="food-preferences__checkbox"
+                />
+
+                <AddNewRecipeBlock
+                    language={language}
+                    blockItemClass="add-new-recipe__container"
                 />
 
             </MainContainer>

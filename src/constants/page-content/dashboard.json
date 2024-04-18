@@ -1,8 +1,36 @@
 {
   "en": {
-    "title": "Dashboard"
+    "title": "Dashboard",
+    "blocks": {
+      "preferences": {
+        "title": "Preferences",
+        "subject": "Profiel",
+        "button": "Save"
+      },
+      "newRecipe": {
+        "title": "Add new recipe",
+        "subtitle": "Add your culinary creations here",
+        "subject": "Cooking",
+        "button": "Start adding",
+        "inputPlaceholder": "Recipe name"
+      }
+    }
   },
   "nl": {
-    "title": "Dashboard"
+    "title": "Dashboard",
+    "blocks": {
+      "preferences": {
+        "title": "Voorkeuren",
+        "subject": "Profiel",
+        "button": "Opslaan"
+      },
+        "newRecipe": {
+            "title": "Nieuw recept toevoegen",
+            "subtitle": "Voeg hier je culinaire creaties toe",
+            "subject": "Koken",
+            "button": "Begin met toevoegen",
+            "inputPlaceholder": "Receptnaam"
+        }
+    }
   }
 }
