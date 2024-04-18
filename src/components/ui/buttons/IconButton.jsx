@@ -1,14 +1,14 @@
 import BackArrow from "../svg-components/backArrow.jsx";
 
 
-const IconButton = ({ buttonClass, onClickHandler }) => {
+const IconButton = ({ buttonClass, onClickHandler, children }) => {
     return (
         <button
             className={buttonClass}
             type="button"
             onClick={onClickHandler}>
 
-            <BackArrow fill="#F8FDFBFF" backArrowClass="icon__go-back" />
+            {children}
 
         </button>
     );

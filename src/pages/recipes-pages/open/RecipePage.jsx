@@ -1,55 +1,71 @@
-import {useContext} from 'react';
+import {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
-import useFetchRecipe from "../../../api/useFetchRecipe.js";
 import PageContainer from "../../../components/structure/PageContainer.jsx";
 import HeaderContainer from "../../../components/structure/HeaderContainer.jsx";
 import PageTitle from "../../../components/common/page-title/PageTitle.jsx";
-import {LanguageContext} from "../../../context/LanguageContext.jsx";
-import endpoints from "../../../api/endpoints.json";
-import utilityMessages from "../../../constants/utilityMessages.json";
-import pageContent from "../../../constants/pageContent.json";
 import MainContainer from "../../../components/structure/MainContainer.jsx";
 import RecipePageHeader from "../../../components/page-components/recipe-page-components/RecipePageHeader.jsx";
 import RecipeMidSection from "../../../components/page-components/recipe-page-components/RecipeMidSection.jsx";
+import NavBar from "../../../components/ui/nav/NavBar.jsx";
+import "/src/scss/scss-pages/scss-recipes/recipe-page.scss";
+import axios from "axios";
 
 
 const RecipePage = () => {
 
     const {recipeId} = useParams();
 
-    const {language} = useContext(LanguageContext);
-    const {url} = endpoints.endpoints.getRecipe;
-    const {title} = pageContent[language].recipePage;
-    const {loading_message, error_message} = utilityMessages[language]
-    const {singleRecipe, isLoading, error} = useFetchRecipe(url, recipeId);
-    const {recipeName, prepTime, createdByUser, tags, imageFilename} = singleRecipe;
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const [recipe, setRecipe] = useState(null);
 
-    // TODO: Add button to go back to All Recipes Page
+    useEffect(() => {
+        void fetchRecipe();
+    }, []);
+
+    const fetchRecipe = async () => {
+
+        setError(null);
+        setIsLoading(true);
+
+        try {
+            const response = await axios.get(`http://localhost:8080/api/v1/recipes/get-recipe/${recipeId}`);
+            console.log(response.data)
+            setRecipe(response.data);
+        } catch (e) {
+            console.error("Error fetching single recipe: ", e);
+        } finally {
+            setIsLoading(false);
+        }
+
+    }
+
+    console.log(recipe)
+
 
     return (
-        <PageContainer>
 
-            <HeaderContainer>
-                <PageTitle pageTitle={title} pageTitleClass="recipe-page__class"/>
-            </HeaderContainer>
+            recipe &&
+        <>
+            <PageContainer pageContainerClass="recipe-page__page-container">
 
-            <MainContainer>
-                {error ? <p>{error_message}</p> : null}
-                {isLoading ? <p>{loading_message}</p> : null}
+                <HeaderContainer headerContainerClass="recipe-page__header-container">
 
-                <RecipePageHeader
-                    recipeName={recipeName}
-                    prepTime={prepTime}
-                    creator={createdByUser}
-                    tags={tags}
-                    imageFile={imageFilename}
-                />
+                    <NavBar/>
 
-                <RecipeMidSection recipe={singleRecipe}/>
+                </HeaderContainer>
 
-            </MainContainer>
+                <MainContainer mainContainerClass="recipe-page__main-container">
 
-        </PageContainer>
+                    <RecipePageHeader recipe={recipe}/>
+
+                    <RecipeMidSection recipe={recipe}/>
+
+                </MainContainer>
+
+            </PageContainer>
+        </>
+
     );
 };
 

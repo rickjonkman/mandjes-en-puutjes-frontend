@@ -18,18 +18,18 @@ const Calculator = ({ amount, description, minusClickHandler, plusClickHandler, 
                 <IconButton
                     buttonClass="calculator-btn"
                     buttonIconId="calculator-btn__icon"
-                    onClickHandler={minusClickHandler}
-                    iconSrc={MinusIcon}
-                    iconDescription={minusDescription}
-                />
+                    onClickHandler={minusClickHandler}>
+
+                    <img src={MinusIcon} alt={minusDescription} className="calculator-button__icon"/>
+                </IconButton>
 
                 <IconButton
                     buttonClass="calculator-btn"
                     buttonIconId="calculator-btn__icon"
-                    onClickHandler={plusClickHandler}
-                    iconSrc={PlusIcon}
-                    iconDescription={plusDescription}
-                />
+                    onClickHandler={plusClickHandler}>
+
+                    <img src={PlusIcon} alt={plusDescription} className="calculator-button__icon"/>
+                </IconButton>
 
             </div>
 

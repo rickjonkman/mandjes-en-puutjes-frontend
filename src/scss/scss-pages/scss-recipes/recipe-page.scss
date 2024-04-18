@@ -1,0 +1,225 @@
+@import "src/scss/scss-common/scss-containers";
+
+.recipe-page__page-container {
+  @include set-page-container($white);
+  @include set-flexbox(column, space-between, center);
+
+  .recipe-page__header-container {
+    width: 90%;
+  }
+
+  .recipe-page__main-container {
+    width: 90%;
+    margin-top: 2rem;
+  }
+}
+
+.recipe__title {
+  background-color: $sea-green;
+  color: $white;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+
+  h1 {
+    font-size: 4rem;
+  }
+}
+
+////// RECIPE TOP SECTION //////
+.recipe-page__top-section {
+  @include set-flexbox(row, space-between, center);
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  .recipe__top-info--article {
+    @include set-flexbox(column, center, center);
+    flex: 1 1 48%;
+    border: 2px solid $sea-green;
+    border-radius: 8px;
+    height: 20rem;
+    overflow: hidden;
+  }
+
+  .article__top-info {
+    padding: 1rem;
+
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  .article__tags {
+    width: 100%;
+    padding: 1rem 3rem;
+    margin-top: auto;
+    background-color: $sea-green;
+    color: $white;
+    font-weight: 600;
+    @include set-flexbox(row, space-between, center);
+  }
+
+  .recipe__image--class {
+    display: flex;
+    flex: 1 1 48%;
+    height: 20rem;
+    border: 2px solid $sea-green;
+    border-radius: 8px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+////// RECIPE MID SECTION //////
+.recipe-page__mid-section {
+  width: 100%;
+  margin-top: 2rem;
+  @include set-flexbox(row, space-between, flex-start);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.recipe-page__left-narrow {
+  @include set-flexbox(column, space-between, stretch);
+  flex-wrap: wrap;
+  flex: 1 1 38%;
+
+
+  aside {
+    background-color: $sea-green;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    flex: 1 1 38%;
+
+    .save-recipe__button {
+      width: 100%;
+      padding: 1rem;
+      border: 1px solid transparent;
+      background-color: $dark-green;
+      color: $white;
+      text-transform: uppercase;
+      font-size: 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: $white;
+    }
+
+    h4 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      color: $white;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+}
+
+////// CALCULATOR //////
+.calculator-container {
+  background-color: $white;
+  border-radius: 16px;
+  width: 100%;
+  padding: .2rem .6rem;
+  @include set-flexbox(row, space-between, center);
+
+  .calculator-buttons {
+    @include set-flexbox(row, center, center);
+
+    button {
+      width: 2rem;
+      height: 2rem;
+      margin: .2rem;
+      background-color: transparent;
+      border: 1px solid $darker-green;
+      border-radius: 8px;
+      font-size: 1.2rem;
+
+      .calculator-button__icon {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+////// INGREDIENTS LIST //////
+.ingredient-list__container ul {
+  list-style-type: none;
+  margin-top: 2rem;
+  background-color: $sea-green;
+  border-radius: 8px;
+
+  li {
+    padding: .5rem;
+    margin-bottom: .5rem;
+    background-color: $white;
+    border-radius: 8px;
+
+    label {
+      @include set-flexbox(row, space-between, center);
+    }
+
+    .ingredient__list-item--container {
+      @include set-flexbox(row, flex-start, center);
+      width: 100%;
+    }
+
+    .ingredient__list-item--measurement {
+      @include set-flexbox(row, center, center);
+      margin-left: 1rem;
+
+      p {
+        margin-left: .4rem;
+      }
+    }
+
+  }
+}
+
+////// INSTRUCTIONS LIST //////
+.recipe-page__right-wide {
+  display: flex;
+  flex: 1 1 58%;
+  background-color: $sea-green;
+  border-radius: 8px;
+  padding: 1rem;
+
+  h2 {
+    font-size: 2.2rem;
+    color: $white;
+    margin-bottom: 1rem;
+  }
+
+  .instructions__list {
+    @include set-flexbox(column, flex-start, flex-start);
+    width: 100%;
+
+    ul li {
+      list-style: none;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      color: $black;
+      font-weight: 600;
+      @include set-flexbox(row, flex-start, center);
+
+      h2 {
+        padding: 1rem;
+      }
+    }
+  }
+}

@@ -10,6 +10,14 @@
   border-radius: 8px;
   overflow: hidden;
   @include set-flexbox(row, space-between, flex-end);
+
+  h1 {
+    font-size: 4rem;
+    padding: 1rem;
+    background-color: $dark-green;
+    color: $white;
+    border-top-right-radius: 8px;
+  }
 }
 
 @mixin set-flexbox($flex-dir, $justify-c, $align-i) {
@@ -42,4 +50,14 @@
 @mixin set-dashboard-title() {
   @include set-title-general(15rem, $white, $dark-green);
   background-image: url("/src/assets/images/dashboard-title.jpg");
+}
+
+@mixin set-recipes-main-title() {
+  @include set-title-general(15rem, $white, $dark-green);
+  background-image: url("/src/assets/images/recipes-main-title.jpg");
+}
+
+@mixin set-recipes-all-title {
+    @include set-title-general(15rem, $white, $dark-green);
+    background-image: url("/src/assets/images/recipes-all-title.jpg");
 }

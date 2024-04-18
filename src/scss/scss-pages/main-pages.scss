@@ -1,0 +1,73 @@
+@import "src/scss/scss-common/scss-containers";
+
+.main-page__container {
+  width: 100%;
+  @include set-page-container($sea-green-light);
+  @include set-flexbox(column, space-between, center);
+
+  .main-page__header {
+    width: 90%;
+  }
+
+  .main-page__main {
+    width: 90%;
+  }
+}
+
+//// HEADER /////
+
+.recipes-main__title {
+  @include set-recipes-main-title;
+}
+
+////// MAIN //////
+.main-page__main {
+  @include set-flexbox(column, space-around, center);
+  margin-top: 2rem;
+  flex-wrap: wrap;
+
+}
+
+.main-page__block-item {
+  @include set-flexbox(column, space-around, flex-start);
+  width: 100%;
+  margin-bottom: 1rem;
+  background-color: $white;
+  border: 2px solid $dark-green;
+  border-radius: 8px;
+  overflow: hidden;
+
+  .main-page__item--title-section {
+    width: 100%;
+    padding: 2rem;
+
+    h2 {
+      font-size: 3.5rem;
+    }
+
+    h3 {
+      font-size: 2rem;
+      padding: 2rem 0;
+    }
+  }
+
+  .main-page__button {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid transparent;
+    background-color: $darker-green;
+    color: $sea-green;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $dark-green;
+      color: $white;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+}
+
+
+

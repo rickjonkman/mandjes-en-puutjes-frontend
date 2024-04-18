@@ -3,25 +3,31 @@ import HeaderContainer from "../../../components/structure/HeaderContainer.jsx";
 import PageTitle from "../../../components/common/page-title/PageTitle.jsx";
 import {useContext} from "react";
 import {LanguageContext} from "../../../context/LanguageContext.jsx";
-import pageContent from "../../../constants/pageContent.json";
+import AllRecipes from "/src/constants/page-content/all-recipes.json";
 import MainContainer from "../../../components/structure/MainContainer.jsx";
 import RecipeThumbnailsContainer
     from "../../../components/page-components/all-recipes-components/RecipeThumbnailsContainer.jsx";
+import NavBar from "../../../components/ui/nav/NavBar.jsx";
+import "/src/scss/scss-pages/scss-recipes/recipes-all.scss";
 
 
 const AllRecipesPage = () => {
 
     const { language } = useContext(LanguageContext);
-    const { title } = pageContent[language].allRecipesPage;
+    const { title } = AllRecipes[language].page;
 
     return (
-        <PageContainer>
+        <PageContainer pageContainerClass="recipes-all__page-container">
 
-            <HeaderContainer>
+            <HeaderContainer headerContainerClass="recipes-all__header">
+
+                <NavBar />
+
                 <PageTitle pageTitleClass="recipes-all__title" pageTitle={title} />
+
             </HeaderContainer>
 
-            <MainContainer>
+            <MainContainer mainContainerClass="recipes-all__main">
                 <RecipeThumbnailsContainer />
             </MainContainer>
 

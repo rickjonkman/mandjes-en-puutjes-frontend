@@ -16,7 +16,10 @@ const RecipeTopInfo = ({ recipeName, prepTime, creator, tags }) => {
             <section className="article__tags">
                 {
                     tags.map((tag, index) => {
-                        return <p key={index}>{tag.tagName}</p> })
+                        return (
+                            <p key={index}>{tag}</p>
+                        )
+                    })
                 }
             </section>
 

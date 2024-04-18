@@ -1,0 +1,98 @@
+@import "src/scss/scss-common/scss-containers";
+
+.recipes-all__page-container {
+  @include set-page-container($white);
+  @include set-flexbox(column, space-between, center);
+
+  .recipes-all__header {
+    width: 90%;
+  }
+
+  .recipes-all__main {
+    width: 90%;
+  }
+}
+
+.recipes-all__title {
+  @include set-recipes-all-title;
+  margin-top: 2rem;
+}
+
+.recipes-all__grid {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.recipe-thumbnail__container {
+  @include set-flexbox(column, space-between, center);
+  width: 100%;
+  background-color: $sea-green-light;
+  border: 2px solid $dark-green;
+  border-radius: 8px;
+  overflow: hidden;
+
+  .recipe-thumbnail__title-container {
+    width: 100%;
+    min-height: 10rem;
+    padding: 1.5rem;
+    background-color: $sea-green;
+
+    h3 {
+      font-size: 1.6rem;
+      color: $white;
+    }
+  }
+
+  .recipe-thumbnail__image-container,
+  .recipe-thumbnail__not-loaded {
+    width: 100%;
+    height: 16rem;
+    overflow: hidden;
+  }
+
+  .recipe-thumbnail__image-container {
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .recipe-thumbnail__not-loaded {
+   background-color: $dark-green;
+  }
+
+  .recipe-thumbnail__tags-container {
+    width: 100%;
+    height: 4rem;
+    padding: 1rem;
+    background-color: $dark-green;
+    color: $white;
+    @include set-flexbox(row, space-around, center);
+
+    p {
+      font-size: 1.4rem;
+      font-style: italic;
+    }
+
+  }
+
+  .recipe-thumbnail__btn {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid transparent;
+    background-color: $darker-green;
+    color: $sea-green;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &:hover {
+      border: 1px solid $darker-green;
+      background-color: $sea-green-light;
+      color: $darker-green;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+}

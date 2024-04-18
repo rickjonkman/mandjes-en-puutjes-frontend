@@ -4,11 +4,15 @@ import pageContent from "../../../constants/pageContent.json";
 import {LanguageContext} from "../../../context/LanguageContext.jsx";
 import IngredientList from "./IngredientList.jsx";
 
-const RecipeIngredients = ({ sectionTitle, servings, ingredients }) => {
+const RecipeIngredients = ({sectionTitle, servings, ingredients}) => {
 
     const [servingsAmount, setServingsAmount] = useState(servings);
-    const { language } = useContext(LanguageContext);
-    const {description, minusDescription, plusDescription } = pageContent[language].recipePage.recipeMidSection.calculator;
+    const {language} = useContext(LanguageContext);
+    const {
+        description,
+        minusDescription,
+        plusDescription
+    } = pageContent[language].recipePage.recipeMidSection.calculator;
 
     const minusServings = () => {
         if (servingsAmount > 1) {
@@ -18,6 +22,7 @@ const RecipeIngredients = ({ sectionTitle, servings, ingredients }) => {
 
     return (
         <aside className="recipe-page__ingredients-section">
+
 
             <h3>{sectionTitle}</h3>
 

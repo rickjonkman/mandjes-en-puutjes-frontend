@@ -15,7 +15,6 @@ import RecipesMainPage from "./pages/recipes-pages/open/RecipesMainPage.jsx";
 import SavedRecipesPage from "./pages/recipes-pages/authenticated/SavedRecipesPage.jsx";
 import SurpriseRecipePage from "./pages/recipes-pages/authenticated/SurpriseRecipePage.jsx";
 import {useContext} from "react";
-import {UserContext} from "./context/UserContext.jsx";
 import LoadingPage from "./pages/util-pages/LoadingPage.jsx";
 import PleaseRegisterPage from "./pages/util-pages/PleaseRegisterPage.jsx";
 import {AuthContext} from "./context/AuthContext.jsx";
@@ -40,7 +39,7 @@ function App() {
                 <Route path="/groceries/shopping-mode" element={<ShoppingModePage />}/>
                 <Route path="/groceries/shopping-lists" element={<ShoppingListsPage />}/>
 
-                <Route path="/recipesmain" element={<RecipesMainPage />}/>
+                <Route path="/recipes/main" element={<RecipesMainPage />}/>
                 <Route path="/recipes/all" element={<AllRecipesPage />}/>
                 <Route path="/recipe/:recipeId" element={<RecipePage />}/>
                 <Route path="/recipes/saved-recipes" element={<SavedRecipesPage />}/>

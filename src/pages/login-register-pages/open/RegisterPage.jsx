@@ -26,11 +26,9 @@ const RegisterPage = () => {
                 <PageTitle pageTitleClass="login-register__title" pageTitle={title}>
                     <IconButton
                         buttonClass="button__go-back"
-                        onClickHandler={() => navigate('/')}
-                        iconSrc={BackArrow}
-                        iconDescription="Klik om terug te gaan"
-                        buttonIconId="icon__go-back"
-                    />
+                        onClickHandler={() => navigate('/')}>
+                        <BackArrow fill="#F8FDFBFF" backArrowClass="icon__go-back" />
+                    </IconButton>
                 </PageTitle>
             </HeaderContainer>
 

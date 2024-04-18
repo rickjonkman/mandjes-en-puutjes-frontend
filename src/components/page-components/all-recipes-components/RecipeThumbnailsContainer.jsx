@@ -24,7 +24,7 @@ const RecipeThumbnailsContainer = () => {
                             recipeId={recipe.recipeId}
                             recipeName={recipe.recipeName}
                             tags={recipe.tags}
-                            recipeImage={recipe.imageFileName}
+                            recipeImage={recipe.imageFilename}
                             recipeImageDescription={recipe.recipeImageDescription}
                             buttonClickHandler={() => navigate(`/recipes/main`)}
                         />
