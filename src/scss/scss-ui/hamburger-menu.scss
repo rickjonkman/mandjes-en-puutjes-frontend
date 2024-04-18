@@ -1,0 +1,53 @@
+@import "src/scss/scss-common/scss-containers";
+@import "src/scss/scss-common/scss-typography";
+
+.nav__hamburger-menu {
+    width: 100%;
+
+    .hamburger-menu__header {
+        @include set-flexbox(row, flex-end, center);
+        width: 100%;
+        padding: 1rem 2rem;
+    }
+
+}
+
+.nav-bar__logo-button {
+    fill: $black;
+
+    &:hover {
+        fill: $sea-green;
+        transition: all 0.3s ease-in-out;
+
+    }
+}
+
+.nav__hamburger-menu ul {
+    @include set-flexbox(column, center, flex-start);
+    padding: 1rem 0;
+    list-style: none;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+
+    li {
+            width: 100%;
+        padding: 1rem 0;
+        text-align: center;
+        border-bottom: 1px solid $sea-green;
+        background-color: $white;
+        transition: all 0.3s ease-in-out;
+        @include set-flexbox(row, center, center);
+
+        a {
+            @include set-anchor-tag($black, 1.5rem, 500);
+            text-transform: uppercase;
+            transition: all 0.3s ease-in-out;
+            margin-left: 1rem;
+
+            &:hover {
+                color: $sea-green;
+                transition: all 0.3s ease-in-out;
+            }
+        } }
+}
+

@@ -4,7 +4,36 @@
 
 .nav-bar__container {
   @include set-flexbox(row, space-between, center);
+  position: fixed;
   width: 100%;
+  padding: .4rem 2rem;
+  top: 0;
+  left: 0;
+  background-color: rgba(248, 253, 251, .8);
+  z-index: 1000;
+
+  .nav-visible {
+    width: 100%;
+    @include set-flexbox(row, space-between, center);
+  }
+
+  &:hover {
+    background-color: rgba(248, 253, 251, 1);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .nav-bar__narrow {
+    height: 3px;
+    width: 100%;
+    background-color: $black;
+    display: flex;
+    justify-self: stretch;
+  }
+}
+
+.nav-hidden {
+    display: none;
+
 }
 
 .nav-bar__content {
@@ -14,8 +43,8 @@
 
 .nav-bar__logo-button {
   background-color: transparent;
-    border: none;
-    cursor: pointer;
+  border: none;
+  cursor: pointer;
 
   .nav-bar__logo {
     fill: $black;
@@ -28,7 +57,6 @@
 }
 
 
-
 .nav-bar__menu ul {
   @include set-flexbox(row, space-bwteen, center);
   list-style: none;
@@ -38,7 +66,17 @@
   }
 
   li a {
-    @include set-anchor-tag($black, 1.2rem, 500);
+    @include set-anchor-tag($black, 1rem, 500);
+
+    &:hover {
+      color: $sea-green;
+      transition: all 0.3s ease-in-out;
+
+    }
+
+    .active-menu-link {
+      color: $sea-green;
+    }
   }
 }
 
@@ -46,6 +84,12 @@
   border: none;
   background-color: transparent;
   width: 3rem;
+  cursor: pointer;
+
+  &:hover #nav-bar__ham-icon {
+    fill: $sea-green;
+    transition: all 0.3s ease-in-out;
+  }
 
   #nav-bar__ham-icon {
     width: 100%;

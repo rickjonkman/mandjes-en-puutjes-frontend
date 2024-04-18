@@ -5,8 +5,6 @@ import {LanguageContext} from "../../../context/LanguageContext.jsx";
 
 const NavBarMenuItems = ({ navItems }) => {
 
-    const { language } = useContext(LanguageContext);
-
     return (
         <menu className="nav-bar__menu">
 
@@ -16,7 +14,7 @@ const NavBarMenuItems = ({ navItems }) => {
                         return (
                             <NavBarMenuItem
                                 key={index}
-                                navEndpoint={item.link}
+                                navEndpoint={item.navLink}
                                 navLabel={item.title}
                             />
                         )

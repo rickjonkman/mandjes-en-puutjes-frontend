@@ -21,8 +21,6 @@ const AllRecipesPage = () => {
 
             <HeaderContainer headerContainerClass="recipes-all__header">
 
-                <NavBar />
-
                 <PageTitle pageTitleClass="recipes-all__title" pageTitle={title} />
 
             </HeaderContainer>

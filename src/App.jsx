@@ -14,17 +14,53 @@ import ShoppingListsPage from "./pages/groceries-pages/authenticated/ShoppingLis
 import RecipesMainPage from "./pages/recipes-pages/open/RecipesMainPage.jsx";
 import SavedRecipesPage from "./pages/recipes-pages/authenticated/SavedRecipesPage.jsx";
 import SurpriseRecipePage from "./pages/recipes-pages/authenticated/SurpriseRecipePage.jsx";
-import {useContext} from "react";
+import {useCallback, useContext, useEffect, useState} from "react";
 import LoadingPage from "./pages/util-pages/LoadingPage.jsx";
 import PleaseRegisterPage from "./pages/util-pages/PleaseRegisterPage.jsx";
 import {AuthContext} from "./context/AuthContext.jsx";
+import NavBar from "./components/ui/nav/NavBar.jsx";
 
 function App() {
 
     const { isLoading, isLoggedIn } = useContext(AuthContext);
 
+    const [scrollY, setScrollY] = useState(document.scrollingElement.scrollHeight);
+    const [scrollDirection, setScrollDirection] = useState('up');
+    const [enterNav, setEnterNav] = useState(true);
+
+    const handleScroll = useCallback(() => {
+
+        if (scrollY > window.scrollY) {
+            setScrollDirection('up');
+        } else if (scrollY < window.scrollY) {
+            setScrollDirection('down');
+        }
+        setScrollY(window.scrollY);
+
+    }, [scrollY]);
+
+    const handleMouseEnter = () => {
+        setEnterNav(true);
+    }
+
+    const handleMouseLeave = () => {
+        setEnterNav(false);
+
+    }
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [handleScroll]);
+
     return (
         <>
+            <NavBar
+                scrollDirection={scrollDirection}
+                handleMouseEnter={handleMouseEnter}
+                handleMouseLeave={handleMouseLeave}
+                enterNav={enterNav}
+            />
 
             <Routes>
                 <Route index element={<LandingPage />}/>

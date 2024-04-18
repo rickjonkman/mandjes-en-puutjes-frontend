@@ -19,8 +19,6 @@ const LandingPage = () => {
         <PageContainer pageContainerClass="landing-page__page-container">
 
             <HeaderContainer headerContainerClass="landing-page__header">
-                <NavBar />
-
                 <LandingPageTitle
                     title={landingPage[language].title}
                     subtitle={landingPage[language].subtitle}
