@@ -9,6 +9,7 @@ import RecipeThumbnailsContainer
     from "../../../components/page-components/all-recipes-components/RecipeThumbnailsContainer.jsx";
 import NavBar from "../../../components/ui/nav/NavBar.jsx";
 import "/src/scss/scss-pages/scss-recipes/recipes-all.scss";
+import FooterContainer from "../../../components/structure/FooterContainer.jsx";
 
 
 const AllRecipesPage = () => {
@@ -28,6 +29,8 @@ const AllRecipesPage = () => {
             <MainContainer mainContainerClass="recipes-all__main">
                 <RecipeThumbnailsContainer />
             </MainContainer>
+
+            <FooterContainer />
 
         </PageContainer>
     );

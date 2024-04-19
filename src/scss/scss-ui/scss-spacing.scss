@@ -1,0 +1,22 @@
+
+@mixin set-padding-split($p-vertical, $p-horizontal) {
+  padding: $p-vertical $p-horizontal;
+}
+
+@mixin set-padding-full($p) {
+  padding: $p;
+}
+
+@mixin set-margin-split($m-vertical, $m-horizontal) {
+  margin: $m-vertical $m-horizontal;
+}
+
+@mixin set-margin-full($m) {
+  margin: $m;
+}
+
+@mixin set-padding-margin($p-vertical, $p-horizontal, $m-vertical, $m-horizontal) {
+  padding: $p-vertical $p-horizontal;
+  margin: $m-vertical $m-horizontal;
+
+}

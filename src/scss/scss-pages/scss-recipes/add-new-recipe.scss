@@ -1,0 +1,234 @@
+@import "src/scss/structure/scss-containers";
+@import "src/scss/structure/page-title";
+@import "src/scss/scss-ui/buttons";
+@import "src/scss/scss-ui/form-items";
+
+.new-recipe__page-container {
+  @include set-page-container($white);
+  @include set-flexbox(column, space-between, center);
+
+  .new-recipe__header {
+    width: 90%;
+    margin-top: 8rem;
+  }
+
+  .new-recipe__main {
+    width: 90%;
+  }
+}
+
+.new-recipe__title {
+  @include set-new-recipe-title;
+}
+
+
+.new-recipe__form {
+  @include set-container($sea-green-light, $dark-green, $black);
+  @include set-flexbox(column, center, flex-start);
+  margin-top: 2rem;
+  padding: 1rem;
+
+  .new-recipe__basic-info,
+  .new-recipe__tags-section,
+  .new-recipe__ingredients-section,
+  .new-recipe__instructions-section {
+    @include set-flexbox(column, center, flex-start);
+    @include set-container($white, $dark-green, $black);
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 1rem;
+  }
+
+  .new-recipe__form--submit-button {
+    @include set-submit-button;
+  }
+
+}
+
+.new-recipe__basic-info {
+  @include set-label-input(100%, 100%);
+  margin: 1rem 0;
+
+  .new-recipe__basic-info--prep-time {
+    @include set-flexbox(column, space-between, flex-start);
+    margin: 2rem 0;
+  }
+
+  .prep-time__input-fields {
+    @include set-flexbox(row, space-between, center);
+    width: 100%;
+
+  }
+}
+
+.new-recipe__tags-input {
+  width: 100%;
+
+  input {
+    padding: .6rem;
+    border: 1px solid $dark-green;
+    border-radius: 8px;
+  }
+}
+
+.new-recipe__ingredients-section {
+  @include set-flexbox(column, center, flex-start);
+  width: 100%;
+  background-color: $sea-green-light;
+
+  .new-recipe--title-container {
+    width: 100%;
+    @include set-flexbox(column, center, flex-start);
+  }
+
+  .new-recipe__ingredients-input--container {
+    width: 100%;
+    @include set-flexbox(column, center, flex-start);
+  }
+
+  .new-recipe__ingredients--input-values {
+    width: 100%;
+    padding: 1rem;
+    background-color: $sea-green-light;
+    border-radius: 8px;
+    @include set-flexbox(row, space-between, flex-start);
+  }
+
+  .remove-ingredient__button {
+    @include set-icon-button;
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    background-color: $dark-green;
+    border-radius: 8px;
+
+    .close-icon__svg {
+      fill: $white;
+    }
+  }
+
+  .new-recipe__ingredient {
+    background-color: $white;
+    margin: .6rem;
+    padding: .2rem;
+    border-radius: 8px;
+
+    span {
+      margin: 0 .8rem;
+    }
+  }
+
+  .ingredient--column {
+    @include set-flexbox(column, flex-start, flex-start);
+  }
+
+
+  .new-recipe__ingredient-input {
+    margin-top: 1rem;
+    width: 100%;
+    @include set-flexbox(row, space-between, flex-end);
+    margin-bottom: 1rem;
+
+    input {
+      width: 70%;
+      padding: .6rem;
+      border: 1px solid $dark-green;
+      border-radius: 8px;
+    }
+
+    button {
+      @include set-icon-button;
+      width: 2rem;
+      height: 2rem;
+      border: none;
+      background-color: transparent;
+
+    }
+
+  }
+
+}
+
+.new-recipe__instructions-section {
+  width: 100%;
+  @include set-flexbox(column, center, flex-start);
+
+  .new-recipe--title-container {
+    width: 100%;
+    @include set-flexbox(column, center, flex-start);
+  }
+
+  .new-recipe__instructions-input-container {
+    width: 100%;
+    padding: 1rem;
+    background-color: $sea-green-light;
+    border-radius: 8px;
+    @include set-flexbox(column, center, flex-start);
+  }
+
+  .new-recipe__instruction {
+    background-color: $dark-green;
+    color: $white;
+    padding: .4rem;
+    border-radius: 8px;
+    margin-bottom: .8rem;
+
+    #span-step {
+      margin-right: .8rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    #span-description {
+      font-size: 1rem;
+      font-weight: 400;
+    }
+  }
+
+
+}
+
+.new-recipe__instruction-input {
+  width: 100%;
+  margin-top: 1rem;
+  @include set-flexbox(row, space-between, center);
+  gap: 1rem;
+
+  input {
+    width: 70%;
+    padding: .6rem;
+    border: 1px solid $dark-green;
+    border-radius: 8px;
+  }
+
+  button {
+    @include set-icon-button;
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    background-color: transparent;
+  }
+
+  .new-recipe__instruction-input--step-container {
+    flex: 1 1 20%;
+  }
+
+  .new-recipe__instruction-input--description-container {
+    flex: 1 1 70%;
+  }
+}
+
+.new-recipe__creator {
+    width: 100%;
+    @include set-flexbox(row, center, center);
+    margin-top: 2rem;
+
+    .new-recipe__creator--input-readonly {
+        width: 70%;
+        padding: .6rem;
+        border: 1px solid $dark-green;
+        border-radius: 8px;
+    }
+
+
+}

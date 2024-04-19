@@ -8,16 +8,21 @@ import MainContainer from "../../../components/structure/MainContainer.jsx";
 import FoodPreferencesBlock from "../../../components/common/block-items/FoodPreferencesBlock.jsx";
 import NavBar from "../../../components/ui/nav/NavBar.jsx";
 import {UserContext} from "../../../context/UserContext.jsx";
-import "../../../scss/scss-pages/scss-peronal-pages/dashboard-page.scss";
+import "../../../scss/scss-pages/dashboard-page.scss";
 import AddNewRecipeBlock from "../../../components/common/block-items/AddNewRecipeBlock.jsx";
+import ShoppingListBlock from "../../../components/page-components/shopping-lists-components/ShoppingListBlock.jsx";
+import GroceriesContextProvider, {GroceriesContext} from "../../../context/GroceriesContext.jsx";
+import ShoppingModeBlock from "../../../components/common/block-items/ShoppingModeBlock.jsx";
+import ShoppingListsBlock from "../../../components/common/block-items/ShoppingListsBlock.jsx";
+import FooterContainer from "../../../components/structure/FooterContainer.jsx";
 
 
 const DashboardPage = () => {
 
-    const { language } = useContext(LanguageContext);
-    const { title } = dashboard[language];
+    const {language} = useContext(LanguageContext);
+    const {title} = dashboard[language];
 
-    const { userDetails, setUserDetails } = useContext(UserContext);
+    const {userDetails, setUserDetails} = useContext(UserContext);
 
     const blockClassNames = [
         {
@@ -39,9 +44,9 @@ const DashboardPage = () => {
 
             <HeaderContainer headerContainerClass="dashboard__header">
 
-                <NavBar />
+                <NavBar/>
 
-                <PageTitle pageTitleClass="dashboard__title" pageTitle={title} />
+                <PageTitle pageTitleClass="dashboard__title" pageTitle={title}/>
             </HeaderContainer>
 
             <MainContainer mainContainerClass="dashboard__main">
@@ -50,16 +55,30 @@ const DashboardPage = () => {
                     userDetails={userDetails}
                     setUserDetails={setUserDetails}
                     language={language}
-                    blockItemClass="food-preferences__container"
+                    blockItemClass="dashboard__block-item--container"
                     checkboxClass="food-preferences__checkbox"
                 />
 
                 <AddNewRecipeBlock
                     language={language}
-                    blockItemClass="add-new-recipe__container"
+                    blockItemClass="dashboard__block-item--container"
                 />
 
+                <GroceriesContextProvider>
+                    <ShoppingModeBlock
+                        language={language}
+                        blockItemClass="dashboard__block-item--container"
+                    />
+
+                    <ShoppingListsBlock
+                        blockItemClass="dashboard__block-item--container"
+                    />
+
+                </GroceriesContextProvider>
+
             </MainContainer>
+
+            <FooterContainer />
 
         </PageContainer>
     );

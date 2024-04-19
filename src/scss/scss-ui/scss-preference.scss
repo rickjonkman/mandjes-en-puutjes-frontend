@@ -1,0 +1,16 @@
+@import '../utils';
+
+@mixin set-preference-container {
+  width: 18rem;
+  height: 3rem;
+  margin: .4rem;
+  padding: .4rem 1rem;
+}
+
+@mixin set-preference-styling {
+  color: $black;
+  background-color: $sea-green-light;
+  border-radius: 8px;
+}
+
+

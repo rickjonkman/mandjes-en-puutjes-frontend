@@ -9,15 +9,31 @@ import RegisterLogin from "/src/constants/page-content/register-login.json";
 import PreferenceCheckbox from "../preference-checkbox/PreferenceCheckbox.jsx";
 
 
-const PreferencesForm = ({handleCheckboxChange}) => {
+const PreferencesForm = ({handleCheckboxChange, title, description }) => {
 
     const { language } = useContext(LanguageContext);
-    const { title, description, meat, fish, vegetarian, vegan } = RegisterLogin[language].form.preferences;
+
+    const preferencesContent = {
+        en: {
+            meat: "Meat",
+            fish: "Fish",
+            vegetarian: "Vegetarian",
+            vegan: "Vegan",
+        },
+        nl: {
+            meat: "Vlees",
+            fish: "Vis",
+            vegetarian: "Vegetarisch",
+            vegan: "Veganistisch",
+        }
+    }
+
+    const { meat, fish, vegetarian, vegan } = preferencesContent[language];
 
     return (
-        <section className="register-form__preferences">
+        <section className="preferences-container">
 
-            <div className="form__subtitle-container">
+            <div className="preferences__title-container">
             <h2>{title}</h2>
                 <p>{description}</p>
             </div>

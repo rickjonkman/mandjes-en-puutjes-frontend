@@ -1,6 +1,6 @@
 
 
-const PreferenceCheckbox = ({ preferenceCheckboxClass, handleCheckboxChange, checkboxTitle, children, preferenceId, preferenceValue }) => {
+const PreferenceCheckbox = ({ preferenceCheckboxClass, handleCheckboxChange, children, preferenceId, preferenceValue }) => {
     return (
         <div className={preferenceCheckboxClass}>
 
@@ -12,7 +12,6 @@ const PreferenceCheckbox = ({ preferenceCheckboxClass, handleCheckboxChange, che
                     onChange={handleCheckboxChange}
                     defaultChecked={true}
                 />
-                <span>{checkboxTitle}</span>
             </label>
 
             {children}

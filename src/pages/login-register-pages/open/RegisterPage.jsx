@@ -7,7 +7,7 @@ import RegisterLogin from "/src/constants/page-content/register-login.json";
 import {useContext} from "react";
 import {LanguageContext} from "../../../context/LanguageContext.jsx";
 import RegisterForm from "../../../components/common/forms/RegisterForm.jsx";
-import "/src/scss/scss-pages/scss-login-register-pages/register-login-page.scss";
+import "/src/scss/scss-pages/landing-page.scss";
 import BackArrow from "../../../assets/icons/back-arrow.svg";
 import IconButton from "../../../components/ui/buttons/IconButton.jsx";
 import {useNavigate} from "react-router-dom";

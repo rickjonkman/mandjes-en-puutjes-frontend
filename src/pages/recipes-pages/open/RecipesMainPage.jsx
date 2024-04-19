@@ -10,6 +10,7 @@ import BlockItem from "../../../components/common/block-items/BlockItem.jsx";
 import MainPageItem from "../../../components/common/main-page-item/MainPageItem.jsx";
 import {useNavigate} from "react-router-dom";
 import "/src/scss/scss-pages/main-pages.scss";
+import FooterContainer from "../../../components/structure/FooterContainer.jsx";
 
 
 const RecipesMainPage = () => {
@@ -52,6 +53,8 @@ const RecipesMainPage = () => {
                 }
 
             </MainContainer>
+
+            <FooterContainer />
 
         </PageContainer>
     );

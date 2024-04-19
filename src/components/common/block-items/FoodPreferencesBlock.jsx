@@ -7,6 +7,7 @@ import VeganIcon from "../../ui/svg-components/VeganIcon.jsx";
 import BlockTitle from "./BlockTitle.jsx";
 import DashboardContent from "/src/constants/page-content/dashboard.json";
 import Button from "../../ui/buttons/Button.jsx";
+import BlockSubtitle from "./BlockSubtitle.jsx";
 
 
 const FoodPreferencesBlock = ({userDetails, setUserDetails, language, blockItemClass, checkboxClass}) => {
@@ -35,26 +36,32 @@ const FoodPreferencesBlock = ({userDetails, setUserDetails, language, blockItemC
     return (
         <article className={blockItemClass}>
 
-            <div className="block-item__content">
+            <div className="food-preferences__container">
 
-                <BlockTitle blockTitle={title} blockSubject={subject}/>
+                <div className="block-item__content">
 
-                {
-                    preferencesArray.map((preference) => {
-                        return (
-                            <PreferenceCheckbox
-                                key={preference.id}
-                                preferenceId={preference.htmlID}
-                                preferenceValue={preference.name}
-                                checkboxTitle={preference.name}
-                                handleCheckboxChange={() => handleChangePreference(preference.name)}
-                                preferenceCheckboxClass={checkboxClass}
-                            >
-                                {preference.icon}
-                            </PreferenceCheckbox>
-                        )
-                    })
-                }
+                    <BlockTitle blockTitle={title} blockSubject={subject}/>
+                    <BlockSubtitle
+                        subtitle="Vink je voedselvoorkeuren aan. Je voorkeuren worden automatisch opgeslagen."/>
+
+                    <div className="block-item__content--preferences">
+                        {
+                            preferencesArray.map((preference) => {
+                                return (
+                                    <PreferenceCheckbox
+                                        key={preference.id}
+                                        preferenceId={preference.htmlID}
+                                        preferenceValue={preference.name}
+                                        handleCheckboxChange={() => handleChangePreference(preference.name)}
+                                        preferenceCheckboxClass={checkboxClass}
+                                    >
+                                        {preference.icon}
+                                    </PreferenceCheckbox>
+                                )
+                            })
+                        }
+                    </div>
+                </div>
             </div>
 
         </article>

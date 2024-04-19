@@ -9,6 +9,7 @@ import RecipeMidSection from "../../../components/page-components/recipe-page-co
 import NavBar from "../../../components/ui/nav/NavBar.jsx";
 import "/src/scss/scss-pages/scss-recipes/recipe-page.scss";
 import axios from "axios";
+import FooterContainer from "../../../components/structure/FooterContainer.jsx";
 
 
 const RecipePage = () => {
@@ -62,6 +63,8 @@ const RecipePage = () => {
                     <RecipeMidSection recipe={recipe}/>
 
                 </MainContainer>
+
+                <FooterContainer />
 
             </PageContainer>
         </>

@@ -1,11 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
 $white: #f8fdfb;
+$off-white: #f0f0f0;
 $black: #000000;
 $sea-green-light: #81EED1;
 $sea-green: #1dd3a2;
 $dark-green: #004c4d;
 $darker-green: #003233;
+
+@mixin set-anchor-tag($fontColor, $fontSize, $fontWeight) {
+  text-decoration: none;
+  color: $fontColor;
+  font-size: $fontSize;
+  font-weight: $fontWeight;
+}
 
 ////// MEDIA //////
 $phone: 300px;

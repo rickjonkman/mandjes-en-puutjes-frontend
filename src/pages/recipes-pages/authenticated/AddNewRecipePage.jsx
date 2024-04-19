@@ -1,13 +1,30 @@
-import React from 'react';
+import PageContainer from "../../../components/structure/PageContainer.jsx";
+import HeaderContainer from "../../../components/structure/HeaderContainer.jsx";
+import PageTitle from "../../../components/common/page-title/PageTitle.jsx";
+import MainContainer from "../../../components/structure/MainContainer.jsx";
+import FooterContainer from "../../../components/structure/FooterContainer.jsx";
+import NewRecipeForm from "../../../components/common/forms/new-recipe/NewRecipeForm.jsx";
+import "/src/scss/scss-pages/scss-recipes/add-new-recipe.scss";
+
 
 const AddNewRecipePage = () => {
 
 
 
     return (
-        <div>
+        <PageContainer pageContainerClass="new-recipe__page-container">
 
-        </div>
+            <HeaderContainer headerContainerClass="new-recipe__header">
+                <PageTitle pageTitleClass="new-recipe__title" pageTitle="Nieuw recept" />
+            </HeaderContainer>
+
+            <MainContainer mainContainerClass="new-recipe__main">
+                <NewRecipeForm />
+            </MainContainer>
+
+            <FooterContainer />
+
+        </PageContainer>
     );
 };
 

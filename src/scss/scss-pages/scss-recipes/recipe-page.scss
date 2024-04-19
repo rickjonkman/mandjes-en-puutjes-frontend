@@ -1,4 +1,5 @@
-@import "src/scss/scss-common/scss-containers";
+@import "src/scss/utils";
+@import "src/scss/structure/scss-containers";
 
 .recipe-page__page-container {
   @include set-page-container($white);

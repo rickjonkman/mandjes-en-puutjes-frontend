@@ -1,0 +1,173 @@
+@import "src/scss/structure/page-title";
+@import "src/scss/structure/scss-containers";
+@import "src/scss/scss-ui/scss-spacing";
+@import "src/scss/scss-ui/form-items";
+@import "src/scss/scss-ui/buttons";
+
+.dashboard__page-container {
+  @include set-page-container($sea-green-light);
+  @include set-flexbox(column, space-between, center);
+
+  .dashboard__header {
+    width: 90%;
+    margin-top: 8rem;
+    margin-bottom: 2rem;
+  }
+
+  .dashboard__main {
+    width: 90%;
+    @include set-grid;
+  }
+}
+
+.dashboard__title {
+  @include set-dashboard-title;
+}
+
+
+.food-preferences__container {
+  @include set-container($white, $dark-green, $black);
+  @include set-flexbox(column, space-between, flex-start);
+  @include set-padding-full(1rem);
+  flex-wrap: wrap;
+
+  .block-item__content--preferences {
+    @include set-flexbox(row, space-around, flex-start);
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .food-preferences__checkbox {
+    @include set-flexbox(row, space-between, center);
+    @include set-padding-split(1rem, 1rem);
+    @include set-checkbox-container(transparent, $darker-green);
+    border-radius: 8px;
+  }
+
+  label {
+    min-width: 4rem;
+    max-width: 8rem;
+    @include set-flexbox(row, space-between, center);
+
+    input[type="checkbox"] {
+      width: 1.6rem;
+      height: 1.6rem;
+      margin-right: .6rem;
+      accent-color: $sea-green;
+    }
+
+    span {
+      margin-left: .6rem;
+    }
+  }
+}
+
+.add-new-recipe__container {
+  @include set-container($sea-green, $dark-green, $darker-green);
+  @include set-flexbox(column, space-between, flex-start);
+  @include set-padding-full(1rem);
+  border-radius: 8px;
+
+  .block-item__subtitle-container {
+    margin: 1rem 0;
+  }
+
+  .block-item__input-container {
+    width: 100%;
+    @include set-margin-split(2rem, 0);
+    @include set-flexbox(column, space-between, flex-start);
+    @include set-label-input(100%, 100%);
+  }
+
+  button {
+    @include set-block-item-button($dark-green, $sea-green, $dark-green, $sea-green);
+  }
+
+}
+
+.dashboard__shopping-mode--block-container {
+  @include set-container($dark-green, $darker-green, $white);
+  @include set-flexbox(column, space-between, flex-start);
+
+  .dashboard__shopping-mode--block-content {
+    width: 100%;
+    min-height: 8rem;
+    background-color: $sea-green-light;
+    color: $black;
+    @include set-flexbox(column, space-between, flex-start);
+
+    ul {
+      width: 100%;
+      @include set-flexbox(column, space-around, flex-start);
+    }
+
+    ul li {
+      width: 100%;
+      list-style: none;
+      padding: .2rem .8rem;
+      border-bottom: 1px solid $dark-green;
+    }
+  }
+
+  button {
+    margin-top: auto;
+    @include set-block-item-button($darker-green, $white, transparent, $sea-green);
+  }
+}
+
+.dashboard__shopping-lists--block {
+  padding: 1rem;
+  @include set-container($white, $dark-green, $darker-green);
+  @include set-flexbox(column, space-between, flex-start);
+
+  .dashboard__shopping-lists--block-content {
+    @include set-container($sea-green-light, $dark-green, $black);
+    @include set-flexbox(row, center, center);
+    @include set-padding-full(1rem);
+  }
+
+  button {
+    @include set-block-item-button($sea-green, $black, $dark-green, $sea-green)
+  }
+}
+
+.dashboard__block-item--container {
+  @include set-flexbox(column, space-between, center);
+  padding: 1rem;
+}
+
+.block-item__content {
+  width: 100%;
+  @include set-flexbox(column, space-around, flex-start);
+
+  .block-item__title {
+    width: 100%;
+    @include set-flexbox(column, space-between, flex-start);
+
+    h2 {
+      font-size: 2.5rem;
+      padding: 2rem;
+    }
+
+    .block-item__subject-section {
+      width: 100%;
+      @include set-flexbox(row, flex-end, center);
+
+      span {
+        font-size: .8rem;
+        text-transform: uppercase;
+        font-weight: 600;
+        background-color: $black;
+        color: $white;
+        padding: .2rem .4rem;
+        border-radius: 8px;
+      }
+    }
+
+  }
+}
+
+.block-item__subtitle {
+  @include set-margin-split(2rem, 1rem);
+}

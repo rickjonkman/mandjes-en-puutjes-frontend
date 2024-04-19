@@ -3,7 +3,7 @@ import {useCallback, useContext, useEffect, useState} from "react";
 import NavBarMenuItems from "./NavBarMenuItems.jsx";
 import {UserContext} from "../../../context/UserContext.jsx";
 import HamburgerIcon from "../svg-components/HamburgerIcon.jsx";
-import "/src/scss/scss-ui/nav-bar.scss";
+import "/src/scss/structure/nav-bar.scss";
 import {LanguageContext} from "../../../context/LanguageContext.jsx";
 import {menuItemsLoggedInEN, menuItemsLoggedInNL} from "../../../constants/menuItemsLoggedIn.js";
 import {menuItemsLoggedOutEN, menuItemsLoggedOutNL} from "../../../constants/menuItemsLoggedOut.js";

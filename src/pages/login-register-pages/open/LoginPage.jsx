@@ -3,7 +3,6 @@ import HeaderContainer from "../../../components/structure/HeaderContainer.jsx";
 import MainContainer from "../../../components/structure/MainContainer.jsx";
 import FooterContainer from "../../../components/structure/FooterContainer.jsx";
 import PageTitle from "../../../components/common/page-title/PageTitle.jsx";
-import "/src/scss/scss-pages/scss-login-register-pages/register-login-page.scss";
 import LoginForm from "../../../components/common/forms/LoginForm.jsx";
 import RegisterLogin from "../../../constants/page-content/register-login.json";
 import {useContext} from "react";
@@ -12,6 +11,7 @@ import UtilityMessages from "../../../constants/utilityMessages.json";
 import BackArrow from "../../../assets/icons/back-arrow.svg";
 import IconButton from "../../../components/ui/buttons/IconButton.jsx";
 import {useNavigate} from "react-router-dom";
+import "/src/scss/scss-pages/landing-page.scss";
 
 
 const LoginPage = () => {

@@ -1,18 +1,24 @@
+import {useContext, useState} from "react";
+import {GroceriesContext} from "../../../context/GroceriesContext.jsx";
+import ShoppingListBlock from "./ShoppingListBlock.jsx";
 
 
-const ShoppingListsGrid = ({ shoppingLists }) => {
+const ShoppingListsGrid = () => {
 
-
+    const {shoppingLists} = useContext(GroceriesContext);
 
     return (
         <section className="shopping-lists__grid">
             {
                 shoppingLists.map((list) => {
                     return (
-                        <article key={list.id} className="shopping-lists__grid-item">
-                            <h3>{list.name}</h3>
-                            <p>{list.description}</p>
-                        </article>
+                        <ShoppingListBlock
+                            key={list.id}
+                            shoppingListBlockClass="shopping-list__block"
+                            shoppingListDate={list.creationDate}
+                            products={list.products}
+                        />
+
                     )
                 })
             }
