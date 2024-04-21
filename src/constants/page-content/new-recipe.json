@@ -1,0 +1,99 @@
+
+{
+  "nl": {
+    "header": {
+      "title": "Nieuw Recept"
+    },
+    "main": {
+      "form_basic_info": {
+        "title": "Algemeen",
+        "recipe_name": "Naam Recept",
+        "prep_time": "Bereidingstijd",
+        "prep_time_hour": "Uur",
+        "prep_time_min": "Minuten",
+        "servings_title": "Porties",
+        "servings_amount": "Aantal Personen"
+      },
+      "form_recipe_type": {
+        "title": "Type Recept",
+        "description": "Vink het type recept aan dat je wilt toevoegen"
+      },
+      "form_tags": {
+        "title": "Tags",
+        "description": "Voeg tags toe die het recept beschrijven",
+        "delete_icon_description": "Verwijder tag ",
+        "tag_placeholder": "Voeg tag toe en druk op enter"
+      },
+      "form_ingredients": {
+        "title": "Ingrediënten",
+        "description": "Voeg de ingrediënten toe die je nodig hebt voor het recept",
+        "label_amount": "Hoeveelheid",
+        "label_unit": "Eenheid",
+        "unit_placeholder": "Eenheid",
+        "label_name": "Ingrediënt",
+        "name_placeholder": "Ingrediënt",
+        "add_ingredients_button": "Voeg alles toe"
+      },
+      "form_instructions": {
+        "title": "Instructies",
+        "description": "Voeg de instructies toe die je nodig hebt voor het recept",
+        "label_step": "Stap",
+        "label_instruction": "Instructie"
+      },
+      "form_creator": {
+        "label_creator": "Gemaakt door:"
+      },
+        "form_image_upload": {
+            "title": "Afbeelding Uploaden"
+        }
+    }
+  },
+  "en": {
+    "header": {
+      "title": "New Recipe"
+    },
+    "main": {
+      "form_basic_info": {
+        "title": "General",
+        "recipe_name": "Recipe Name",
+        "prep_time": "Preparation Time",
+        "prep_time_hour": "Hour",
+        "prep_time_min": "Minutes",
+        "servings_title": "Servings",
+        "servings_amount": "Amount of People"
+      },
+      "form_recipe_type": {
+        "title": "Recipe Type",
+        "description": "Select the type of recipe you want to add"
+      },
+      "form_tags": {
+        "title": "Tags",
+        "description": "Add tags that describe the recipe",
+        "delete_icon_description": "Delete tag ",
+        "tag_placeholder": "Add tag and press enter"
+      },
+      "form_ingredients": {
+        "title": "Ingredients",
+        "description": "Add the ingredients you need for the recipe",
+        "label_amount": "Amount",
+        "label_unit": "Unit",
+        "unit_placeholder": "Unit",
+        "label_name": "Ingredient",
+        "name_placeholder": "Ingredient",
+        "add_ingredients_button": "Add all"
+      },
+      "form_instructions": {
+        "title": "Instructions",
+        "description": "Add the instructions you need for the recipe",
+        "label_step": "Step",
+        "label_instruction": "Instruction"
+      },
+      "form_creator": {
+        "label_creator": "Created by:"
+      },
+      "form_image_upload": {
+        "title": "Image Upload"
+      }
+    }
+  }
+}

@@ -19,10 +19,12 @@ import LoadingPage from "./pages/util-pages/LoadingPage.jsx";
 import PleaseRegisterPage from "./pages/util-pages/PleaseRegisterPage.jsx";
 import {AuthContext} from "./context/AuthContext.jsx";
 import NavBar from "./components/ui/nav/NavBar.jsx";
+import RecipeContextProvider from "./context/RecipeContext.jsx";
+import ImageUploadPage from "./pages/recipes-pages/authenticated/ImageUploadPage.jsx";
 
 function App() {
 
-    const { isLoading, isLoggedIn } = useContext(AuthContext);
+    const {isLoading, isLoggedIn} = useContext(AuthContext);
 
     const [scrollY, setScrollY] = useState(document.scrollingElement.scrollHeight);
     const [scrollDirection, setScrollDirection] = useState('up');
@@ -63,24 +65,28 @@ function App() {
             />
 
             <Routes>
-                <Route index element={<LandingPage />}/>
-                <Route path="/login" element={<LoginPage />}/>
-                <Route path="/register" element={<RegisterPage />}/>
-                <Route path="/logout" element={<LogoutPage />}/>
+                <Route index element={<LandingPage/>}/>
+                <Route path="/login" element={<LoginPage/>}/>
+                <Route path="/register" element={<RegisterPage/>}/>
+                <Route path="/logout" element={<LogoutPage/>}/>
 
                 <Route path="/dashboard"
-                       element={isLoading ? <LoadingPage /> : isLoggedIn === true ? <DashboardPage /> : <PleaseRegisterPage /> }/>
+                       element={isLoading ? <LoadingPage/> : isLoggedIn === true ? <DashboardPage/> :
+                           <PleaseRegisterPage/>}/>
 
-                <Route path="/groceries/main" element={<GroceriesMainPage />}/>
-                <Route path="/groceries/shopping-mode" element={<ShoppingModePage />}/>
-                <Route path="/groceries/shopping-lists" element={<ShoppingListsPage />}/>
+                <Route path="/groceries/main" element={<GroceriesMainPage/>}/>
+                <Route path="/groceries/shopping-mode" element={<ShoppingModePage/>}/>
+                <Route path="/groceries/shopping-lists" element={<ShoppingListsPage/>}/>
 
-                <Route path="/recipes/main" element={<RecipesMainPage />}/>
-                <Route path="/recipes/all" element={<AllRecipesPage />}/>
-                <Route path="/recipe/:recipeId" element={<RecipePage />}/>
-                <Route path="/recipes/saved-recipes" element={<SavedRecipesPage />}/>
-                <Route path="/recipes/surprise-recipe" element={<SurpriseRecipePage />}/>
-                <Route path="/recipes/new-recipe" element={<AddNewRecipePage />}/>
+
+                <Route path="/recipes/main" element={<RecipesMainPage/>}/>
+                <Route path="/recipes/all" element={<AllRecipesPage/>}/>
+                <Route path="/recipe/:recipeId" element={<RecipePage/>}/>
+                <Route path="/recipes/saved-recipes" element={<SavedRecipesPage/>}/>
+                <Route path="/recipes/surprise-recipe" element={<SurpriseRecipePage/>}/>
+                <Route path="/recipes/new-recipe" element={<AddNewRecipePage/>}/>
+                <Route path="/recipes/image-upload" element={<ImageUploadPage />}/>
+
             </Routes>
         </>
     )

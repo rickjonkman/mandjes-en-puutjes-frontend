@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {useContext, useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import PageContainer from "../../../components/structure/PageContainer.jsx";
 import HeaderContainer from "../../../components/structure/HeaderContainer.jsx";
@@ -8,45 +8,23 @@ import RecipePageHeader from "../../../components/page-components/recipe-page-co
 import RecipeMidSection from "../../../components/page-components/recipe-page-components/RecipeMidSection.jsx";
 import NavBar from "../../../components/ui/nav/NavBar.jsx";
 import "/src/scss/scss-pages/scss-recipes/recipe-page.scss";
-import axios from "axios";
+import endpoints from "../../../api/endpoints.json";
 import FooterContainer from "../../../components/structure/FooterContainer.jsx";
+import useFetchRecipe from "../../../api/useFetchRecipe.js";
 
 
 const RecipePage = () => {
 
     const {recipeId} = useParams();
+    const fetchURL = endpoints.endpoints.getRecipe.url + recipeId;
+    const { error, isLoading, singleRecipe } = useFetchRecipe(fetchURL);
 
-    const [isLoading, setIsLoading] = useState(true);
-    const [error, setError] = useState(null);
-    const [recipe, setRecipe] = useState(null);
 
-    useEffect(() => {
-        void fetchRecipe();
-    }, []);
-
-    const fetchRecipe = async () => {
-
-        setError(null);
-        setIsLoading(true);
-
-        try {
-            const response = await axios.get(`http://localhost:8080/api/v1/recipes/get-recipe/${recipeId}`);
-            console.log(response.data)
-            setRecipe(response.data);
-        } catch (e) {
-            console.error("Error fetching single recipe: ", e);
-        } finally {
-            setIsLoading(false);
-        }
-
-    }
-
-    console.log(recipe)
 
 
     return (
 
-            recipe &&
+            singleRecipe &&
         <>
             <PageContainer pageContainerClass="recipe-page__page-container">
 
@@ -58,9 +36,9 @@ const RecipePage = () => {
 
                 <MainContainer mainContainerClass="recipe-page__main-container">
 
-                    <RecipePageHeader recipe={recipe}/>
+                    <RecipePageHeader recipe={singleRecipe}/>
 
-                    <RecipeMidSection recipe={recipe}/>
+                    <RecipeMidSection recipe={singleRecipe}/>
 
                 </MainContainer>
 

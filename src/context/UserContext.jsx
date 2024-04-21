@@ -93,6 +93,7 @@ const UserContextProvider = ({children}) => {
     const userObject = {
         userDetails,
         setUserDetails,
+        username: userDetails.username,
         fetchUser,
         isLoading,
         error,

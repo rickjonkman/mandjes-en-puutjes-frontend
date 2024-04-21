@@ -3,32 +3,37 @@ import axios from "axios";
 
 export default function useFetchRecipes(url) {
 
-    const [recipes, setRecipes] = useState([]);
     const [error, setError] = useState(null);
-    const [isLoading, toggleIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const [recipes, setRecipes] = useState([]);
 
     useEffect(() => {
 
-        setError(null);
-        toggleIsLoading(true);
+        async function fetchRecipes(url) {
 
-        async function fetchRecipes() {
+            setError(null);
+            setIsLoading(true);
 
             try {
                 const response = await axios.get(url);
+                console.log(response);
                 setRecipes(response.data);
             } catch (e) {
                 console.error(e);
                 setError(e);
             } finally {
-                toggleIsLoading(false);
+                setIsLoading(false);
             }
         }
 
-        void fetchRecipes();
+        void fetchRecipes(url);
 
-    }, []);
+        return () => {
+            console.log("Cleanup");
+        }
 
-    return {recipes, error, isLoading};
+    }, [url]);
+
+    return {error, isLoading, recipes};
 
 }

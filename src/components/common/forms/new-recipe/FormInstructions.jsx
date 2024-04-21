@@ -1,28 +1,36 @@
-import {useState} from "react";
+import {useContext, useState} from "react";
 import IconButton from "../../../ui/buttons/IconButton.jsx";
 import AddIcon from "../../../ui/svg-components/AddIcon.jsx";
-import MinusIcon from "../../../../assets/icons/minus-icon.svg";
+import {LanguageContext} from "../../../../context/LanguageContext.jsx";
+import NewRecipeContent from "../../../../constants/page-content/new-recipe.json";
+import CloseIcon from "../../../ui/svg-components/CloseIcon.jsx";
 
 
-const FormInstructions = ({instructions, addInstructionsToFormData}) => {
+const FormInstructions = ({formData, setFormData}) => {
+
+    const { language } = useContext(LanguageContext);
+    const { title, description, label_step, label_instruction } = NewRecipeContent[language].main.form_instructions;
+
+    const instructions = formData.instructions;
 
     const [instruction, setInstruction] = useState({
         step: '',
         description: '',
     });
 
-    const handleChangeStep = (e) => {
-        setInstruction({
-            ...instruction,
-            step: e.target.value,
+    const addInstructionsToFormData = (newInstructions) => {
+        setFormData({
+            ...formData,
+            instructions: newInstructions,
         });
     }
 
+    const handleChangeStep = (e) => {
+        setInstruction({...instruction, step: e.target.value});
+    }
+
     const handleChangeDescription = (e) => {
-        setInstruction({
-            ...instruction,
-            description: e.target.value,
-        });
+        setInstruction({...instruction, description: e.target.value});
     }
 
     const removeInstruction = (indexToRemove) => {
@@ -54,8 +62,8 @@ const FormInstructions = ({instructions, addInstructionsToFormData}) => {
         <div className="new-recipe__instructions-section">
 
             <div className="new-recipe--title-container">
-                <h2>Instructies</h2>
-                <p>Voeg de stappen van je recept toe</p>
+                <h2>{title}</h2>
+                <p>{description}</p>
             </div>
 
             <div className="new-recipe__instructions-input-container">
@@ -67,11 +75,10 @@ const FormInstructions = ({instructions, addInstructionsToFormData}) => {
                             <span id="span-description">{instruction.description}</span>
 
                             <IconButton
-                                iconSrc={MinusIcon}
-                                iconId="delete-icon"
-                                iconDescription={`Verwijder stap ${instruction.step}`}
-                                buttonClickHandler={() => removeInstruction(index)}
-                            />
+                                buttonClass="remove-instruction__button"
+                                buttonClickHandler={() => removeInstruction(index)}>
+                                <CloseIcon closeIconClass="close-icon__svg" width="1rem" height="1rem" />
+                            </IconButton>
 
                         </div>
                     ))
@@ -79,10 +86,10 @@ const FormInstructions = ({instructions, addInstructionsToFormData}) => {
                 <div className="new-recipe__instruction-input">
 
                     <div className="new-recipe__instruction-input--step-container">
-                        <label htmlFor="instruction__step">
+                        <label htmlFor="instruction__step">{label_step}
                             <input
                                 type="number"
-                                placeholder="Stap"
+                                placeholder={label_step}
                                 value={instruction.step}
                                 onChange={handleChangeStep}
                                 id="instruction__step"
@@ -91,10 +98,10 @@ const FormInstructions = ({instructions, addInstructionsToFormData}) => {
                     </div>
 
                     <div className="new-recipe__instruction-input--description-container">
-                        <label htmlFor="instruction__description">
+                        <label htmlFor="instruction__description">{label_instruction}
                             <input
                                 type="text"
-                                placeholder="Beschrijving"
+                                placeholder={label_instruction}
                                 value={instruction.description}
                                 onChange={handleChangeDescription}
                                 onKeyDown={handleKeyDown}
@@ -104,9 +111,7 @@ const FormInstructions = ({instructions, addInstructionsToFormData}) => {
                     </div>
 
                     <IconButton
-                        iconSrc={AddIcon}
-                        iconId="add-icon"
-                        iconDescription="Voeg stap toe"
+                        buttonClass="add-instruction__button"
                         buttonClickHandler={() => {
                             const newInstructions = [...instructions, instruction];
                             addInstructionsToFormData(newInstructions);
@@ -114,8 +119,9 @@ const FormInstructions = ({instructions, addInstructionsToFormData}) => {
                                 step: '',
                                 description: '',
                             });
-                        }}
-                    />
+                        }}>
+                        <AddIcon addIconClass="add-icon__svg" width="1rem" height="1rem" />
+                    </IconButton>
                 </div>
             </div>
 

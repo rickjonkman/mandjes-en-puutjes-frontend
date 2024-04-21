@@ -1,10 +1,23 @@
-import {useState} from 'react';
+import {useContext, useState} from 'react';
 import IconButton from "../../../ui/buttons/IconButton.jsx";
 import CloseIcon from "../../../ui/svg-components/CloseIcon.jsx";
+import NewRecipeContent from "/src/constants/page-content/new-recipe.json"
+import {LanguageContext} from "../../../../context/LanguageContext.jsx";
 
-const FormTags = ({ tags, addTagsToFormData }) => {
+const FormTags = ({ formData, setFormData }) => {
 
+    const { language } = useContext(LanguageContext);
+    const { title, description, delete_icon_description, tag_placeholder } = NewRecipeContent[language].main.form_tags;
+
+    const { tags } = formData;
     const [tag, setTag] = useState('');
+
+    const addTagsToFormData = (newTags) => {
+        setFormData({
+            ...formData,
+            tags: newTags,
+        });
+    }
 
     const removeTag = (indexToRemove) => {
         const newTags = tags.filter((tag, index) => index !== indexToRemove);
@@ -35,8 +48,8 @@ const FormTags = ({ tags, addTagsToFormData }) => {
     return (
         <div className="new-recipe__tags-section">
             <div className="new-recipe--title-container">
-                <h2>Tags</h2>
-                <p>Voeg drie tags toe die jouw recept omschrijven en druk op enter</p>
+                <h2>{title}</h2>
+                <p>{description}</p>
             </div>
 
 
@@ -46,11 +59,10 @@ const FormTags = ({ tags, addTagsToFormData }) => {
                         <span key={index} className="new-recipe__tag">
                                 {tag}
                             <IconButton
-                                iconSrc={CloseIcon}
-                                iconId="delete-icon"
-                                iconDescription={`Verwijder tag ${tag}`}
-                                buttonClickHandler={() => removeTag(index)}
-                            />
+                                buttonClass="new-recipe__tag-delete-button"
+                                buttonClickHandler={() => removeTag(index)}>
+                                <CloseIcon closeIconClass="close-icon__svg" />
+                            </IconButton>
                             </span>
                     ))
                 }
@@ -59,7 +71,7 @@ const FormTags = ({ tags, addTagsToFormData }) => {
                     value={tag}
                     onChange={handleChange}
                     onKeyDown={handleKeyDown}
-                    placeholder="Voeg een tag toe en druk op enter"
+                    placeholder={tag_placeholder}
                 />
             </div>
 

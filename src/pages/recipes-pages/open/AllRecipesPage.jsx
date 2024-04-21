@@ -7,7 +7,6 @@ import AllRecipes from "/src/constants/page-content/all-recipes.json";
 import MainContainer from "../../../components/structure/MainContainer.jsx";
 import RecipeThumbnailsContainer
     from "../../../components/page-components/all-recipes-components/RecipeThumbnailsContainer.jsx";
-import NavBar from "../../../components/ui/nav/NavBar.jsx";
 import "/src/scss/scss-pages/scss-recipes/recipes-all.scss";
 import FooterContainer from "../../../components/structure/FooterContainer.jsx";
 

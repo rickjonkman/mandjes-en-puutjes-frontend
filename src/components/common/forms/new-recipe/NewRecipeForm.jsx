@@ -6,114 +6,99 @@ import FormIngredients from "./FormIngredients.jsx";
 import FormInstructions from "./FormInstructions.jsx";
 import SubmitButton from "../../../ui/buttons/SubmitButton.jsx";
 import FormRecipeType from "./FormRecipeType.jsx";
+import NewRecipeContent from "/src/constants/page-content/new-recipe.json";
+import {LanguageContext} from "../../../../context/LanguageContext.jsx";
+import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 
 const NewRecipeForm = () => {
 
-    const { userDetails } = useContext(UserContext);
+    const navigate = useNavigate();
+    const {username} = useContext(UserContext);
+    const {language} = useContext(LanguageContext);
+    const { label_creator } = NewRecipeContent[language].main.form_creator;
+
 
     const [formData, setFormData] = useState({
         recipeName: '',
-        prepTime: {
-            hour: '',
-            min: '',
-        },
         servings: 0,
+        prepTime: {
+            hour: 0,
+            min: 0,
+        },
+        meat: true,
+        fish: true,
+        vegetarian: true,
+        vegan: true,
         tags: [],
         ingredients: [],
         instructions: [],
-        creator: userDetails.username,
+        createdByUser: username,
     });
 
-    const onChangeHandler = (e) => {
+    console.log(formData)
 
-        const { name, value } = e.target;
+    const handleFormSubmit = async (e) => {
+        e.preventDefault();
 
-        if (name.startsWith('prepTime')) {
-            const [category, subcategory] = name.split('__');
+        const token = localStorage.getItem('token');
 
-            setFormData({
-                ...formData,
-                [category]: {
-                    ...formData[category],
-                    [subcategory]: parseInt(value, 10),
-                }
-            });
-        } else {
-            const parsedValue = isNaN(value) ? value : parseInt(value, 10);
-            setFormData({
-                ...formData,
-                [name]: parsedValue,
-            });
+        try {
+            const response = await axios.post('http://localhost:8080/api/v1/recipes/auth/add-new', formData,
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        "Authorization": `Bearer ${token}`
+                    }
+                });
+            if (response.status === 200 || response.status === 201) {
+                console.log('New recipe added');
+                navigate('/recipes/image-upload');
+            }
+        } catch (e) {
+            console.error(e);
         }
 
     }
-
-    const addTagsToFormData = (newTags) => {
-        setFormData({
-            ...formData,
-            tags: newTags,
-        });
-    }
-
-    const addIngredientsToFormData = (newIngredients) => {
-        setFormData({
-            ...formData,
-            ingredients: newIngredients,
-        });
-    }
-
-    const addInstructionsToFormData = (newInstructions) => {
-        setFormData({
-            ...formData,
-            instructions: newInstructions,
-        });
-    }
-
-    const handleFormSubmit = (e) => {
-        e.preventDefault();
-        console.log(formData);
-    };
 
     return (
         <form className="new-recipe__form" onSubmit={handleFormSubmit}>
 
             <FormBasicInfo
-                recipeNameValue={formData.recipeName}
-                prepTimeValue={formData.prepTime}
-                servingsValue={formData.servings}
-                handleOnChangeRecipeName={onChangeHandler}
-                handleOnChangePrepTimeHour={onChangeHandler}
-                handleOnChangePrepTimeMin={onChangeHandler}
-                handleOnChangeServings={onChangeHandler}
+                formData={formData}
+                setFormData={setFormData}
             />
 
-            <FormRecipeType handleCheckboxChange={handleCheckboxChange}/>
+            <FormRecipeType
+                formState={formData}
+                setFormState={setFormData}
+            />
 
             <FormTags
-                tags={formData.tags}
-                addTagsToFormData={addTagsToFormData}
+                formData={formData}
+                setFormData={setFormData}
             />
 
             <FormIngredients
-                ingredients={formData.ingredients}
-                addIngredientsToFormData={addIngredientsToFormData}
+                formData={formData}
+                setFormData={setFormData}
             />
 
             <FormInstructions
-                instructions={formData.instructions}
-                addInstructionsToFormData={addInstructionsToFormData}
+                formData={formData}
+                setFormData={setFormData}
             />
 
             <div className="new-recipe__creator">
-                <label htmlFor="creator">Gemaakt door:
-                <input
-                    className="new-recipe__creator--input-readonly"
-                    type="text"
-                    value={formData.creator}
-                    placeholder={userDetails.username}
-                    readOnly
-                />
+                <label htmlFor="creator"><span>{label_creator}</span>
+                    <input
+                        className="new-recipe__creator--input-readonly"
+                        type="text"
+                        value={formData.createdByUser}
+                        placeholder={formData.createdByUser}
+                        readOnly
+                    />
                 </label>
             </div>
 
