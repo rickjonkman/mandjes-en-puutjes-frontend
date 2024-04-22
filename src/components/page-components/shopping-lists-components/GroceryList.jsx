@@ -41,7 +41,7 @@ const GroceryList = ({products}) => {
 
                                     <IconButton
                                         buttonClass="grocery-list__add-button"
-                                        buttonClickHandler={() => handleAddButton(grocery)}>
+                                        onClickHandler={() => handleAddButton(grocery)}>
 
                                         <AddIcon/>
 

@@ -36,7 +36,7 @@ const PreferencesForm = ({ handleCheckboxChange, title, description}) => {
                 <p>{description}</p>
             </div>
 
-            <div className="preferences__checkboxes-container">
+            <div className="register-form__preferences">
 
                 <PreferenceCheckbox
                     preferenceCheckboxClass="preferences__checkbox"

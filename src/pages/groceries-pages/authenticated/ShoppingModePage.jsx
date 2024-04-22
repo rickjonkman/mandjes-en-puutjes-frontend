@@ -7,9 +7,9 @@ import ShoppingModeContent from "/src/constants/page-content/shopping-mode.json"
 import MainContainer from "../../../components/structure/MainContainer.jsx";
 import "/src/scss/scss-pages/groceries-main.scss";
 import CurrentShoppingList from "../../../components/page-components/shopping-lists-components/CurrentShoppingList.jsx";
-import GroceriesContextProvider from "../../../context/GroceriesContext.jsx";
 import ShoppingModeMenu from "../../../components/page-components/shopping-lists-components/ShoppingModeMenu.jsx";
 import FooterContainer from "../../../components/structure/FooterContainer.jsx";
+import GroceriesContextProvider from "../../../context/GroceriesContext.jsx";
 
 
 const ShoppingModePage = () => {
@@ -27,9 +27,11 @@ const ShoppingModePage = () => {
             <MainContainer mainContainerClass="shopping-mode__main">
 
                 <GroceriesContextProvider>
+
                     <ShoppingModeMenu />
 
                     <CurrentShoppingList />
+
                 </GroceriesContextProvider>
 
             </MainContainer>

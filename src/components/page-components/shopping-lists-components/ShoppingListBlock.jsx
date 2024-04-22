@@ -13,7 +13,7 @@ const ShoppingListBlock = ({shoppingListBlockClass, shoppingListDate, products})
             <header className="shopping-list__block--header">
                 <h2>{shoppingListDate}</h2>
 
-                <IconButton buttonClass="shopping-list__open-button" addButtonClickHandler={() => toggleOpenList(!openList)}>
+                <IconButton buttonClass="shopping-list__open-button" onClickHandler={() => toggleOpenList(!openList)} >
                     <AddIcon/>
                 </IconButton>
             </header>

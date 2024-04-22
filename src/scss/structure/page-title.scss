@@ -1,5 +1,19 @@
 @import '../utils';
 @import "src/scss/structure/scss-containers";
+@import "src/scss/structure/page-structure";
+@import "../scss-ui/typography";
+
+$login-register: "/src/assets/images/register-title.jpg";
+$dashboard: "/src/assets/images/dashboard-title.jpg";
+$recipes-main: "/src/assets/images/recipes-main-title.jpg";
+$recipes-all: "/src/assets/images/recipes-all-title.jpg";
+$groceries-main: "/src/assets/images/groceries-main-title.jpg";
+$shopping-mode: "/src/assets/images/shopping-mode-title.jpg";
+$grocery-lists: "/src/assets/images/register-title.jpg";
+$new-recipe: "/src/assets/images/shopping-mode-title.jpg";
+$saved-recipes: "/src/assets/images/saved-recipes-title.jpg";
+
+
 
 @mixin set-title-general($height, $bgColor, $borderColor) {
   width: 100%;
@@ -13,50 +27,14 @@
   @include set-flexbox(row, space-between, flex-end);
 
   h1 {
-    font-size: 4rem;
-    padding: 1rem;
-    background-color: $dark-green;
     color: $white;
+    background-color: $dark-green;
+    padding: 1rem;
     border-top-right-radius: 8px;
   }
 }
 
-@mixin set-login-register-title() {
+@mixin set-page-title($page) {
   @include set-title-general(15rem, $white, $dark-green);
-  background-image: url("/src/assets/images/register-title.jpg");
-}
-
-@mixin set-dashboard-title() {
-  @include set-title-general(15rem, $white, $dark-green);
-  background-image: url("/src/assets/images/dashboard-title.jpg");
-}
-
-@mixin set-recipes-main-title() {
-  @include set-title-general(15rem, $white, $dark-green);
-  background-image: url("/src/assets/images/recipes-main-title.jpg");
-}
-
-@mixin set-recipes-all-title {
-  @include set-title-general(15rem, $white, $dark-green);
-  background-image: url("/src/assets/images/recipes-all-title.jpg");
-}
-
-@mixin set-groceries-main-title() {
-  @include set-title-general(15rem, $white, $dark-green);
-  background-image: url("/src/assets/images/groceries-main-title.jpg");
-}
-
-@mixin set-shopping-mode-title() {
-  @include set-title-general(15rem, $white, $dark-green);
-  background-image: url("/src/assets/images/shopping-mode-title.jpg");
-}
-
-@mixin set-grocery-lists-title() {
-  @include set-title-general(15rem, $white, $dark-green);
-  background-image: url("/src/assets/images/register-title.jpg");
-}
-
-@mixin set-new-recipe-title() {
-  @include set-title-general(15rem, $white, $dark-green);
-  background-image: url("/src/assets/images/shopping-mode-title.jpg");
+  background-image: url($page);
 }

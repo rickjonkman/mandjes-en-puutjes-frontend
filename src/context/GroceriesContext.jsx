@@ -9,43 +9,22 @@ const GroceriesContextProvider = ({ children }) => {
 
     const token = localStorage.getItem("token");
     const username = extractUsernameFromToken(token);
-    const listFromLocalStorage = localStorage.getItem("currentList");
-
-    const initialItem = [
-        {
-            id: 0,
-            name: "Voeg een product toe",
-            inStorage: false,
-            notFound: false,
-            selected: false,
-        }
-    ]
 
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [currentList, setCurrentList] = useState(listFromLocalStorage || initialItem );
+    const [currentList, setCurrentList] = useState([]);
     const [shoppingLists, setShoppingLists] = useState([]);
 
-    const [productItem, setProductItem] = useState({
-        id: 0,
-        name: "",
-        inStorage: false,
-        notFound: false,
-        selected: false,
-    })
+    useEffect(() => {
+        localStorage.setItem("currentList", JSON.stringify(currentList));
+    }, [currentList])
 
     useEffect(() => {
-        if (listFromLocalStorage) {
-            setCurrentList(JSON.parse(listFromLocalStorage));
-        } else {
-            setCurrentList([{
-                id: 0,
-                name: "Voeg een product toe",
-                inStorage: false,
-                notFound: false,
-            }])
+        const storedList = localStorage.getItem("currentList");
+        if (storedList) {
+            setCurrentList(JSON.parse(storedList));
         }
-    }, [listFromLocalStorage]);
+    }, []);
 
     useEffect(() => {
         void fetchShoppingLists(username, token);
@@ -90,8 +69,6 @@ const GroceriesContextProvider = ({ children }) => {
         setCurrentList,
         shoppingLists,
         setShoppingLists,
-        productItem,
-        setProductItem,
         listTransferObject,
         isLoading,
         error,

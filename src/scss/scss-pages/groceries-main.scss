@@ -1,11 +1,11 @@
 @import "src/scss/structure/page-title";
 @import "src/scss/structure/scss-containers";
-@import "src/scss/scss-ui/scss-spacing";
+@import "src/scss/structure/scss-spacing";
 
 
 ////// Groceries Main Page //////
 .groceries-main__title {
-  @include set-groceries-main-title;
+  @include set-page-title($groceries-main);
 }
 
 ////// Shopping Lists //////
@@ -28,7 +28,7 @@
 }
 
 .shopping-lists__title {
-  @include set-grocery-lists-title;
+  @include set-page-title($grocery-lists);
 
 }
 
@@ -102,6 +102,7 @@
   ul li {
     width: 100%;
     padding: .6rem;
+    margin: .5rem;
     @include set-flexbox(row, space-between, center);
   }
 
@@ -110,6 +111,7 @@
     height: 2rem;
     border: none;
     background-color: transparent;
+    cursor: pointer;
   }
 }
 
@@ -130,12 +132,12 @@
 }
 
 .shopping-mode__title {
-  @include set-shopping-mode-title;
+  @include set-page-title($shopping-mode);
 }
 
 .shopping-mode__menu {
   @include set-container($dark-green, $dark-green, $white);
-  @include set-flexbox(row, space-between, center);
+  @include set-flexbox(row, space-between, flex-end);
   @include set-padding-full(1rem);
 
   form {
@@ -160,7 +162,15 @@
       border-radius: 0 0 8px 8px;
       text-transform: uppercase;
       font-weight: 600;
+
+      &:hover {
+        background-color: white;
+        color: $sea-green;
+        transition: all .3s ease-in-out;
+      }
     }
+
+
   }
 
   .shopping-mode__menu--buttons {
@@ -177,6 +187,12 @@
       border-radius: 8px;
       text-transform: uppercase;
       font-weight: 600;
+
+      &:hover {
+        background-color: white;
+        color: $sea-green;
+        transition: all .3s ease-in-out;
+      }
     }
   }
 
@@ -200,6 +216,10 @@
     border: 1px solid $dark-green;
     border-radius: 8px;
     @include set-flexbox(row, space-between, center);
+  }
+
+  .current-list__grocery-name {
+    width: 30%;
   }
 
   ul li label {

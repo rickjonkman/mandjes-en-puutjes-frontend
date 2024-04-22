@@ -8,10 +8,11 @@ import RegisterLogin from "../../../constants/page-content/register-login.json";
 import {useContext} from "react";
 import {LanguageContext} from "../../../context/LanguageContext.jsx";
 import UtilityMessages from "../../../constants/utilityMessages.json";
-import BackArrow from "../../../assets/icons/back-arrow.svg";
+
 import IconButton from "../../../components/ui/buttons/IconButton.jsx";
 import {useNavigate} from "react-router-dom";
 import "/src/scss/scss-pages/landing-page.scss";
+import BackArrow from "../../../components/ui/svg-components/BackArrow.jsx";
 
 
 const LoginPage = () => {
@@ -29,7 +30,7 @@ const LoginPage = () => {
                     <IconButton
                         buttonClass="button__go-back"
                         onClickHandler={() => navigate('/')}>
-                        <BackArrow fill="#F8FDFBFF" backArrowClass="icon__go-back" />
+                        <BackArrow backArrowClass="icon__back-arrow" />
                     </IconButton>
                 </PageTitle>
             </HeaderContainer>

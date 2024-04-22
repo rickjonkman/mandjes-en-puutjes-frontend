@@ -5,7 +5,6 @@ import "/src/scss/scss-pages/landing-page.scss";
 import landingPage from "/src/constants/page-content/landing-page.json";
 import {useContext} from "react";
 import {LanguageContext} from "../../../context/LanguageContext.jsx";
-import NavBar from "../../../components/ui/nav/NavBar.jsx";
 import Button from "../../../components/ui/buttons/Button.jsx";
 import MainContainer from "../../../components/structure/MainContainer.jsx";
 import FooterContainer from "../../../components/structure/FooterContainer.jsx";
@@ -13,42 +12,46 @@ import FooterContainer from "../../../components/structure/FooterContainer.jsx";
 
 const LandingPage = () => {
 
-    const { language } = useContext(LanguageContext);
+    const {language} = useContext(LanguageContext);
 
     return (
         <PageContainer pageContainerClass="landing-page__page-container">
 
-            <HeaderContainer headerContainerClass="landing-page__header">
-                <LandingPageTitle
-                    title={landingPage[language].title}
-                    subtitle={landingPage[language].subtitle}
-                />
-            </HeaderContainer>
+            <div className="landing-page__bg-image--broccoli">
 
-            <div className="landing-page__bg-image--broccoli"></div>
+                <MainContainer mainContainerClass="landing-page__main-container">
 
-            <MainContainer mainContainerClass="landing-page__main-container">
+                    <div className="landing-page__title-section">
+                        <LandingPageTitle
+                            title={landingPage[language].title}
+                            subtitle={landingPage[language].subtitle}
+                        />
 
-                <div className="landing-page__cta-section">
+                    </div>
 
-                    <Button
-                        buttonClass="landing-page__cta-button--primary"
-                        buttonText={landingPage[language].primaryButton}
-                    />
+                    <div className="landing-page__cta-section">
 
-                    <Button
-                        buttonClass="landing-page__cta-button--secondary"
-                        buttonText={landingPage[language].secondaryButton}
-                    />
+                        <Button
+                            buttonClass="landing-page__cta-button--primary"
+                            buttonText={landingPage[language].primaryButton}
+                        />
 
-                </div>
+                        <Button
+                            buttonClass="landing-page__cta-button--secondary"
+                            buttonText={landingPage[language].secondaryButton}
+                        />
 
-            </MainContainer>
+                    </div>
 
-            <FooterContainer />
+                </MainContainer>
+
+            </div>
+
+            <FooterContainer/>
 
         </PageContainer>
-    );
+    )
+        ;
 };
 
 export default LandingPage;

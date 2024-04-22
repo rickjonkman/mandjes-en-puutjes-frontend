@@ -1,6 +1,7 @@
 import {NavLink} from "react-router-dom";
 import CloseIcon from "../svg-components/CloseIcon.jsx";
 import "/src/scss/scss-ui/hamburger-menu.scss";
+import IconButton from "../buttons/IconButton.jsx";
 
 
 const HamburgerMenu = ({setIsHamOpen, hamItems}) => {
@@ -10,9 +11,9 @@ const HamburgerMenu = ({setIsHamOpen, hamItems}) => {
         <div className="nav__hamburger-menu">
 
             <div className="hamburger-menu__header">
-                <CloseIcon
-                    closeClickHandler={() => setIsHamOpen(false)}
-                    closeIconClass="hamburger-menu__close-icon"  />
+                <IconButton buttonClass="hamburger-menu__close-button" onClickHandler={() => setIsHamOpen(false)}>
+                    <CloseIcon width="2rem" height="2rem" closeIconClass="ham__close-icon" />
+                </IconButton>
             </div>
 
             <ul>

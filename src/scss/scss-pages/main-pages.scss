@@ -19,7 +19,7 @@
 //// HEADER /////
 
 .recipes-main__title {
-  @include set-recipes-main-title;
+  @include set-page-title($recipes-main);
 }
 
 ////// MAIN //////

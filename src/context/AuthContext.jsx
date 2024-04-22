@@ -1,8 +1,8 @@
 import {createContext, useEffect, useState} from "react";
-import {isTokenExpired} from "../helpers/isTokenExpired.js";
 import {extractUsernameFromToken} from "../helpers/extractUsernameFromToken.js";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
+import {jwtDecode} from "jwt-decode";
 
 
 export const AuthContext = createContext({});
@@ -28,6 +28,11 @@ const AuthContextProvider = ({children}) => {
             logOut();
         }
     }, []);
+
+    const isTokenExpired = (token) => {
+        const decodedToken = jwtDecode(token);
+        return decodedToken.exp > Date.now() / 1000;
+    }
 
     const authenticate = async (username, password) => {
 

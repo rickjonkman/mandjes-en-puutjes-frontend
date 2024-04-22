@@ -1,10 +1,12 @@
 @import '../utils';
+@import 'src/scss/structure/scss-containers';
 
 @mixin set-preference-container {
   width: 18rem;
   height: 3rem;
   margin: .4rem;
   padding: .4rem 1rem;
+  @include set-flexbox(row, center, center);
 }
 
 @mixin set-preference-styling {

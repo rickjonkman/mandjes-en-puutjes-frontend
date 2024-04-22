@@ -8,9 +8,9 @@ import {useContext} from "react";
 import {LanguageContext} from "../../../context/LanguageContext.jsx";
 import RegisterForm from "../../../components/common/forms/RegisterForm.jsx";
 import "/src/scss/scss-pages/landing-page.scss";
-import BackArrow from "../../../assets/icons/back-arrow.svg";
 import IconButton from "../../../components/ui/buttons/IconButton.jsx";
 import {useNavigate} from "react-router-dom";
+import BackArrow from "../../../components/ui/svg-components/BackArrow.jsx";
 
 const RegisterPage = () => {
 
@@ -27,7 +27,7 @@ const RegisterPage = () => {
                     <IconButton
                         buttonClass="button__go-back"
                         onClickHandler={() => navigate('/')}>
-                        <BackArrow fill="#F8FDFBFF" backArrowClass="icon__go-back" />
+                        <BackArrow backArrowClass="icon__back-arrow" />
                     </IconButton>
                 </PageTitle>
             </HeaderContainer>

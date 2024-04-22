@@ -1,5 +1,4 @@
 import {createContext, useEffect, useState} from "react";
-import {isTokenExpired} from "../helpers/isTokenExpired.js";
 import axios from "axios";
 import {jwtDecode} from "jwt-decode";
 import endpoints from "/src/api/endpoints.json";
@@ -25,6 +24,12 @@ const UserContextProvider = ({children}) => {
         createdRecipes: [],
         savedRecipes: [],
     });
+
+    const isTokenExpired = (token) => {
+        const decodedToken = jwtDecode(token);
+        return decodedToken.exp > Date.now() / 1000;
+
+    }
 
     useEffect(() => {
 
@@ -93,6 +98,7 @@ const UserContextProvider = ({children}) => {
     const userObject = {
         userDetails,
         setUserDetails,
+        savedRecipes: userDetails.savedRecipes,
         username: userDetails.username,
         fetchUser,
         isLoading,

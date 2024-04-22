@@ -1,6 +1,7 @@
-import {useContext} from 'react';
+
 import Button from "../../ui/buttons/Button.jsx";
 import AddGrocery from "./AddGrocery.jsx";
+import {useContext} from "react";
 import {GroceriesContext} from "../../../context/GroceriesContext.jsx";
 
 const ShoppingModeMenu = () => {

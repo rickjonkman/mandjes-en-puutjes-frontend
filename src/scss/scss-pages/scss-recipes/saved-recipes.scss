@@ -1,0 +1,23 @@
+@import "src/scss/structure/scss-containers";
+@import "src/scss/structure/page-title";
+
+.saved-recipes__page-container {
+  @include set-flexbox(column, space-between, center);
+  height: 100%;
+  width: 100%;
+  padding: 0 1rem;
+  margin-top: 8rem;
+
+  .saved-recipes__header {
+    width: 90%;
+  }
+
+  .saved-recipes__main {
+    width: 90%;
+    margin-top: 2rem;
+  }
+}
+
+.saved-recipes__title {
+    @include set-page-title($saved-recipes);
+}

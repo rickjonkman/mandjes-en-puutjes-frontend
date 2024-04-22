@@ -2,70 +2,76 @@
 @import "src/scss/structure/page-title";
 @import "src/scss/scss-ui/scss-preference";
 @import "src/scss/scss-ui/buttons";
+@import "src/scss/structure/page-structure";
+@import "src/scss/scss-ui/icons";
 
-.landing-page__bg-image--broccoli {
-  background-image: url('../../assets/images/broccoli-bg.jpg');
-  width: 100%;
-  height: 760px;
-  background-size: cover;
-  position: absolute;
-  top: 80px;
-  z-index: -10;
+@mixin set-landing-page-pos-top-left-z($position, $top, $left, $z-index) {
+  position: $position;
+  top: $top;
+  left: $left;
+  z-index: $z-index;
+}
+
+@mixin set-landing-page-pos-bot-left-z($position, $bottom, $left, $z-index) {
+  position: $position;
+  bottom: $bottom;
+  left: $left;
+  z-index: $z-index;
+}
+
+@mixin set-landing-page-wh($width, $height) {
+  width: $width;
+  height: $height;
 }
 
 .landing-page__page-container {
-  height: 880px;
+  @include set-landing-page-wh(100%, 1000px);
+  @include set-flexbox(column, space-between, center);
   background-color: $white;
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 
-  .header-container__class {
-    width: 100%;
-    background-color: transparent;
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .landing-page__bg-image--broccoli {
+    background-image: url('../../assets/images/broccoli-bg.jpg');
+    @include set-landing-page-wh(100%, 100%);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
   }
 
   .landing-page__main-container {
-    width: 30rem;
-    height: 10rem;
-    position: absolute;
-    bottom: 6rem;
-    z-index: 100;
+    @include set-landing-page-wh(90%, auto);
+    @include set-flexbox(column, space-between, center);
+
+    .landing-page__title-section {
+      @include set-landing-page-wh(80%, 12rem);
+      max-width: 1000px;
+      margin-top: 8rem;
+
+      .landing-page__title {
+        width: 100%;
+        padding: 1rem;
+        margin-top: 6rem;
+        background-color: $sea-green;
+        z-index: 10;
+        border-radius: 1rem;
+        color: $darker-green;
+      }
+    }
 
     .landing-page__cta-section {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
+      @include set-flexbox(row, space-between, center);
+      margin-top: 4rem;
+      width: 80%;
+      max-width: 1000px;
       padding: 1rem;
     }
 
     .landing-page__cta-button--primary {
-      padding: 1rem;
-      font-size: 1.2rem;
-      background-color: $white;
-      border: none;
-      text-transform: uppercase;
-      font-weight: 500;
-      color: $darker-green;
-      border-radius: 8px;
+      @include set-primary-button;
     }
 
     .landing-page__cta-button--secondary {
-      padding: 1rem;
-      font-size: 1.2rem;
-      background-color: $sea-green;
-      border: none;
-      text-transform: uppercase;
-      font-weight: 500;
-      color: $white;
-      border-radius: 8px;
+      @include set-secondary-button;
     }
   }
 
@@ -81,26 +87,6 @@
 
 }
 
-.landing-page__title {
-  width: 48rem;
-  padding: 1rem;
-  margin-top: 8rem;
-  background-color: $sea-green;
-  z-index: 10;
-  border-radius: 1rem;
-  color: $darker-green;
-
-  h1 {
-    font-size: 6rem;
-    text-align: center;
-  }
-
-  h2 {
-    font-size: 3rem;
-    text-align: center;
-  }
-}
-
 ////// Register Login //////
 .register-login__page-container {
   @include set-page-container($sea-green-light);
@@ -108,49 +94,28 @@
 }
 
 .login-register__header {
-  margin-top: 2rem;
+  margin-top: 6rem;
   width: 90%;
 }
 
 .login-register__title {
-  @include set-login-register-title;
-
-  h1 {
-    padding: 1rem;
-    background-color: $dark-green;
-    color: $white;
-    border-top-right-radius: 8px;
-  }
+  @include set-page-title($login-register);
 
   .button__go-back {
-    @include set-flexbox(row, center, center);
-    background-color: $dark-green;
-    border: none;
-    border-bottom-left-radius: 8px;
-    align-self: flex-start;
-    width: 8rem;
-    height: 4rem;
-    cursor: pointer;
-
-    &:hover {
-      background-color: $sea-green;
-      transition: all 0.3s ease-in-out;
-    }
-
-    .icon__go-back {
-      width: 100%;
-      height: 100%;
-      color: $white;
-    }
+    @include set-button-go-back;
   }
 }
 
 .register-login__main {
+  @include set-container($white, $dark-green, $white);
   width: 90%;
+  padding: 1rem;
+  margin-top: 2rem;
+  @include set-flexbox(column, center, center);
 }
 
 .register-login__class {
-  @include set-container($white, $dark-green, $white);
+  width: 100%;
 
   .form__subtitle-container {
     @include set-flexbox(column, center, center);
@@ -160,10 +125,6 @@
     background-color: $dark-green;
     color: $white;
     border-radius: 8px;
-
-    h2 {
-      font-size: 2rem;
-    }
 
     p {
       font-size: 1rem;
@@ -180,12 +141,17 @@
     width: 100%;
     @include set-flexbox(column, space-between, flex-start);
 
+    span {
+      color: $dark-green;
+    }
+
     label, label input {
       width: 100%;
     }
 
     label {
       margin-bottom: 2rem;
+      @include set-flexbox(column, flex-start, flex-start);
     }
 
     label input {
@@ -206,24 +172,34 @@
   padding: 1rem;
   margin-top: 2rem;
 
-  .user-preference__container {
+  .preferences-checkbox {
+    @include set-checkbox-container(transparent, $darker-green);
     @include set-flexbox(row, space-between, center);
-    @include set-preference-container;
-    @include set-preference-styling;
+    border-radius: 8px;
+  }
 
-    label {
-      min-width: 8rem;
-      max-width: 9rem;
-      @include set-flexbox(row, space-between, center);
+  label {
+    min-width: 8rem;
+    max-width: 9rem;
+    @include set-flexbox(row, space-between, center);
+
+    input[type="checkbox"] {
+      width: 1.6rem;
+      height: 1.6rem;
+      margin-right: .6rem;
+      accent-color: $sea-green;
+    }
+
+    span {
+      margin-left: .6rem;
     }
   }
 }
 
+
 .register-login__submit-btn {
   @include set-submit-button;
 }
-
-
 
 
 

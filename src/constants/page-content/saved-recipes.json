@@ -1,0 +1,12 @@
+{
+  "en": {
+    "header":{
+      "page_title": "Saved Recipes"
+    }
+  },
+  "nl": {
+    "header":{
+      "page_title": "Opgeslagen Recepten"
+    }
+  }
+}

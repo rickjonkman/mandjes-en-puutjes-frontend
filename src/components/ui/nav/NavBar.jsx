@@ -10,6 +10,7 @@ import {menuItemsLoggedOutEN, menuItemsLoggedOutNL} from "../../../constants/men
 import HamburgerMenu from "./HamburgerMenu.jsx";
 import LogoImage from "../svg-components/LogoImage.jsx";
 import {AuthContext} from "../../../context/AuthContext.jsx";
+import IconButton from "../buttons/IconButton.jsx";
 
 const NavBar = ({scrollDirection, handleMouseEnter, handleMouseLeave, enterNav}) => {
 
@@ -30,7 +31,7 @@ const NavBar = ({scrollDirection, handleMouseEnter, handleMouseLeave, enterNav})
                             <div className={isHamOpen ? 'nav-hidden' : 'nav-visible'}>
 
                             <button className="nav-bar__logo-button" onClick={() => navigate('/')}>
-                                <LogoImage/>
+                                <LogoImage logoImageClass="nav-bar__logo-img"/>
                             </button>
 
                             {
@@ -42,9 +43,11 @@ const NavBar = ({scrollDirection, handleMouseEnter, handleMouseLeave, enterNav})
                                         navItems={isLoggedIn ? menuItemsLoggedInEN : menuItemsLoggedOutEN}/>
                             }
 
-                            <HamburgerIcon
-                                handleHamOnClick={() => setIsHamOpen(!isHamOpen)}
-                            />
+                            <IconButton
+                                buttonClass="nav-bar__ham-button"
+                                onClickHandler={() => setIsHamOpen(!isHamOpen)}>
+                                <HamburgerIcon svgClass="nav-bar__ham-icon-svg"/>
+                            </IconButton>
 
                         </div>
 

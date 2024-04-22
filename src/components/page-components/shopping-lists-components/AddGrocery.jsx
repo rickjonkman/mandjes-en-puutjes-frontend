@@ -1,46 +1,49 @@
 import {useContext, useState} from "react";
-import {GroceriesContext} from "../../../context/GroceriesContext.jsx";
 import SubmitButton from "../../ui/buttons/SubmitButton.jsx";
+import {GroceriesContext} from "../../../context/GroceriesContext.jsx";
 
 
 const AddGrocery = () => {
 
-    const {currentList, setCurrentList} = useContext(GroceriesContext);
-    const [productItem, setProductItem] = useState({
+    const { currentList, setCurrentList } = useContext(GroceriesContext);
+
+    const [grocery, setGrocery] = useState({
         id: 0,
-        name: "",
+        name: '',
         inStorage: false,
         notFound: false,
-        selected: false,
-
+        selected: false
     });
 
+    const handleSetGrocery = (e) => {
+        setGrocery({...grocery, id: new Date().getTime(), name: e.target.value});
+    }
 
-    const handleAddProduct = (productItem) => {
-
-        setCurrentList([...currentList, productItem]);
+    const handleAddGrocery = (e) => {
+        e.preventDefault();
+        setCurrentList([...currentList, grocery]);
+        setGrocery({id: 0, name: '', inStorage: false, notFound: false, selected: false});
     }
 
     return (
         <>
-            <form onSubmit={() => handleAddProduct(productItem)} className="shopping-mode__add-grocery--form">
-                <label htmlFor="grocery-input">
+            <form className="add-grocery__form" onSubmit={handleAddGrocery}>
+                <label htmlFor="new-grocery__name">
+                    <span>Product</span>
                     <input
                         type="text"
-                        id="grocery-input"
-                        name="grocery-input"
-                        placeholder="Voeg een product toe"
-                        onChange={(e) => setProductItem({
-                            ...productItem,
-                            id: new Date().getTime(),
-                            name: e.target.value
-                        })}
-                        value={productItem.name}
+                        placeholder="Product..."
+                        id="new-grocery__name"
+                        name="groceryName"
+                        value={grocery.name}
+                        onChange={handleSetGrocery}
                     />
                 </label>
 
-                <SubmitButton buttonText="Voeg toe" buttonClass="shopping-mode__add-grocery--button"/>
+                <SubmitButton buttonText="Voeg toe" />
             </form>
+
+
         </>
     );
 };

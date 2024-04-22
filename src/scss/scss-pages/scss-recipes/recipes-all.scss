@@ -16,7 +16,7 @@
 }
 
 .recipes-all__title {
-  @include set-recipes-all-title;
+  @include set-page-title($recipes-all);
   margin-top: 2rem;
 }
 

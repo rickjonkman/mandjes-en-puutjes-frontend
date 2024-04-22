@@ -1,7 +1,6 @@
 @import "src/scss/structure/scss-containers";
 @import "src/scss/structure/page-title";
 @import "src/scss/scss-ui/buttons";
-@import "src/scss/scss-ui/form-items";
 
 .new-recipe__page-container {
   @include set-page-container($white);
@@ -18,7 +17,7 @@
 }
 
 .new-recipe__title {
-  @include set-new-recipe-title;
+  @include set-page-title($new-recipe);
 }
 
 
@@ -47,7 +46,6 @@
 }
 
 .new-recipe__basic-info {
-  @include set-label-input(100%, 100%);
   margin: 1rem 0;
 
   .new-recipe__basic-info--prep-time {

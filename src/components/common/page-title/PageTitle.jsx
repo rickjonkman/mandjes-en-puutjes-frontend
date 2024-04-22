@@ -11,6 +11,7 @@ const PageTitle = ({ pageTitleClass, pageTitle, children }) => {
 
         </div>
     );
+
 };
 
 export default PageTitle;

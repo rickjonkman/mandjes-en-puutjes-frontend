@@ -1,5 +1,7 @@
 @import '../utils';
 @import "src/scss/structure/scss-containers";
+@import "src/scss/structure/page-structure";
+@import "src/scss/scss-ui/buttons";
 
 .nav-bar__container {
   @include set-flexbox(row, space-between, center);
@@ -79,19 +81,35 @@
   }
 }
 
-#nav-bar__ham-btn {
-  border: none;
-  background-color: transparent;
+.nav-bar__ham-button {
+  @include set-icon-button;
   width: 3rem;
-  cursor: pointer;
 
-  &:hover #nav-bar__ham-icon {
-    fill: $sea-green;
-    transition: all 0.3s ease-in-out;
-  }
-
-  #nav-bar__ham-icon {
+  .nav-bar__ham-icon-svg {
     width: 100%;
   }
 }
 
+.nav-bar__ham-button:hover .nav-bar__ham-icon-svg {
+  fill: $sea-green;
+  transition: all 0.3s ease-in-out;
+}
+
+@media screen and (max-width: $small) {
+  .nav-bar__logo-img {
+    width: 10rem;
+  }
+
+  .nav-bar__menu {
+    display: none;
+  }
+
+  .nav-bar__ham-button {
+    @include set-icon-button;
+    width: 2rem;
+
+    .nav-bar__ham-icon-svg {
+      width: 100%;
+    }
+  }
+}
