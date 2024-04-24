@@ -1,6 +1,4 @@
-import footer from "/src/constants/page-content/footer.json";
-import {useContext} from "react";
-import {LanguageContext} from "../../context/LanguageContext.jsx";
+
 import Github from "/src/assets/icons/github.svg";
 import Linkedin from "/src/assets/icons/linkedin.svg";
 import Novi from "/src/assets/icons/novi-icon.png";
@@ -8,8 +6,6 @@ import {Link} from "react-router-dom";
 import "/src/scss/structure/structure-components.scss";
 
 const FooterContainer = () => {
-
-    const {language} = useContext(LanguageContext);
 
     const noviURL = 'http://www.novi.nl';
     const githubURL = 'http://www.github.com/rickjonkman';

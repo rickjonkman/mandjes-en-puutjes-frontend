@@ -8,14 +8,17 @@ import {LanguageContext} from "../../../context/LanguageContext.jsx";
 import Button from "../../../components/ui/buttons/Button.jsx";
 import MainContainer from "../../../components/structure/MainContainer.jsx";
 import FooterContainer from "../../../components/structure/FooterContainer.jsx";
+import {useNavigate} from "react-router-dom";
 
 
 const LandingPage = () => {
 
     const {language} = useContext(LanguageContext);
+    const navigate = useNavigate();
 
     return (
         <PageContainer pageContainerClass="landing-page__page-container">
+
 
             <div className="landing-page__bg-image--broccoli">
 
@@ -34,20 +37,21 @@ const LandingPage = () => {
                         <Button
                             buttonClass="landing-page__cta-button--primary"
                             buttonText={landingPage[language].primaryButton}
+                            onClickHandler={() => navigate("/register")}
                         />
 
                         <Button
                             buttonClass="landing-page__cta-button--secondary"
                             buttonText={landingPage[language].secondaryButton}
+                            onClickHandler={() => navigate("/recipes/all")}
                         />
 
                     </div>
 
                 </MainContainer>
 
+                <FooterContainer/>
             </div>
-
-            <FooterContainer/>
 
         </PageContainer>
     )

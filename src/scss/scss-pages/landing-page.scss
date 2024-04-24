@@ -4,6 +4,7 @@
 @import "src/scss/scss-ui/buttons";
 @import "src/scss/structure/page-structure";
 @import "src/scss/scss-ui/icons";
+@import "src/scss/scss-ui/typography";
 
 @mixin set-landing-page-pos-top-left-z($position, $top, $left, $z-index) {
   position: $position;
@@ -28,69 +29,101 @@
   @include set-landing-page-wh(100%, 1000px);
   @include set-flexbox(column, space-between, center);
   background-color: $white;
+  overflow: hidden;
+  border: 2px solid black;
 
   .landing-page__bg-image--broccoli {
     background-image: url('../../assets/images/broccoli-bg.jpg');
-    @include set-landing-page-wh(100%, 100%);
+    background-color: $dark-green;
+    width: 100vw;
+    min-height: 100vh;
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
     background-size: cover;
-  }
-
-  .landing-page__main-container {
-    @include set-landing-page-wh(90%, auto);
     @include set-flexbox(column, space-between, center);
 
-    .landing-page__title-section {
-      @include set-landing-page-wh(80%, 12rem);
-      max-width: 1000px;
-      margin-top: 8rem;
+  }
 
-      .landing-page__title {
-        width: 100%;
-        padding: 1rem;
-        margin-top: 6rem;
-        background-color: $sea-green;
-        z-index: 10;
-        border-radius: 1rem;
-        color: $darker-green;
+  .landing-page {
+
+    &__main-container {
+      width: 90%;
+      margin-top: 3rem;
+      @include set-flexbox(column, space-between, center);
+    }
+
+    &__title-section {
+      width: 100%;
+      margin-top: 6rem;
+      padding: 2rem;
+      background-color: $dark-green;
+      border-radius: 8px;
+      @include set-flexbox(column, center, center);
+
+      h1 {
+        color: $white;
+        border-radius: 8px;
       }
+
+      h2 {
+        color: $white;
+      }
+
     }
 
-    .landing-page__cta-section {
+    &__cta-section {
+      width: 100%;
+      margin-top: 2rem;
+      padding: 4rem;
+      border-radius: 8px;
       @include set-flexbox(row, space-between, center);
-      margin-top: 4rem;
-      width: 80%;
-      max-width: 1000px;
-      padding: 1rem;
     }
 
-    .landing-page__cta-button--primary {
+    &__cta-button--primary {
       @include set-primary-button;
     }
 
-    .landing-page__cta-button--secondary {
+    &__cta-button--secondary {
       @include set-secondary-button;
     }
   }
-
-  .footer-container__class {
-    position: absolute;
-    bottom: -3.8rem;
-    z-index: 100;
-    width: 100%;
-    height: 6.5rem;
-    background-color: $darker-green;
-    color: $white;
-  }
-
 }
+
+@media screen and (max-width: $small) {
+
+  .landing-page__title {
+    h1 {
+      font-size: 2rem;
+    }
+
+    h2 {
+      font-size: 1rem;
+    }
+
+    .landing-page__cta-section {
+
+      .landing-page__cta-button--primary {
+        padding: .8rem;
+        font-size: .8rem;
+      }
+
+      .landing-page__cta-button--secondary {
+        padding: .8rem;
+        font-size: .8rem;
+      }
+
+    }
+
+  }
+}
+
 
 ////// Register Login //////
 .register-login__page-container {
   @include set-page-container($sea-green-light);
   @include set-flexbox(column, space-between, center);
+  min-height: 100%;
 }
 
 .login-register__header {

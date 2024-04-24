@@ -1,18 +1,19 @@
 @import "src/scss/structure/scss-containers";
+@import "src/scss/structure/page-structure";
 
 .footer-container__class {
   width: 100%;
+  padding: 0 1rem;
   margin-top: 2rem;
-  padding: 0 2rem;
   background-color: $black;
   color: $white;
   @include set-flexbox(row, space-between, center);
-
+  flex-wrap: wrap;
 }
 
 .footer__text-section {
   width: 70%;
-  padding: 2rem;
+  padding: .8rem .5rem;
 }
 
 .footer__icons-section {
@@ -38,4 +39,22 @@
 
 
   }
+}
+
+@media screen and (max-width: $small) {
+
+  .footer__text-section {
+    width: 100%;
+
+    p {
+      font-size: .8rem;
+    }
+  }
+
+  .footer__icon {
+    width: 1rem;
+    height: 1rem;
+    margin: .2rem;
+  }
+
 }

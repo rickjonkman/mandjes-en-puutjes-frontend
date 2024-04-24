@@ -45,6 +45,7 @@
     font-weight: 500;
     color: $darker-green;
     border-radius: 8px;
+    cursor: pointer;
 }
 
 @mixin set-secondary-button {
@@ -56,6 +57,7 @@
     font-weight: 500;
     color: $white;
     border-radius: 8px;
+    cursor: pointer;
 }
 
 @mixin set-button-go-back {
